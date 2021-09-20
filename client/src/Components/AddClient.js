@@ -1,22 +1,23 @@
-import { useState } from 'react';
+import { React, useState } from 'react';
 import Axios from 'axios';
 
 
 function AddClient () {
+
     const [name, setName] = useState('');
     const [amount, setAmount] = useState(0);
     const [date, setDate] = useState(new Date());
     const [duration, setDuration] = useState();
 
     const newClient = () => {
-      console.log(date)
       Axios.post('http://localhost:3001/create', {
         name: name, 
         amount: amount, 
         date: date,
         duration: duration,
-      }).then(() => {
-        console.log("success! New client added.")
+      })
+      .then(() => {
+        alert ('New client added!')
       })
     };
     
@@ -25,7 +26,7 @@ function AddClient () {
     // }
 
   return (
-    <div className="client-form">
+    <form className="client-form">
       <label>Name:</label>
       <input type="text" onChange={(event) => {setName(event.target.value)}} />
       <label>Amount:</label>
@@ -35,7 +36,7 @@ function AddClient () {
       <label>Duration:</label>
       <input type="text" onChange={(event) => {setDuration(event.target.value)}} />
       <button onClick={newClient}>Add Client</button>
-    </div>
+    </form>
   );
 }
 
