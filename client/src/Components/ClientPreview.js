@@ -8,9 +8,10 @@ function ClientPreview () {
     const getClients = () => {
         Axios.get('http://localhost:3001/clients').then((response) => {
             setClientList(response.data);
+            console.log(response.data);
           })
     };
-
+    console.log(clientList);
    return (
        <div>
         <h1>Preview</h1>
@@ -20,15 +21,15 @@ function ClientPreview () {
 
                 //Interest computation
                 const newAmount = Math.floor((val.amount * .20) + val.amount);
-                
-                const dueDate = val.date;
-
-                    //fix the date!!!!!
+                //Due date computation
+               // const dueDate = val.date;
 
                 return <div>
-                    <li>{val.name}</li>
-                    <li>{newAmount}</li>
-                    <li>{dueDate}</li>
+                    <li>Name: {val.name}</li>
+                    <li>Amount: {val.amount}</li>
+                    <li>Amount After %:{newAmount}</li>
+                    <li>Date: {val.date}</li>
+                    <li>Contract duraton: {val.duration}</li>
                 </div>
             })}
         </div>

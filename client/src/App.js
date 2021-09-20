@@ -1,12 +1,11 @@
+
 import './App.css';
-import AddClient from './Components/AddClient'
-import ClientPreview from './Components/ClientPreview'
+import ResponsiveDrawer from './Components/Drawer';
 
 function App () {
   return (
     <div className="App">
-      <AddClient />
-      <ClientPreview />
+      <ResponsiveDrawer />
     </div>
   );
 }
