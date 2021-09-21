@@ -1,13 +1,17 @@
 import { React, useState } from 'react';
 import Axios from 'axios';
-import Card from '@mui/material/Card';
+import { Grid }  from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
+
 
 const useStyles = makeStyles({
     clientForm: {
-      height: '30vh',
-      maxWidth: '30vw',
-      borde: '1px solid black',
+      minHeight: '30vh',
+      padding: '20px',
+      maxWidth: '20vw',
+      border: '1px solid black',
+      alignContent: 'center',
+
     },
   
 })
@@ -41,7 +45,7 @@ function AddClient () {
     // }
 
   return (
-    <Card className={classes.clientForm}>
+    <Grid item lg={3} className={classes.clientForm}>
       <label>Name:</label>
       <input type="text" onChange={(event) => {setName(event.target.value)}} />
       <label>Amount:</label>
@@ -51,7 +55,7 @@ function AddClient () {
       <label>Duration:</label>
       <input type="text" onChange={(event) => {setDuration(event.target.value)}} />
       <button onClick={newClient}>Add Client</button>
-    </Card>
+    </Grid>
   );
 }
 

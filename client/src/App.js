@@ -1,12 +1,13 @@
-
+import React from 'react';
+import Container from '@mui/material/Container';
 import './App.css';
 import ResponsiveDrawer from './Components/Drawer';
 
 function App () {
   return (
-    <div className="App">
+    <Container maxWidth="xl" className='App'>
       <ResponsiveDrawer />
-    </div>
+    </Container>
   );
 }
 
