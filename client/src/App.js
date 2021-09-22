@@ -3,25 +3,44 @@ import React from 'react';
 import Container from '@mui/material/Container';
 import { Grid }  from '@material-ui/core';
 import Heading from './Components/Heading';
-import ResponsiveDrawer from './Components/Drawer';
+import ClientPreview from './Components/ClientPreview';
 import AddClient from './Components/AddClient';
+import { makeStyles } from '@material-ui/styles';
+
+const useStyles = makeStyles ({
+  
+  bodyContainer: {
+    display: 'flex',
+    boxSizing: 'border-box',
+    justifyContent: 'center',
+    alignItems: 'baseline',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  previewSection: {
+    
+  },
+  addClientSection: {
+  },
+});
 
 function App () {
+  const classes = useStyles();
   return (
-    <Container maxWidth="xl" className='App' spacing={2} >
-      <Grid container>
+    <Container maxWidth="xl" className='App'>
         <Grid item xs={12}>
           <Heading />
         </Grid>
+
         <Grid container className='bodyContainer' xs={12} spacing={2}>
-          <Grid item xs={10}>
-            <ResponsiveDrawer />
+          <Grid item xs={10} className={classes.previewSection}>
+            <ClientPreview />
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={2} className={classes.addClientSection}>
             <AddClient />
           </Grid>
         </Grid>
-      </Grid>
+
     </Container>
   );
 }
