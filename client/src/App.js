@@ -5,6 +5,7 @@ import { Grid }  from '@material-ui/core';
 import Heading from './Components/Heading';
 import ClientPreview from './Components/ClientPreview';
 import AddClient from './Components/AddClient';
+import Preview from './Components/Preview';
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles ({
@@ -22,6 +23,7 @@ const useStyles = makeStyles ({
   },
   addClientSection: {
   },
+
 });
 
 function App () {
@@ -39,6 +41,9 @@ function App () {
           <Grid item xs={2} className={classes.addClientSection}>
             <AddClient />
           </Grid>
+        </Grid>
+        <Grid item xs={12} className={classes.previewSection}>
+          <Preview />
         </Grid>
 
     </Container>
