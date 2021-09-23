@@ -36,7 +36,7 @@ function ClientPreview () {
 
     <Grid container xs={12} className={classes.previewContainer}>
         <Grid item xs={12}>
-            <h1>Preview</h1>
+            <h1>Preview Client</h1>
             <Button variant='outlined' onClick={getClients} >Client List</Button>
         </Grid>
         <Grid item xs={12}>
