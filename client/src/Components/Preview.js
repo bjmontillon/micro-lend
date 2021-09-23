@@ -1,35 +1,103 @@
-import React from 'react';
+import './components.css'
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
 import Axios from 'axios';
+import { withStyles } from "@material-ui/core/styles";
+
+
+const styles = theme => ({
+    previewContainer: {
+        padding: '20px',
+        borderRadius: '5px',
+        boxShadow: 'rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px',
+    },
+    tableHead: {
+        textAlign: 'center'
+    },
+    tableBody: {
+        textAlign: 'center',
+    },
+})
 
 class Preview extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            clients: [],
-        }
+  constructor (props) {
+    super (props);
+    this.state = {
+      clients: [],
+      clientId: null,
+      clientName: null,
+      amount: null,
+      date: null,
+      duration: null,
     };
+  }
 
-    componentDidMount() {
-        Axios.get('http://localhost:3001/clients')
-            .then(res => {
-               console.log(res.data)
-               this.setState ({
-                   clients: res.data
-               })
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-            console.log(this.state.clients)
-        };
+  componentDidMount () {
+    Axios.get ('http://localhost:3001/clients')
+      .then (res => {
+        //console.log(res.data[0].id)
+        this.setState ({
+          clients: res.data,
+          clientId: res.data[0].id,
+          clientName: res.data[0].name,
+          amount: res.data[0].name,
+          date: res.data[0].name,
+          duration: res.data[0].name,
+        });
+      })
+      .catch (function (error) {
+        console.log (error);
+      });
+  }
+
+  
+
+  render () {
+
+      const classes = this.props.classes;
+
+    return (
+      <div className={classes.previewContainer}>
+      
+
+        <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        <TableHead className={classes.tableHead}>
+          <TableRow>
+            <TableCell>ID</TableCell>
+            <TableCell align="right">Name</TableCell>
+            <TableCell align="right">Amount</TableCell>
+            <TableCell align="right">Date</TableCell>
+            <TableCell align="right">Duration(days)</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody >
+          {this.state.clients.map((clients) => (
+            <TableRow
+              key={clients.id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }} >
+              <TableCell className={classes.tableBody} component="th" scope="row">{clients.id}</TableCell>
+              <TableCell align="right">{clients.name}</TableCell>
+              <TableCell align="right">{(clients.amount * .20) + clients.amount}</TableCell>
+              <TableCell align="right">{clients.date.substr(0,10)}</TableCell>
+              <TableCell align="right">{clients.duration}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
         
-    render() {
-        return(
-            <div>
-                {this.state.clients.map(clients => <h4 key={clients.id}>{clients.newDate}</h4>)}
-            </div>
-        )
-    }
+      </div>
+      
+    );
+  }
 }
 
-export default Preview;
+export default  withStyles(styles)(Preview);

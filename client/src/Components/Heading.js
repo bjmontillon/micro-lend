@@ -20,7 +20,7 @@ function Heading () {
 
     return (
         <Grid container className={classes.headingContainer} xs={12}>
-            <p>hello world!</p>
+            <h1>Micro-Lending</h1   >
         </Grid>
     )
 };
