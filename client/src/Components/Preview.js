@@ -11,6 +11,8 @@ import Paper from '@mui/material/Paper';
 import Axios from 'axios';
 import {withStyles} from '@material-ui/core/styles';
 
+import Update from './Update';
+
 const styles = theme => ({
   previewContainer: {
     padding: '20px',
@@ -71,6 +73,7 @@ class Preview extends React.Component {
                 <TableCell align="center">Amount</TableCell>
                 <TableCell align="center">Date</TableCell>
                 <TableCell align="center">Duration(days)</TableCell>
+                <TableCell align="center">Update</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -95,6 +98,7 @@ class Preview extends React.Component {
                     {clients.date.substr (0, 10)}
                   </TableCell>
                   <TableCell align="center">{clients.duration}</TableCell>
+                  <TableCell align="center"><Update /></TableCell>
                 </TableRow>
               ))}
             </TableBody>
