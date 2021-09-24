@@ -19,12 +19,9 @@ const styles = theme => ({
     borderRadius: '5px',
     boxShadow: 'rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px',
   },
-  tableHead: {
-  },
-  tableBody: {
-  },
-  tableRowBody: {
-  },
+  tableHead: {},
+  tableBody: {},
+  tableRowBody: {},
 });
 
 class Preview extends React.Component {
@@ -48,9 +45,9 @@ class Preview extends React.Component {
           clients: res.data,
           clientId: res.data[0].id,
           clientName: res.data[0].name,
-          amount: res.data[0].name,
-          date: res.data[0].name,
-          duration: res.data[0].name,
+          amount: res.data[0].amount,
+          date: res.data[0].date,
+          duration: res.data[0].duration,
         });
       })
       .catch (function (error) {
@@ -60,14 +57,13 @@ class Preview extends React.Component {
 
   render () {
     const classes = this.props.classes;
-
     return (
       <div className={classes.previewContainer}>
 
         <TableContainer component={Paper}>
           <Table sx={{minWidth: 650}} size="small" aria-label="a dense table">
             <TableHead className={classes.tableHead}>
-              <TableRow  >
+              <TableRow>
                 <TableCell>ID</TableCell>
                 <TableCell align="center">Name</TableCell>
                 <TableCell align="center">Amount</TableCell>
@@ -81,7 +77,6 @@ class Preview extends React.Component {
                 <TableRow
                   key={clients.id}
                   sx={{'&:last-child td, &:last-child th': {border: 0}}}
-                  
                 >
                   <TableCell
                     className={classes.tableBody}
@@ -98,7 +93,14 @@ class Preview extends React.Component {
                     {clients.date.substr (0, 10)}
                   </TableCell>
                   <TableCell align="center">{clients.duration}</TableCell>
-                  <TableCell align="center"><Update /></TableCell>
+                  <TableCell align="center">
+                    <Update
+                      clientName={clients.name}
+                      clientId={clients.id}
+                      clientDate={clients.date.substr (0, 10)}
+                      clientDuration={clients.duration}
+                    />
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
