@@ -21,32 +21,89 @@ app.post('/create', (req, res) => {
     const date = req.body.date;
     const duration = req.body.duration;
 
-    db.query('INSERT INTO clients (name, amount, date, duration) VALUES (?,?,?,?)', 
-    [name, amount, date, duration], 
-    (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.send("Values Inserted");
+    db.query(
+        'INSERT INTO clients (name, amount, date, duration) VALUES (?,?,?,?)',
+        [name, amount, date, duration],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send('Values Inserted');
+            }
         }
-    }
     );
 });
 
 //GET REQUEST
 app.get('/clients', (req, res) => {
-    db.query('SELECT * FROM clients', 
-    (err, result) => {
+    db.query('SELECT * FROM clients', (err, result) => {
         if (err) {
             console.log(err);
         } else {
             res.send(result);
         }
-    }
+    });
+});
+
+//UPDATE REQUEST
+app.put('/update', (req, res) => {
+    const id = req.body.id;
+    const name = req.body.name;
+    db.query(
+        'UPDATE clients SET name = ? WHERE id = ?',
+        [name, id],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        }
     );
 });
 
+app.put('/update', (req, res) => {
+    const id = req.body.id;
+    const amount = req.body.amount;
+    db.query(
+        'UPDATE clients SET amount = ? WHERE id = ?',
+        [amount, id],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
+});
+
+app.put('/update', (req, res) => {
+    const id = req.body.id;
+    const amount = req.body.amount;
+    db.query("UPDATE clients SET amount = ? WHERE id = ?", [amount, id],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        })
+})
+
+app.put('/update', (req, res) => {
+    const id = req.body.id;
+    const amount = req.body.amount;
+    db.query("UPDATE clients SET amount = ? WHERE id = ?", [amount, id],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        })
+})
 
 app.listen(3001, () => {
-    console.log("its working! Server running (port: 3001)");
-})
+    console.log('its working! Server running (port: 3001)');
+});
