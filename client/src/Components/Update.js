@@ -27,17 +27,18 @@ const Update = props => {
     }).then ('alert');
   };
   const updateDate = id => {
-    Axios.put ('http://localhost:3001/update', {amount: newDate, id: id}).then (
+    Axios.put ('http://localhost:3001/update', {date: newDate, id: id}).then (
       'alert'
     );
   };
   const updateDuration = id => {
     Axios.put ('http://localhost:3001/update', {
-      amount: newDuration,
+      duration: newDuration,
       id: id,
     }).then ('alert');
   };
 
+  
   return (
     <div>
       <input
