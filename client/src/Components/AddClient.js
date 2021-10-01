@@ -51,10 +51,10 @@ function AddClient () {
     const [name, setName] = useState('');
     const [amount, setAmount] = useState(0);
     const [date, setDate] = useState(new Date());
-    const [duration, setDuration] = useState();
+    const [duration, setDuration] = useState(0);
 
     const newClient = () => {
-      Axios.post('http://localhost:3001/create', {
+      Axios.post('http://localhost:3001/add-client', {
         name: name, 
         amount: amount, 
         date: date,
@@ -75,11 +75,11 @@ function AddClient () {
         <label>Name:</label>
         <input className={classes.inputs} type="text" onChange={(event) => {setName(event.target.value)}} />
         <label>Amount:</label>
-        <input className={classes.inputs}  type="text" onChange={(event) => {setAmount(event.target.value)}} />
+        <input className={classes.inputs}  type="number" onChange={(event) => {setAmount(event.target.value)}} />
         <label>Date issued:</label>
-        <input className={classes.inputs}  type="text" onChange={(event) => {setDate(event.target.value)}} placeholder='YYYY-MM-DD' />
+        <input className={classes.inputs}  type="date" min="2018-01-01" max="2025-01-01" onChange={(event) => {setDate(event.target.value)}} placeholder='YYYY-MM-DD' />
         <label>Duration:</label>
-        <input className={classes.inputs}  type="text" onChange={(event) => {setDuration(event.target.value)}} />
+        <input className={classes.inputs}  type="number" onChange={(event) => {setDuration(event.target.value)}} />
         
       </Grid>
       <Grid item xs={12} className={classes.clientFormButton}>

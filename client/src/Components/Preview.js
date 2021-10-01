@@ -17,7 +17,9 @@ const styles = theme => ({
   previewContainer: {
     padding: '20px',
     borderRadius: '5px',
+    height: '100%',
     boxShadow: 'rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px',
+    
   },
   tableHead: {},
   tableBody: {},
@@ -38,12 +40,12 @@ class Preview extends React.Component {
   }
 
   componentDidMount () {
-    Axios.get ('http://localhost:3001/clients')
+    Axios.get ('http://localhost:3001/read')
       .then (res => {
         //console.log(res.data[0].id)
         this.setState ({
           clients: res.data,
-          clientId: res.data[0].id,
+          clientId: res.data[0]._id,
           clientName: res.data[0].name,
           amount: res.data[0].amount,
           date: res.data[0].date,
@@ -57,6 +59,7 @@ class Preview extends React.Component {
 
   render () {
     const classes = this.props.classes;
+    console.log(this.state.clientId)
     return (
       <div className={classes.previewContainer}>
 
@@ -75,6 +78,7 @@ class Preview extends React.Component {
             <TableBody>
               {this.state.clients.map (clients => (
                 <TableRow
+
                   key={clients.id}
                   sx={{'&:last-child td, &:last-child th': {border: 0}}}
                 >
@@ -90,14 +94,14 @@ class Preview extends React.Component {
                     {clients.amount * 0.20 + clients.amount}
                   </TableCell>
                   <TableCell align="center">
-                    {clients.date.substr (0, 10)}
+                    {clients.date  }
                   </TableCell>
                   <TableCell align="center">{clients.duration}</TableCell>
                   <TableCell align="center">
                     <Update
                       clientName={clients.name}
-                      clientId={clients.id}
-                      clientDate={clients.date.substr (0, 10)}
+                      clientId={this.state.clientId}
+                      clientDate={clients.date}
                       clientDuration={clients.duration}
                     />
                   </TableCell>

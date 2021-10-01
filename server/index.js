@@ -3,38 +3,62 @@ const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-const Client = require('./models/client');
+const ClientModel = require('./models/client');
 
-
+app.use(express.json());
+app.use(cors());
 
 //connect to database(mongodb)
 
 const dbURI = 'mongodb+srv://bjmontillon:Ak07028089@cluster0.rmcvw.mongodb.net/Cluster0?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(3000), (req, res) => {
-        res.send('server running port 3000')
-    })
+    .then(() => app.listen(3001, () => {
+        console.log("its working! Server running on port 3001")
+    }))
     .catch((err) => console.log('err'))
 
+//POST OR ADD NEW CLIENT MODEL
+app.post('/add-client', async (req, res) => {
 
-app.get('/add-client', (req, res) => {
-    const client = new Client({
-        name: 'Patrick Dingal',
-        amount: 5000,
-        date: '09/30/2021',
-        duration: 45
-    });
+    const name = req.body.name;
+    const amount = req.body.amount;
+    const date = req.body.date;
+    const duration = req.body.duration;
 
-    client.save()
-    .then((result) => {
-        res.send(result)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
+    const client = new ClientModel({ name: name, amount: amount, date: date, duration: duration })
+
+    
+    
+});
+
+//GET CLIENT MODEL
+app.get('/read', async (req, res) => {
+ ClientModel.find({  }, (err, result) => {
+     if(err) {
+         res.send(err)
+     }
+
+     res.send(result);
+
+ })
 })
 
 
+//UPDATE MODEL
+app.put('/update', async (req, res) => {
+    const newClientName = req.body.newName;
+         const id = req.body.id;
+         
+
+         try {
+            ClientModel.findById(id, (updatedName) => {
+                updatedName.name = newClientName
+                updatedName.save()
+            })
+        } catch(err) {
+            console.log(err);
+        }
+     })
 
 
 
