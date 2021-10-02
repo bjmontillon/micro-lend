@@ -31,7 +31,12 @@ app.post('/add-client', async (req, res) => {
 
     const client = new ClientModel({ name: name, amount: amount, date: date, duration: duration })
 
-    
+    try {
+        await client.save();
+        res.send('inserted data')
+    } catch (err){
+        console.log(err)
+    }
     
 });
 

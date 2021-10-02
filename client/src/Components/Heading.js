@@ -10,6 +10,9 @@ const useStyles = makeStyles ({
         borderRadius: '5px',
         boxShadow: '6px 4px 39px -14px rgb(0 0 0 / 40%)',
         fontFamily: `'Montserrat', sans-serif`,
+        alignContent: 'center',
+        justifyContent: 'flex-end',
+        textAlign: 'center',
     }
 })
 

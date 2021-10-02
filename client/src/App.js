@@ -18,7 +18,9 @@ const useStyles = makeStyles ({
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  previewSection: {},
+  previewSection: {
+    height: '100%',
+  },
   addClientSection: {},
 });
 
