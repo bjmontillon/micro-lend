@@ -54,6 +54,7 @@ function AddClient () {
     const [duration, setDuration] = useState(0);
 
     const newClient = () => {
+      console.log(setName)
       Axios.post('http://localhost:3001/add-client', {
         name: name, 
         amount: amount, 

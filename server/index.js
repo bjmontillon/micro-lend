@@ -19,7 +19,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(3001, () => {
         console.log("its working! Server running on port 3001")
     }))
-    .catch((err) => console.log('err'))
+    .catch((err) => console.log(err))
 
 //POST OR ADD NEW CLIENT MODEL
 app.post('/add-client', async (req, res) => {
