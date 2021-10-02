@@ -12,6 +12,7 @@ import Axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
 
 import Update from './Update';
+import Delete from './Delete';
 
 const styles = theme => ({
   previewContainer: {
@@ -44,7 +45,7 @@ class Preview extends React.Component {
         //console.log(res.data[0].id)
         this.setState ({
           clients: res.data,
-          clientId: res.data[0]._id,
+          clientId: res.data.id,
           clientName: res.data[0].name,
           amount: res.data[0].amount,
           date: res.data[0].date,
@@ -58,7 +59,7 @@ class Preview extends React.Component {
 
   render () {
     const classes = this.props.classes;
-    console.log(this.state.clientId)
+    console.log(this.state.clients)
     return (
       <div className={classes.previewContainer}>
 
@@ -72,13 +73,14 @@ class Preview extends React.Component {
                 <TableCell align="center">Date</TableCell>
                 <TableCell align="center">Duration(days)</TableCell>
                 <TableCell align="center">Update</TableCell>
+                <TableCell align="center">Delete</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {this.state.clients.map (clients => (
                 <TableRow
 
-                  key={clients.id}
+                  key={clients._id}
                   sx={{'&:last-child td, &:last-child th': {border: 0}}}
                 >
                   <TableCell
@@ -86,7 +88,7 @@ class Preview extends React.Component {
                     component="th"
                     scope="row"
                   >
-                    {clients.id}
+                    {clients._id}
                   </TableCell>
                   <TableCell align="center">{clients.name}</TableCell>
                   <TableCell align="center">
@@ -99,7 +101,15 @@ class Preview extends React.Component {
                   <TableCell align="center">
                     <Update
                       clientName={clients.name}
-                      clientId={this.state.clientId}
+                      clientId={clients._id}
+                      clientDate={clients.date}
+                      clientDuration={clients.duration}
+                    />
+                  </TableCell>
+                  <TableCell align="center">
+                    <Delete
+                      clientName={clients.name}
+                      clientId={clients._id}
                       clientDate={clients.date}
                       clientDuration={clients.duration}
                     />

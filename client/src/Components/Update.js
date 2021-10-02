@@ -13,17 +13,19 @@ const Update = props => {
 
  // const [newOption, setOption] = useState('');
 
-  console.log (props.clientId);
+  
 
   const updateName = (id) => {
+    console.log(props.clientId)
+    console.log(newName);
     Axios.put ('http://localhost:3001/update', {
-      name: newName, 
-      id: id
+      id: id,
+      newName: newName, 
     })
   };
 
   
-  //console.log(props.clientId)
+  
   return (
     <div>
       <input

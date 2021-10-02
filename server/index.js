@@ -56,15 +56,18 @@ app.get('/read', async (req, res) => {
 //UPDATE MODEL
 app.put('/update', async (req, res) => {
     const newClientName = req.body.newName;
-         const id = req.body.id;
+    const id = req.body.id;
          
-
+    
          try {
-            ClientModel.findById(id, (updatedName) => {
+            await ClientModel.findById(id, (err, updatedName) => {
+                console.log(id + newClientName)
+                
                 updatedName.name = newClientName
-                updatedName.save()
+                updatedName.save();
+                res.send("update")
             })
-        } catch(err) {
+        } catch (err) {
             console.log(err);
         }
      })
