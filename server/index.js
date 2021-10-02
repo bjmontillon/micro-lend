@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const ClientModel = require('./models/client');
 
@@ -10,7 +11,10 @@ app.use(cors());
 
 //connect to database(mongodb)
 
-const dbURI = 'mongodb+srv://bjmontillon:Ak07028089@cluster0.rmcvw.mongodb.net/Cluster0?retryWrites=true&w=majority';
+const mongoUser = process.env.DB_USERNAME;
+const mongoPass = process.env.DB_PASSWORD;
+
+const dbURI = `mongodb+srv://${mongoUser}:${mongoPass}@cluster0.rmcvw.mongodb.net/Cluster0?retryWrites=true&w=majority`;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(3001, () => {
         console.log("its working! Server running on port 3001")
