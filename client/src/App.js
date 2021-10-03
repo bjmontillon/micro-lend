@@ -19,7 +19,7 @@ const useStyles = makeStyles ({
     flexWrap: 'wrap',
   },
   previewSection: {
-    height: '100%',
+    
   },
   addClientSection: {},
 });

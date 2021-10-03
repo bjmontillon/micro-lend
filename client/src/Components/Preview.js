@@ -67,7 +67,7 @@ class Preview extends React.Component {
           <Table sx={{minWidth: 650}} size="small" aria-label="a dense table">
             <TableHead className={classes.tableHead}>
               <TableRow>
-                <TableCell>ID</TableCell>
+                <TableCell align="center">ID</TableCell>
                 <TableCell align="center">Name</TableCell>
                 <TableCell align="center">Amount</TableCell>
                 <TableCell align="center">Date</TableCell>
