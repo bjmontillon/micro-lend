@@ -1,0 +1,7 @@
+{
+    "app_id": "micro-lend-idamp",
+    "config_version": 20210101,
+    "name": "micro-lend",
+    "location": "SG",
+    "deployment_model": "LOCAL"
+}
