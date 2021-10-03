@@ -1,0 +1,23 @@
+{
+    "properties": {
+        "__v": {
+            "bsonType": "int"
+        },
+        "_id": {
+            "bsonType": "objectId"
+        },
+        "amount": {
+            "bsonType": "int"
+        },
+        "date": {
+            "bsonType": "date"
+        },
+        "duration": {
+            "bsonType": "int"
+        },
+        "name": {
+            "bsonType": "string"
+        }
+    },
+    "title": "client"
+}
