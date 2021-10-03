@@ -1,11 +1,13 @@
-import { React, useState} from 'react';
+import * as React from 'react';
 import Axios from 'axios';
-import { makeStyles } from '@material-ui/styles';
+
 import { Grid }  from '@material-ui/core';
-import Button from '@mui/material/Button';
+//import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import { withStyles } from '@material-ui/core/styles';
 
-
-const useStyles = makeStyles ({
+const styles = themes => ({
     previewContainer: {
         padding: '20px',
         height: '100%',
@@ -18,46 +20,59 @@ const useStyles = makeStyles ({
     },
 })
 
-function ClientPreview () {
+class ClientPreview extends React.Component {
+    constructor (props) {
+        super (props);
+        this.state = {
+          clients: [],
+          clientId: null,
+          clientName: null,
+          amount: null,
+          date: null,
+          duration: null,
+        };
+      }
 
-    const classes = useStyles()
-
-    const [clientList, setClientList] = useState([]);
-
-    const getClients = () => {
-        Axios.get('http://localhost:3001/clients')
-        .then((response) => {
-            setClientList(response.data);
-           
+      componentDidMount () {
+        Axios.get ('http://localhost:3001/read')
+          .then (res => {
+            //console.log(res.data[0].id)
+            this.setState ({
+              clients: res.data,
+              clientId: res.data.id,
+              clientName: res.data[0].name,
+              amount: res.data[0].amount,
+              date: res.data[0].date,
+              duration: res.data[0].duration,
+            });
+          })
+          .catch (function (error) {
+            console.log (error);
           });
-    };
+      }
+
     
-   return (
+   render () {
 
-    <Grid container xs={12} className={classes.previewContainer}>
-        <Grid item xs={12}>
-            <h1>Preview Client</h1>
-            <Button variant='outlined' onClick={getClients} >Client List</Button>
+ //   const [clientList, setClientList] = useState([]);
+
+    
+
+    const classes = this.props.classes;
+    return (
+
+        <Grid container xs={12} className={classes.previewContainer}>
+            {this.state.clients.map(clients => (
+                <Card>
+                    <CardContent>
+                    <h3>{clients.name}</h3>
+                    </CardContent>
+                </Card>
+            ))}
         </Grid>
-        <Grid item xs={12}>
-            {clientList.map((val, key) => {
-
-                //Interest computation
-                const newAmount = Math.floor((val.amount * .20) + val.amount);
-                //Due date computation
-            // const dueDate = val.date;
-
-                return <div>
-                    <li className={classes.clientName}>Name: {val.name}</li>
-                    <li>Amount: {val.amount}</li>
-                    <li>Amount After %:{newAmount}</li>
-                    <li>Date: {val.date}</li>
-                    <li>Contract duraton: {val.duration}</li>
-                </div>
-            })}
-        </Grid>
-    </Grid>
-   )  
+       ) 
+   } 
+    
 };
 
-export default ClientPreview;
+export default withStyles (styles) (ClientPreview);

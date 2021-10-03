@@ -70,7 +70,16 @@ app.put('/update', async (req, res) => {
         } catch (err) {
             console.log(err);
         }
-     })
+     });
+
+//DELETE MODEL
+app.delete('/delete/:id', async (req, res ) => {
+
+    const id = req.params.id
+
+    await ClientModel.findByIdAndRemove(id).exec();
+    res.send(id);
+});
 
 
 

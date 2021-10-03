@@ -88,14 +88,14 @@ class Preview extends React.Component {
                     component="th"
                     scope="row"
                   >
-                    {clients._id}
+                    {clients._id.substr(0, 7)}
                   </TableCell>
                   <TableCell align="center">{clients.name}</TableCell>
                   <TableCell align="center">
                     {clients.amount * 0.20 + clients.amount}
                   </TableCell>
                   <TableCell align="center">
-                    {clients.date  }
+                    {clients.date.substr(0, 10)}
                   </TableCell>
                   <TableCell align="center">{clients.duration}</TableCell>
                   <TableCell align="center">
