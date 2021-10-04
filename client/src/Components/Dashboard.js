@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
           .then (res => {
             //console.log(res.data[0].id)
             this.setState ({
-              clients: res.data,
+              clients: res.data[0],
             });
           })
           .catch (function (error) {
@@ -55,6 +55,7 @@ class Dashboard extends React.Component {
 
         <Grid container xs={12} className={classes.dashboardContainer}>
             <h1>DASHBOARD</h1>
+      
         </Grid>
        ) 
    } 

@@ -93,7 +93,7 @@ class Preview extends React.Component {
 
   render () {
     const classes = this.props.classes;
-    console.log(this.state.clients)
+    
     return (
 
     <div className={classes.previewContainer}>
@@ -108,6 +108,7 @@ class Preview extends React.Component {
                 <StyledTableCell align="center">Duration(days)</StyledTableCell>
                 <StyledTableCell align="center">Update</StyledTableCell>
                 <StyledTableCell align="center">Delete</StyledTableCell>
+                
               </TableRow>
             </TableHead>
             <TableBody>

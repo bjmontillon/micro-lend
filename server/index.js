@@ -4,7 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const ClientModel = require('./models/client');
+
 
 app.use(express.json());
 app.use(cors());
@@ -20,6 +20,10 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
         console.log("its working! Server running on port 3001")
     }))
     .catch((err) => console.log(err))
+    
+    //MODELS
+    const ClientModel = require('./models/client'); 
+
 
 //POST OR ADD NEW CLIENT MODEL
 app.post('/add-client', async (req, res) => {
