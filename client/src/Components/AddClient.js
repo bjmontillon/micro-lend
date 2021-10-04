@@ -28,6 +28,7 @@ const useStyles = makeStyles({
       alignItems:'baseline',
       flexWrap: 'wrap',
       flexDirection: 'column',
+      fontFamily: `'Montserrat', sans-serif`,
       
     },
     inputs: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
       justifyContent: 'center',
     },
     addCLientButton: {
-      
+      fontFamily: `'Montserrat', sans-serif`
     },
   
 });
@@ -87,6 +88,7 @@ function AddClient () {
       </Grid>
       <Grid item xs={12} className={classes.clientFormButton}>
         <Controls.Button 
+          className={classes.addCLientButton}
           text='Add New'
           type='text'
           startIcon={<AddOutlinedIcon />}

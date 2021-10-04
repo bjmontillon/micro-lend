@@ -2,12 +2,12 @@ import './components.css';
 import * as React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
+import TableCell, { tableCellClasses }from '@mui/material/TableCell';
+import { styled } from '@mui/material/styles';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Controls from '../Controls/Controls'
 //import Button from '../../src/Controls/Button';
 
 import Axios from 'axios';
@@ -26,15 +26,39 @@ const styles = theme => ({
   addButton: {
     right: '10px'
   },
-  tableHead: {
-    backgroundColor: '#dcf1fa',
-    
-  },
   tableBody: {},
   tableRowBody: {
     
   },
+  nameRow: {
+    color: 'red',
+  },
 });
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+    fontFamily: `'Montserrat', sans-serif`,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 12,
+    fontFamily: `'Montserrat', sans-serif`,
+    color: theme.palette.common.black,
+    fontWeight: 400,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}));
+
 
 class Preview extends React.Component {
   constructor (props) {
@@ -77,35 +101,35 @@ class Preview extends React.Component {
           <Table sx={{minWidth: 650}} size="small" aria-label="a dense table">
             <TableHead className={classes.tableHead}>
               <TableRow>
-                <TableCell align="center">ID</TableCell>
-                <TableCell align="center">Name</TableCell>
-                <TableCell align="center">Amount</TableCell>
-                <TableCell align="center">Date</TableCell>
-                <TableCell align="center">Duration(days)</TableCell>
-                <TableCell align="center">Update</TableCell>
-                <TableCell align="center">Delete</TableCell>
+                <StyledTableCell align="center">ID</StyledTableCell>
+                <StyledTableCell align="center">Name</StyledTableCell>
+                <StyledTableCell align="center">Amount</StyledTableCell>
+                <StyledTableCell align="center">Date</StyledTableCell>
+                <StyledTableCell align="center">Duration(days)</StyledTableCell>
+                <StyledTableCell align="center">Update</StyledTableCell>
+                <StyledTableCell align="center">Delete</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {this.state.clients.map (clients => (
-                <TableRow
+                <StyledTableRow
                   key={clients._id}
                   sx={{'&:last-child td, &:last-child th': {border: 0}}}
                 >
-                  <TableCell
+                  <StyledTableCell
                     className={classes.tableBody}
                     component="th"
                     scope="row"
                   >
                     {clients._id.substr(0, 7)}
-                  </TableCell>
-                  <TableCell align="center">{clients.name}</TableCell>
-                  <TableCell align="center">{clients.amount * 0.20 + clients.amount}</TableCell>
-                  <TableCell align="center">{clients.date.substr(0, 10)}</TableCell>
-                  <TableCell align="center">{clients.duration}</TableCell>
-                  <TableCell align="center"><Update /></TableCell>
-                  <TableCell align="center"><Delete /></TableCell>
-                </TableRow>
+                  </StyledTableCell>
+                  <StyledTableCell align="center">{clients.name}</StyledTableCell>
+                  <StyledTableCell align="center">{clients.amount * 0.20 + clients.amount}</StyledTableCell>
+                  <StyledTableCell align="center">{clients.date.substr(0, 10)}</StyledTableCell>
+                  <StyledTableCell align="center">{clients.duration}</StyledTableCell>
+                  <StyledTableCell align="center"><Update /></StyledTableCell>
+                  <StyledTableCell align="center"><Delete /></StyledTableCell>
+                </StyledTableRow>
               ))}
             </TableBody>
           </Table>

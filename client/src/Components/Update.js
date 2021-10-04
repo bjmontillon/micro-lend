@@ -17,6 +17,7 @@ const Update = props => {
     updateButton: {
       padding: "0",
       width: "5vw",
+      fontFamily: `'Montserrat', sans-serif`,
     },
     updateInput: {
       width: "10vw",
@@ -54,10 +55,10 @@ const updateName = (id) => {
         onChange={event => {setNewName(event.target.value)}}
       />
       <Controls.Button
+        className={classes.updateButton}
         size="small"
         text={<EditOutlinedIcon fontSize="small" />}
         variant="text"
-       
         onClick={() => updateName(props.clientId)}
       />
     </>
