@@ -2,7 +2,9 @@ import { React, useState } from 'react';
 import Axios from 'axios';
 import { Grid }  from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import Button from '@mui/material/Button';
+import Controls from '../Controls/Controls';
+
+import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 
 const useStyles = makeStyles({
   addClientContainer: {
@@ -84,7 +86,12 @@ function AddClient () {
         
       </Grid>
       <Grid item xs={12} className={classes.clientFormButton}>
-        <Button className={classes.addClientButton} variant='contained' size='small' onClick={newClient}>Add Client</Button>
+        <Controls.Button 
+          text='Add New'
+          type='text'
+          startIcon={<AddOutlinedIcon />}
+          onClick={() => newClient()}
+        />
       </Grid>
     </Grid>
   );

@@ -39,11 +39,6 @@ class ClientPreview extends React.Component {
             //console.log(res.data[0].id)
             this.setState ({
               clients: res.data,
-              clientId: res.data.id,
-              clientName: res.data[0].name,
-              amount: res.data[0].amount,
-              date: res.data[0].date,
-              duration: res.data[0].duration,
             });
           })
           .catch (function (error) {
@@ -62,13 +57,7 @@ class ClientPreview extends React.Component {
     return (
 
         <Grid container xs={12} className={classes.previewContainer}>
-            {this.state.clients.map(clients => (
-                <Card>
-                    <CardContent>
-                    <h3>{clients.name}</h3>
-                    </CardContent>
-                </Card>
-            ))}
+            
         </Grid>
        ) 
    } 
