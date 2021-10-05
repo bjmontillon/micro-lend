@@ -1,5 +1,5 @@
 import './components.css';
-import * as React from 'react';
+import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses }from '@mui/material/TableCell';
@@ -10,11 +10,12 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 //import Button from '../../src/Controls/Button';
 
+
+
 import Axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
 
 import Update from './Update';
-import Delete from './Delete';
 
 const styles = theme => ({
   previewContainer: {
@@ -59,6 +60,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+  
 
 class Preview extends React.Component {
   constructor (props) {
@@ -90,10 +92,12 @@ class Preview extends React.Component {
         console.log (error);
       });
   }
+  
+ 
 
   render () {
     const classes = this.props.classes;
-    
+   
     return (
 
     <div className={classes.previewContainer}>
@@ -106,9 +110,7 @@ class Preview extends React.Component {
                 <StyledTableCell align="center">Amount</StyledTableCell>
                 <StyledTableCell align="center">Date</StyledTableCell>
                 <StyledTableCell align="center">Duration(days)</StyledTableCell>
-                <StyledTableCell align="center">Update</StyledTableCell>
-                <StyledTableCell align="center">Delete</StyledTableCell>
-                
+                <StyledTableCell align="center">Update/Del</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -129,13 +131,11 @@ class Preview extends React.Component {
                   <StyledTableCell align="center">{clients.date.substr(0, 10)}</StyledTableCell>
                   <StyledTableCell align="center">{clients.duration}</StyledTableCell>
                   <StyledTableCell align="center"><Update /></StyledTableCell>
-                  <StyledTableCell align="center"><Delete /></StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-
       </div>
     );
   }

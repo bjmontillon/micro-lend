@@ -1,7 +1,9 @@
 import Button from './Button';
+import Input from './Input';
 
 const Controls = {
-    Button
+    Button,
+    Input
 }
 
 export default Controls;
