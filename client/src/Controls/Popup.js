@@ -31,7 +31,7 @@ export default function Popup(props) {
                         size="small"
                         text="CLOSE"
                         variant="text"
-                        onClick={setOpenPopup}/>
+                        onClick={() => setOpenPopup(false)}/>
                 </DialogActions>
                 
             </Dialog>

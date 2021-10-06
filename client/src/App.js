@@ -5,7 +5,7 @@ import {Grid} from '@material-ui/core';
 import Heading from './Components/Heading';
 import Dashboard from './Components/Dashboard';
 import AddClient from './Components/AddClient';
-import Preview from './Components/Preview';
+import Preview from './Components/Previewtable';
 
 import {makeStyles} from '@material-ui/styles';
 

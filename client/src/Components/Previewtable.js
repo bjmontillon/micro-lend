@@ -8,16 +8,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-//import Button from '../../src/Controls/Button';
-import Controls from '../Controls/Controls'
-import Popup from '../../src/Controls/Popup'
 
 
 
 import Axios from 'axios';
 import { withStyles } from '@material-ui/core/styles';
-
-import Update from './Update';
+import Updelete from './Updelete';
 
 const styles = theme => ({
   previewContainer: {
@@ -132,23 +128,12 @@ class Preview extends React.Component {
                   <StyledTableCell align="center">{clients.amount * 0.20 + clients.amount}</StyledTableCell>
                   <StyledTableCell align="center">{clients.date.substr(0, 10)}</StyledTableCell>
                   <StyledTableCell align="center">{clients.duration}</StyledTableCell>
-                  <StyledTableCell align="center"><Update clientId={clients._id}/></StyledTableCell>
-                  <StyledTableCell align="center"><Controls.Button 
-                                                  text='popup'
-                                                  onClick={() => {this.setState({openPopup: true})}}
-                                                  /></StyledTableCell>
+                  <StyledTableCell align="center"><Updelete clientId={clients._id}/></StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-        <Popup
-          openPopup={this.state.openPopup}
-          setOpenPopup={() => this.setState({openPopup: false})}
-          >
-        <Update />
-        </Popup>
-        
       </div>
     );
   }
