@@ -9,11 +9,11 @@ export default function Input(props) {
     return (
         <>
             <MuiInput
-            type = {type}
-            value = {value}
-            onChange = {onChange}
-            {...other}
-            >
+                type = {type}
+                value = {value}
+                onChange = {onChange}
+                {...other}
+                >
             </MuiInput>
         </>
         

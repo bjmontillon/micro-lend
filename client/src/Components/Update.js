@@ -1,13 +1,13 @@
 import {React, useState} from 'react';
+import Axios from 'axios';
 import { makeStyles } from '@material-ui/styles';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
-
-import Delete from './Delete';
 import Controls from '../Controls/Controls'
-
 import Popup from '../../src/Controls/Popup'
 
-const Update = props => {
+
+
+const Update = (props) => {
 
   const useStyles = makeStyles ({
     updateDeletecontainer: {
@@ -26,40 +26,41 @@ const Update = props => {
       width: "10vw",
     }
   })
-  // const [name, setName] = useState('');
-  // const [amount, setAmount] = useState(0);
-  // const [date, setDate] = useState(new Date());
-  // const [duration, setDuration] = useState();
   
- //const [newAmount, setNewAmount] = useState (0);
- // const [newDate, setNewDate] = useState (new Date ());
-  //const [newDuration, setNewDuration] = useState (0);
-
- // const [newOption, setOption] = useState('');
-
-  
-
 const [openPopup, setOpenPopup] = useState(false);
 
   const classes = useStyles()
+  const [newName, setNewName] = useState ('');
+
+    const updateName = (id) => {
+      
+        Axios.put ('http://localhost:3001/update', {
+          id: props.clientId,
+          newName: newName,
+        })
+      };
   
   return (
-    <div className={classes.updateDeletecontainer}>
-      
-      <Delete />
-      <Controls.Button
-        className={classes.updateButton}
-        size="small"
-        text={<EditOutlinedIcon fontSize="small" />}
-        variant="text"
-        onClick={() => setOpenPopup(true)}
-      />
-      <Popup 
-      openPopup = {openPopup}
-      setOpenPopup = {setOpenPopup}
+      <div className={classes.updateDeletecontainer}>
+        <input
+          className={classes.updateInput}
+          type="text"
+          onChange={event => {setNewName(event.target.value)}}
+        />
+
+        <Controls.Button
+          className={classes.updateButton}
+          size="small"
+          text={<EditOutlinedIcon fontSize="small" />}
+          variant="text"
+          onClick={() => updateName(props.clientId)}
+         />
+        <Popup 
+          openPopup = {openPopup}
+          setOpenPopup = {setOpenPopup}
         >
-    </Popup>
-    </div>
+        </Popup>
+      </div>
   );
 };
 

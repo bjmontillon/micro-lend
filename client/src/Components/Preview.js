@@ -9,6 +9,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 //import Button from '../../src/Controls/Button';
+import Controls from '../Controls/Controls'
+import Popup from '../../src/Controls/Popup'
 
 
 
@@ -72,6 +74,7 @@ class Preview extends React.Component {
       amount: null,
       date: null,
       duration: null,
+      openPopup: false,
     };
   }
 
@@ -93,11 +96,10 @@ class Preview extends React.Component {
       });
   }
   
- 
+
 
   render () {
     const classes = this.props.classes;
-   
     return (
 
     <div className={classes.previewContainer}>
@@ -130,12 +132,23 @@ class Preview extends React.Component {
                   <StyledTableCell align="center">{clients.amount * 0.20 + clients.amount}</StyledTableCell>
                   <StyledTableCell align="center">{clients.date.substr(0, 10)}</StyledTableCell>
                   <StyledTableCell align="center">{clients.duration}</StyledTableCell>
-                  <StyledTableCell align="center"><Update /></StyledTableCell>
+                  <StyledTableCell align="center"><Update clientId={clients._id}/></StyledTableCell>
+                  <StyledTableCell align="center"><Controls.Button 
+                                                  text='popup'
+                                                  onClick={() => {this.setState({openPopup: true})}}
+                                                  /></StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
+        <Popup
+          openPopup={this.state.openPopup}
+          setOpenPopup={() => this.setState({openPopup: false})}
+          >
+        <Update />
+        </Popup>
+        
       </div>
     );
   }

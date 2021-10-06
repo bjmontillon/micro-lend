@@ -22,7 +22,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch((err) => console.log(err))
     
     //MODELS
-    const ClientModel = require('./models/client'); 
+    const ClientModel = require('./models/Client'); 
 
 
 //POST OR ADD NEW CLIENT MODEL
@@ -62,11 +62,8 @@ app.put('/update', async (req, res) => {
     const newClientName = req.body.newName;
     const id = req.body.id;
          
-    
          try {
             await ClientModel.findById(id, (err, updatedName) => {
-                console.log(id + newClientName)
-                
                 updatedName.name = newClientName
                 updatedName.save();
                 res.send("update")
