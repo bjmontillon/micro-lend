@@ -6,7 +6,7 @@ const Schema = mongoose.Schema;
 const clientsSchema = new Schema({
     name: { type: String, required: true },
     amount: { type: Number, required: true },
-
+    payment: [Number],
     date: { type: Date, required: true },
     duration: { type: Number, required: true }
 }, { timeStamp: true});

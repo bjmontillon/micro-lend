@@ -1,11 +1,11 @@
 import React from 'react';
-import { TextField as MuiInput } from '@mui/material'
+import { TextField as MuiInput } from '@material-ui/core'
 
 
 
-export default function Input(props) {
+export default function Input (props) {
 
-    const { type, value, onChange, ...other } = props;
+    const {children, label, margin, type, value, onChange, variant, ...other } = props;
     
     return (
         <>
@@ -13,8 +13,12 @@ export default function Input(props) {
                 type = {type}
                 value = {value}
                 onChange = {onChange}
+                variant = { variant }
+                margin = {margin}
+                label= {label}
                 {...other}
                 >
+                {children}
             </MuiInput>
         </>
         
