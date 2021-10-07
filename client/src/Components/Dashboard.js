@@ -53,8 +53,11 @@ class Dashboard extends React.Component {
     const classes = this.props.classes;
     return (
 
-        <Grid container xs={12} className={classes.dashboardContainer}>
-            <h1>DASHBOARD</h1>
+        <Grid container xs={12} className={classes.dashboardContainer} spacing={2}>
+            <Grid item xs={3}><h3>Total Balance</h3></Grid>
+            <Grid item xs={3}><h3>hello</h3></Grid>
+            <Grid item xs={3}><h3>hello</h3></Grid>
+            <Grid item xs={3}><h3>hello</h3></Grid>
       
         </Grid>
        ) 

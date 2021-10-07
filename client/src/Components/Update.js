@@ -47,7 +47,9 @@ const [openPopup, setOpenPopup] = useState(false);
 
         <Controls.Input
           className={classes.updateInput}
+          variant='dafault'
           type="text"
+          label='Name'
           onChange={event => {setNewName(event.target.value)}}
         >
         

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Input as MuiInput } from '@mui/material'
+import { TextField as MuiInput } from '@mui/material'
+
 
 
 export default function Input(props) {
