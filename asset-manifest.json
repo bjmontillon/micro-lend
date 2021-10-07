@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/mylending/static/css/main.85dcb9b0.chunk.css",
-    "main.js": "/mylending/static/js/main.536d50df.chunk.js",
-    "main.js.map": "/mylending/static/js/main.536d50df.chunk.js.map",
+    "main.js": "/mylending/static/js/main.8a43626b.chunk.js",
+    "main.js.map": "/mylending/static/js/main.8a43626b.chunk.js.map",
     "runtime-main.js": "/mylending/static/js/runtime-main.f3569e85.js",
     "runtime-main.js.map": "/mylending/static/js/runtime-main.f3569e85.js.map",
-    "static/js/2.4fa74884.chunk.js": "/mylending/static/js/2.4fa74884.chunk.js",
-    "static/js/2.4fa74884.chunk.js.map": "/mylending/static/js/2.4fa74884.chunk.js.map",
+    "static/js/2.50607c94.chunk.js": "/mylending/static/js/2.50607c94.chunk.js",
+    "static/js/2.50607c94.chunk.js.map": "/mylending/static/js/2.50607c94.chunk.js.map",
     "index.html": "/mylending/index.html",
     "static/css/main.85dcb9b0.chunk.css.map": "/mylending/static/css/main.85dcb9b0.chunk.css.map",
-    "static/js/2.4fa74884.chunk.js.LICENSE.txt": "/mylending/static/js/2.4fa74884.chunk.js.LICENSE.txt"
+    "static/js/2.50607c94.chunk.js.LICENSE.txt": "/mylending/static/js/2.50607c94.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f3569e85.js",
-    "static/js/2.4fa74884.chunk.js",
+    "static/js/2.50607c94.chunk.js",
     "static/css/main.85dcb9b0.chunk.css",
-    "static/js/main.536d50df.chunk.js"
+    "static/js/main.8a43626b.chunk.js"
   ]
 }
