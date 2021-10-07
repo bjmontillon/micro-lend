@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/mylending/static/css/main.85dcb9b0.chunk.css",
-    "main.js": "/mylending/static/js/main.8a43626b.chunk.js",
-    "main.js.map": "/mylending/static/js/main.8a43626b.chunk.js.map",
-    "runtime-main.js": "/mylending/static/js/runtime-main.f3569e85.js",
-    "runtime-main.js.map": "/mylending/static/js/runtime-main.f3569e85.js.map",
-    "static/js/2.50607c94.chunk.js": "/mylending/static/js/2.50607c94.chunk.js",
-    "static/js/2.50607c94.chunk.js.map": "/mylending/static/js/2.50607c94.chunk.js.map",
-    "index.html": "/mylending/index.html",
-    "static/css/main.85dcb9b0.chunk.css.map": "/mylending/static/css/main.85dcb9b0.chunk.css.map",
-    "static/js/2.50607c94.chunk.js.LICENSE.txt": "/mylending/static/js/2.50607c94.chunk.js.LICENSE.txt"
+    "main.css": "/micro-lend/static/css/main.85dcb9b0.chunk.css",
+    "main.js": "/micro-lend/static/js/main.8a43626b.chunk.js",
+    "main.js.map": "/micro-lend/static/js/main.8a43626b.chunk.js.map",
+    "runtime-main.js": "/micro-lend/static/js/runtime-main.0eba60eb.js",
+    "runtime-main.js.map": "/micro-lend/static/js/runtime-main.0eba60eb.js.map",
+    "static/js/2.50607c94.chunk.js": "/micro-lend/static/js/2.50607c94.chunk.js",
+    "static/js/2.50607c94.chunk.js.map": "/micro-lend/static/js/2.50607c94.chunk.js.map",
+    "index.html": "/micro-lend/index.html",
+    "static/css/main.85dcb9b0.chunk.css.map": "/micro-lend/static/css/main.85dcb9b0.chunk.css.map",
+    "static/js/2.50607c94.chunk.js.LICENSE.txt": "/micro-lend/static/js/2.50607c94.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f3569e85.js",
+    "static/js/runtime-main.0eba60eb.js",
     "static/js/2.50607c94.chunk.js",
     "static/css/main.85dcb9b0.chunk.css",
     "static/js/main.8a43626b.chunk.js"
