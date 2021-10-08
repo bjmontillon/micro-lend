@@ -17,6 +17,7 @@ const mongoPass = process.env.DB_PASSWORD;
 const dbURI = `mongodb+srv://${mongoUser}:${mongoPass}@cluster0.rmcvw.mongodb.net/Cluster0?retryWrites=true&w=majority`;
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+
     .then(() => app.listen(3001, () => {
         console.log("its working! Server running on port 3001")
     }))
@@ -24,6 +25,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     
     //MODELS
     const ClientModel = require('./models/Client'); 
+const Client = require('./models/Client');
 
 
 //POST OR ADD NEW CLIENT MODEL
@@ -33,8 +35,9 @@ app.post('/add-client', async (req, res) => {
     const amount = req.body.amount;
     const date = req.body.date;
     const duration = req.body.duration;
+    const payment = req.body.payment;
 
-    const client = new ClientModel({ name: name, amount: amount, date: date, duration: duration })
+    const client = new ClientModel({ name: name, amount: amount, date: date, duration: duration, payment: payment })
 
     try {
         await client.save();
@@ -74,6 +77,30 @@ app.put('/update', async (req, res) => {
         }
      });
 
+//ADD_PAYMENT
+app.put('/add-payment', async (req, res) => {
+    const id = req.body.id;
+    const newPayment = req.body.newPayment
+    const newPaymentDate = req.body.newPaymentDate
+
+
+        try {
+            await ClientModel.findOneAndUpdate({
+                id: id,
+            },
+            {
+                $push: {
+                    newPayment: newPayment,
+                    paymentDate: newPaymentDate
+                },
+            });
+            res.send('Payment added.')
+            console.log('Payment' + ' ' + newPayment + ' ' + 'added to client with the ID number of' + ' ' + id)
+        }catch (err) {
+        console.log(err);
+    }
+})
+
 //DELETE MODEL
 app.delete('/delete/:id', async (req, res ) => {
 
@@ -82,6 +109,7 @@ app.delete('/delete/:id', async (req, res ) => {
     await ClientModel.findByIdAndRemove(id).exec();
     res.send(id);
 });
+
 
 
 

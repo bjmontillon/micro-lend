@@ -30,11 +30,12 @@ const Update = (props) => {
     }
   })
 
-const [openPopup, setOpenPopup] = useState(false);
-
   const classes = useStyles()
 
-  const [newName, setNewName] = useState ('');
+const [openPopup, setOpenPopup] = useState(false);
+const [newName, setNewName] = useState ('');
+
+
 
     const updateName = (id) => {
       

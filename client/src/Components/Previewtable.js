@@ -8,6 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Addpayment from '../Components/Addpayment'
 
 
 
@@ -129,6 +130,7 @@ class Preview extends React.Component {
                   <StyledTableCell align="center">{clients.date.substr(0, 10)}</StyledTableCell>
                   <StyledTableCell align="center">{clients.duration}</StyledTableCell>
                   <StyledTableCell align="center"><Updelete clientId={clients._id}/></StyledTableCell>
+                  <StyledTableCell align="center"><Addpayment clientId={clients._id}/></StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>

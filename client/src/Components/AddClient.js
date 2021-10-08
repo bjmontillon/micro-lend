@@ -55,6 +55,7 @@ function AddClient () {
     const [amount, setAmount] = useState(0);
     const [date, setDate] = useState(new Date());
     const [duration, setDuration] = useState(0);
+    
 
     const newClient = () => {
       console.log(setName)
@@ -84,6 +85,7 @@ function AddClient () {
         <input className={classes.inputs}  type="date" min="2018-01-01" max="2025-01-01" onChange={(event) => {setDate(event.target.value)}} placeholder='YYYY-MM-DD' />
         <label>Duration:</label>
         <input className={classes.inputs}  type="number" onChange={(event) => {setDuration(event.target.value)}} />
+
         
       </Grid>
       <Grid item xs={12} className={classes.clientFormButton}>
