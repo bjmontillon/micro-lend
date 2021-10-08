@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Addpayment from '../Components/Addpayment'
+import Addpayment from './Addpayment'
 
 
 
@@ -86,17 +86,20 @@ class Preview extends React.Component {
           amount: res.data[0].amount,
           date: res.data[0].date,
           duration: res.data[0].duration,
+          clientsPayment: res.data[0],
         });
       })
       .catch (function (error) {
         console.log (error);
       });
+      console.log(this.state.clients)
   }
   
-
+  
 
   render () {
     const classes = this.props.classes;
+    
     return (
 
     <div className={classes.previewContainer}>
@@ -109,6 +112,7 @@ class Preview extends React.Component {
                 <StyledTableCell align="center">Amount</StyledTableCell>
                 <StyledTableCell align="center">Date</StyledTableCell>
                 <StyledTableCell align="center">Duration(days)</StyledTableCell>
+                <StyledTableCell align="center">Add Payment</StyledTableCell>
                 <StyledTableCell align="center">Update/Del</StyledTableCell>
               </TableRow>
             </TableHead>
@@ -129,14 +133,15 @@ class Preview extends React.Component {
                   <StyledTableCell align="center">{clients.amount * 0.20 + clients.amount}</StyledTableCell>
                   <StyledTableCell align="center">{clients.date.substr(0, 10)}</StyledTableCell>
                   <StyledTableCell align="center">{clients.duration}</StyledTableCell>
-                  <StyledTableCell align="center"><Updelete clientId={clients._id}/></StyledTableCell>
                   <StyledTableCell align="center"><Addpayment clientId={clients._id}/></StyledTableCell>
+                  <StyledTableCell align="center"><Updelete clientId={clients._id}/></StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-      </div>
+      
+        </div>
     );
   }
 }

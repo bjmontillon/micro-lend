@@ -80,8 +80,8 @@ app.put('/update', async (req, res) => {
 //ADD_PAYMENT
 app.put('/add-payment', async (req, res) => {
     const id = req.body.id;
-    const newPayment = req.body.newPayment
     const newPaymentDate = req.body.newPaymentDate
+    const newPayment = req.body.newPayment
 
 
         try {
@@ -90,8 +90,12 @@ app.put('/add-payment', async (req, res) => {
             },
             {
                 $push: {
-                    newPayment: newPayment,
-                    paymentDate: newPaymentDate
+                    payment: {
+                        paymentAmount: newPayment,
+                        paymentDate: newPaymentDate
+                        
+                    }
+                   
                 },
             });
             res.send('Payment added.')

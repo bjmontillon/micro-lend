@@ -1,7 +1,7 @@
 import {React, } from 'react';
 import Axios from 'axios';
-import BackspaceOutlinedIcon from '@material-ui/icons/BackspaceOutlined'
 import Controls from '../Controls/Controls'
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutline';
 
 
 
@@ -22,7 +22,7 @@ const Delete = props => {
         <Controls.Button 
             variant="text"
             size="small"
-            text={<BackspaceOutlinedIcon fontSize="small" />}
+            text={<DeleteOutlinedIcon />}
             onClick={() => deleteName(props.clientId)}
         />
         </div>

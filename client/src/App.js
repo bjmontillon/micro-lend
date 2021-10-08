@@ -1,11 +1,10 @@
 import './App.css';
-import React from 'react';
 import Container from '@mui/material/Container';
 import {Grid} from '@material-ui/core';
 import Heading from './Components/Heading';
 import Dashboard from './Components/Dashboard';
 import AddClient from './Components/AddClient';
-import Preview from './Components/Previewtable';
+import Clientstable from './Components/Clientstable';
 
 import {makeStyles} from '@material-ui/styles';
 
@@ -17,6 +16,7 @@ const useStyles = makeStyles ({
     alignItems: 'baseline',
     flexDirection: 'row',
     flexWrap: 'wrap',
+    margin: '0'
   },
   previewSection: {
     
@@ -41,7 +41,7 @@ function App () {
           <AddClient />
         </Grid>
         <Grid item xs={12} className={classes.previewSection}>
-          <Preview />
+          <Clientstable />
         </Grid>
       </Grid>
     </Container>
