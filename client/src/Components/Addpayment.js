@@ -2,6 +2,7 @@ import React from 'react';
 import Controls from '../Controls/Controls'
 import Axios from 'axios';
 import Popup from '../Controls/Popup';
+import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
 
 
 export default function Addpayment(props)  {
@@ -25,48 +26,41 @@ export default function Addpayment(props)  {
     return(
         <>
           <Controls.Button
-          text='+'
+          text={<AddBoxOutlinedIcon fontSize='small' />}
           onClick = {() => setOpenPopup(true)}
           variant="text"
           >
-          
           </Controls.Button>
-         
-          
-
-          
-
-
 
           <Popup
-            openPopup={openPopup}
-            setOpenPopup = {setOpenPopup}
+              openPopup={openPopup}
+              setOpenPopup = {setOpenPopup}
             >
+            
             <Controls.Input
-            size="small"
-            type="number"
-            label='amount'
-            onChange={event => {setNewPayment(event.target.value)}}
-            variant ='outlined'
-          >
+              size="small"
+              type="number"
+              label='amount'
+              onChange={event => {setNewPayment(event.target.value)}}
+              variant ='outlined'
+              margin='none'
+          />
 
-        </Controls.Input>
+            <Controls.Input
+              size="small"
+              type="date"
+              onChange={event => {setNewPaymentDate(event.target.value)}}
+              variant ='outlined'
+              margin='none'
+            />
 
-
-        <Controls.Input
-            size="small"
-            type="date"
-            onChange={event => {setNewPaymentDate(event.target.value)}}
-            variant ='outlined'
-          >
-
-        </Controls.Input>
+           
             
             <Controls.Button 
-            size="small"
-            variant="text"
-            onClick={() => addPayment(props.clientId)}
-            text='submit'
+              size="small"
+              variant="text"
+              onClick={() => addPayment(props.clientId)}
+              text='submit'
             />
           </Popup>
         </>

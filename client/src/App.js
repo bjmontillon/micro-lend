@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Container from '@mui/material/Container';
 import {Grid} from '@material-ui/core';
@@ -5,10 +6,12 @@ import Heading from './Components/Heading';
 import Dashboard from './Components/Dashboard';
 import AddClient from './Components/AddClient';
 import Clientstable from './Components/Clientstable';
+import {withStyles} from '@material-ui/styles';
+import Axios from 'axios';
 
-import {makeStyles} from '@material-ui/styles';
 
-const useStyles = makeStyles ({
+
+const styles = theme => ({
   bodyContainer: {
     display: 'flex',
     boxSizing: 'border-box',
@@ -24,28 +27,53 @@ const useStyles = makeStyles ({
   addClientSection: {},
 });
 
-function App () {
-  const classes = useStyles ();
-  return (
-    <Container maxWidth="xl" className="App">
-      
+class App extends React.Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      clientsData: [],
+      openPopup: false,
+    };
+  }
 
-      <Grid container className="bodyContainer" xs={12} spacing={2}>
-      <Grid item xs={12}>
-        <Heading />
-      </Grid>
-        <Grid item xs={12} md={9} className={classes.previewSection}>
-          <Dashboard />
-        </Grid>
-        <Grid item xs={12} md={3} className={classes.addClientSection}>
-          <AddClient />
-        </Grid>
-        <Grid item xs={12} className={classes.previewSection}>
-          <Clientstable />
-        </Grid>
-      </Grid>
-    </Container>
-  );
-}
+  componentDidMount () {
+    Axios.get ('http://localhost:3001/read')
+      .then (res => {
+        this.setState ({
+          clientsData: res.data,
+        });
+      })
+      .catch (function (error) {
+        console.log (error);
+      });
+  }
+  
+  render () {
 
-export default App;
+    const classes = this.props.classes;
+
+    return (
+      <Container maxWidth="xl" className="App">
+        
+  
+        <Grid container className="bodyContainer" xs={12} spacing={2}>
+        <Grid item xs={12}>
+          <Heading />
+        </Grid>
+          <Grid item xs={12} md={9} className={classes.previewSection}>
+            <Dashboard />
+          </Grid>
+          <Grid item xs={12} md={3} className={classes.addClientSection}>
+            <AddClient />
+          </Grid>
+          <Grid item xs={12} className={classes.previewSection}>
+            <Clientstable  clientsData={this.state.clientsData} />
+          </Grid>
+        </Grid>
+      </Container>
+    );
+  }
+  }
+ 
+
+export default withStyles(styles)(App);

@@ -26,12 +26,12 @@ export default function Popup(props) {
                     {children}
                 </DialogContent>
                 <DialogActions>
-                    <Controls.Button
-                        className={classes.updateButton}
-                        size="small"
-                        text="CLOSE"
-                        variant="text"
-                        onClick={() => setOpenPopup(false)}/>
+                        <Controls.Button
+                            className={classes.updateButton}
+                            size="small"
+                            text="CLOSE"
+                            variant="text"
+                            onClick={() => setOpenPopup(false)} />
                 </DialogActions>
                 
             </Dialog>

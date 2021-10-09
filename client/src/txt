@@ -1,5 +1,17 @@
-import React, { useState, useEffect} from 'react';
+//fetch useeffect(infinite loop!)
+const [clientsData, setClientsData] = useState([]);
+
+useEffect(() => {
+  Axios.get ('http://localhost:3001/read')
+      .then (response => setClientsData(response.data))
+      console.log(clientsData)
+}, [clientsData])
+
+
+
+
 import './components.css';
+import React from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses }from '@mui/material/TableCell';
@@ -9,10 +21,11 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Addpayment from './Addpayment'
-import { makeStyles } from '@material-ui/core/styles';
+import Axios from 'axios';
+import { withStyles } from '@material-ui/core/styles';
 import Updelete from './Updelete';
 
-const useStyles = makeStyles ({
+const styles = theme => ({
   previewContainer: {
     padding: '20px',
     borderRadius: '5px',
@@ -57,19 +70,46 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
   
 
-const Preview = (props) => {
+class Preview extends React.Component {
+  constructor (props) {
+    super (props);
+    this.state = {
+      clients: [],
+      clientId: null,
+      clientName: null,
+      amount: null,
+      date: null,
+      duration: null,
+      openPopup: false,
+    };
+  }
 
+  componentDidMount () {
+    Axios.get ('http://localhost:3001/read')
+      .then (res => {
+        //console.log(res.data[0].id)
+        this.setState ({
+          clients: res.data,
+          clientId: res.data.id,
+          clientName: res.data[0].name,
+          amount: res.data[0].amount,
+          date: res.data[0].date,
+          duration: res.data[0].duration,
+          clientsPayment: res.data[0],
+        });
+      })
+      .catch (function (error) {
+        console.log (error);
+      });
+  }
+
+  
+  
+
+  render () {
     const clients = props.clientsData
-    const [newData, setNewData] = useState([])
-
-    useEffect(() => {
-      setNewData(clients)
-    }, [clients])
-
-    //const clients = props.clientsData
-    const classes = useStyles;
+    const classes = this.props.classes;
     
-
     return (
 
     <div className={classes.previewContainer}>
@@ -87,7 +127,7 @@ const Preview = (props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {newData.map (clients => (
+              {this.state.clients.map (clients => (
                 <StyledTableRow
                   key={clients._id}
                   sx={{'&:last-child td, &:last-child th': {border: 0}}}
@@ -114,7 +154,7 @@ const Preview = (props) => {
       
         </div>
     );
-  
+  }
 }
 
-export default Preview;
+export default withStyles (styles) (Preview);

@@ -25,7 +25,7 @@ export default function Updelete(props) {
     return(
         <div className={classes.updeleteContainer}>
         <Controls.Button
-            text={<EditOutlinedIcon />}
+            text={<EditOutlinedIcon fontSize='small'/>}
             onClick = {() => setOpenPopup(true)}
             variant="text"
         >
