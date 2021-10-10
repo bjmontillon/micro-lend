@@ -31,7 +31,7 @@ export default function Updelete(props) {
         >
         
         </Controls.Button>
-        <Delete />
+        <Delete clientId={props.clientId}/>
         <Popup
             openPopup={openPopup}
             setOpenPopup = {setOpenPopup}

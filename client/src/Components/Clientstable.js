@@ -11,6 +11,7 @@ import Paper from '@mui/material/Paper';
 import Addpayment from './Addpayment'
 import { makeStyles } from '@material-ui/core/styles';
 import Updelete from './Updelete';
+import Duedate from '../Components/Duedate'
 
 const useStyles = makeStyles ({
   previewContainer: {
@@ -106,6 +107,7 @@ const Preview = (props) => {
                   <StyledTableCell align="center">{clients.duration}</StyledTableCell>
                   <StyledTableCell align="center"><Addpayment clientId={clients._id}/></StyledTableCell>
                   <StyledTableCell align="center"><Updelete clientId={clients._id}/></StyledTableCell>
+                  <StyledTableCell align="center"><Duedate clientDate={clients.date} clientDuration={clients.duration}/></StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>

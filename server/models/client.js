@@ -9,10 +9,10 @@ const paymentSchema = new Schema({
 const clientsSchema = new Schema({
     name: { type: String, required: true },
     amount: { type: Number, required: true },
-    date: { type: Date, required: true },
+    date: { type: Date, require: true },
     duration: { type: Number, required: true },
     payment: [paymentSchema]
-}, { timeStamp: true});
+}, { timeStamp: false});
 
 
 

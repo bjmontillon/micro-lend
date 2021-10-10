@@ -5,7 +5,7 @@ import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined'
 
 
 
-const Delete = props => {
+const Delete = (props) => {
 
    
     const deleteName = (id) => {
