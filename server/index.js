@@ -60,6 +60,10 @@ app.get('/read', async (req, res) => {
  })
 })
 
+app.get('/add-payment', async (req, res) => {
+    ClientModel.find()
+})
+
 
 //UPDATE MODEL
 app.put('/update', async (req, res) => {

@@ -30,6 +30,9 @@ const useStyles = makeStyles ({
   nameRow: {
     color: 'red',
   },
+  paymentDetails: {
+    display: 'flex',
+  }
 });
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -69,8 +72,11 @@ const Preview = (props) => {
 
     //const clients = props.clientsData
     const classes = useStyles;
+    const rateComputation = clients.map(client => {
+      return client.duration
+      })
     
-
+    
     return (
 
     <div className={classes.previewContainer}>
@@ -108,12 +114,21 @@ const Preview = (props) => {
                   <StyledTableCell align="center"><Addpayment clientId={clients._id}/></StyledTableCell>
                   <StyledTableCell align="center"><Updelete clientId={clients._id}/></StyledTableCell>
                   <StyledTableCell align="center"><Duedate clientDate={clients.date} clientDuration={clients.duration}/></StyledTableCell>
+                  {clients.payment.map(item => {
+                    return(<ol>
+                            <li>{item.paymentAmount}
+                            {item.paymentDate}</li>
+                            
+                          </ol>)
+                  })}
                 </StyledTableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-      
+                <div>
+                  {rateComputation}
+                </div>
         </div>
     );
   
