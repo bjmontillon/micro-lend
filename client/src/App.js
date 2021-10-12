@@ -7,7 +7,6 @@ import Dashboard from './Components/Dashboard';
 import AddClient from './Components/AddClient';
 import Clientstable from './Components/Clientstable';
 import {withStyles} from '@material-ui/styles';
-import Axios from 'axios';
 
 
 
@@ -28,27 +27,6 @@ const styles = theme => ({
 });
 
 class App extends React.Component {
-  constructor (props) {
-    super (props);
-    this.state = {
-      clientsData: [],
-      openPopup: false,
-    };
-  }
-
-  componentDidMount () {
-    Axios.get ('http://localhost:3001/read')
-      .then (res => {
-        this.setState ({
-          clientsData: res.data,
-        });
-        
-      })
-      .catch (function (error) {
-        console.log (error);
-      });
-      
-  }
   
   render () {
     
@@ -69,7 +47,7 @@ class App extends React.Component {
             <AddClient />
           </Grid>
           <Grid item xs={12} className={classes.previewSection}>
-            <Clientstable  clientsData={this.state.clientsData} />
+            <Clientstable />
           </Grid>
         </Grid>
       </Container>

@@ -12,6 +12,9 @@ import Addpayment from './Addpayment'
 import { makeStyles } from '@material-ui/core/styles';
 import Updelete from './Updelete';
 import Duedate from '../Components/Duedate'
+import Axios from 'axios';
+import Totalpayment from './Totalpayment';
+
 
 const useStyles = makeStyles ({
   previewContainer: {
@@ -61,20 +64,31 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
   
 
-const Preview = (props) => {
+const Clientstable = () => {
 
-    const clients = props.clientsData
-    const [newData, setNewData] = useState([])
+    
+    const [newData, setNewData] = useState([{
+      name: '',
+      amount: 0,
+      date: '',
+      duration: 0,
+      payment: [{
+        paymentAmount: 0,
+        paymentDate: ''
+      }]
+    }])
 
     useEffect(() => {
-      setNewData(clients)
-    }, [clients])
+      Axios.get ('http://localhost:3001/read')
+      .then (res => {
+        setNewData(res.data);
+      })
+     
+      
+    }, [newData])
 
     //const clients = props.clientsData
     const classes = useStyles;
-    const rateComputation = clients.map(client => {
-      return client.duration
-      })
     
     
     return (
@@ -91,6 +105,7 @@ const Preview = (props) => {
                 <StyledTableCell align="center">Duration(days)</StyledTableCell>
                 <StyledTableCell align="center">Add Payment</StyledTableCell>
                 <StyledTableCell align="center">Update | Delete</StyledTableCell>
+                <StyledTableCell align="center">Payments</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -105,33 +120,28 @@ const Preview = (props) => {
                     component="th"
                     scope="row"
                   >
-                    {clients._id.substr(0, 7)}
+                    {clients._id}
                   </StyledTableCell>
                   <StyledTableCell align="center">{clients.name}</StyledTableCell>
                   <StyledTableCell align="center">{clients.amount * 0.20 + clients.amount}</StyledTableCell>
-                  <StyledTableCell align="center">{clients.date.substr(0, 10)}</StyledTableCell>
+                  <StyledTableCell align="center">{clients.date}</StyledTableCell>
                   <StyledTableCell align="center">{clients.duration}</StyledTableCell>
                   <StyledTableCell align="center"><Addpayment clientId={clients._id}/></StyledTableCell>
                   <StyledTableCell align="center"><Updelete clientId={clients._id}/></StyledTableCell>
                   <StyledTableCell align="center"><Duedate clientDate={clients.date} clientDuration={clients.duration}/></StyledTableCell>
+                  <StyledTableCell align="center"><Totalpayment clientId={clients._id}/></StyledTableCell>
                   {clients.payment.map(item => {
-                    return(<ol>
-                            <li>{item.paymentAmount}
-                            {item.paymentDate}</li>
-                            
-                          </ol>)
+                    return(<p>{item.paymentAmount}
+                            {item.paymentDate}</p>)
                   })}
                 </StyledTableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-                <div>
-                  {rateComputation}
-                </div>
         </div>
     );
   
 }
 
-export default Preview;
+export default Clientstable;

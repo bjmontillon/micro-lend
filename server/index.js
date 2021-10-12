@@ -59,10 +59,23 @@ app.get('/read', async (req, res) => {
 
  })
 })
-
-app.get('/add-payment', async (req, res) => {
-    ClientModel.find()
+//GET PAYMENT SUM
+app.get('/payment-sum', async (req, res) => {
+    const id = req.body.id
+    try {
+    await ClientModel.aggregate([{
+        $unwind: {
+            path: $payment
+          }, $group:  {
+              _id: id,
+              paymentTotal: { $sum: $payment.paymentAmount }
+          }}
+        ]) } catch (err) {
+            console.log(err)
+        } res.send(result)
 })
+
+
 
 
 //UPDATE MODEL
@@ -90,7 +103,7 @@ app.put('/add-payment', async (req, res) => {
 
         try {
             await ClientModel.findOneAndUpdate({
-                id: id,
+                _id: id,
             },
             {
                 $push: {
