@@ -53,7 +53,7 @@ function AddClient () {
 
     const [name, setName] = useState('');
     const [amount, setAmount] = useState(0);
-    const [date, setDate] = useState(new Date("<YYYY-mm-dd>"));
+    const [date, setDate] = useState('');
     const [duration, setDuration] = useState(0);
     
 

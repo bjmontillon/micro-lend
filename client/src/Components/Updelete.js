@@ -1,5 +1,5 @@
 import Popup from '../../src/Controls/Popup'
-import Update from '../Components/Update'
+import Update from '../Controls/Update'
 import Controls from '../Controls/Controls';
 import React from 'react';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';

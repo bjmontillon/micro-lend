@@ -13,7 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Updelete from './Updelete';
 import Duedate from '../Components/Duedate'
 import Axios from 'axios';
-//import Totalpayment from './Totalpayment';
+import Totalpayment from './Totalpayment';
 
 
 const useStyles = makeStyles ({
@@ -90,18 +90,6 @@ const Clientstable = () => {
     //const clients = props.clientsData
     const classes = useStyles;
     //////////////////////////////////
-    const [totalPayment, setTotalPayment] = useState([]);
-
-        useEffect((id) => {
-
-            Axios.get ('http://localhost:3001/payment-sum')
-            .then (res => {
-                setTotalPayment(res.data);
-                console.log(res.data)
-              })
-        }, [])
-
-        const newTotalPayment = totalPayment.map(el => {return(<p>{el.count}</p>)})
         //////////////////////////
     
     
@@ -125,7 +113,7 @@ const Clientstable = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {newData.map (clients => (
+              {newData.map(clients => (
                 <StyledTableRow
                   key={clients._id}
                   sx={{'&:last-child td, &:last-child th': {border: 0}}}
@@ -145,10 +133,9 @@ const Clientstable = () => {
                   <StyledTableCell align="center"><Duedate clientDate={clients.date} clientDuration={clients.duration}/></StyledTableCell>
                   <StyledTableCell align="center"><Addpayment clientId={clients._id}/></StyledTableCell>
                   <StyledTableCell align="center"><Updelete clientId={clients._id}/></StyledTableCell>
-                  <StyledTableCell align="center">{newTotalPayment}</StyledTableCell>
+                  <StyledTableCell align="center"><Totalpayment /></StyledTableCell>
                   <StyledTableCell align="center">{clients.payment.map(item => {
-                    return(<p>{item.paymentAmount}
-                            {item.paymentDate}</p>)
+                    return(<p>{item.paymentAmount} | {item.paymentDate}</p>)
                   })}</StyledTableCell>
                 </StyledTableRow>
               ))}

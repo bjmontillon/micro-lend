@@ -3,8 +3,8 @@ import Axios from 'axios';
 import { makeStyles } from '@material-ui/styles';
 
 
-import Controls from '../Controls/Controls'
-import Popup from '../../src/Controls/Popup'
+import Controls from './Controls'
+import Popup from './Popup'
 
 
 
