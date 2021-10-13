@@ -60,19 +60,24 @@ app.get('/read', async (req, res) => {
  })
 })
 //GET PAYMENT SUM
-app.get('/payment-sum', async (req, res) => {
-    const id = req.body.id
-    try {
-    await ClientModel.aggregate([{
-        $unwind: {
-            path: $payment
-          }, $group:  {
-              _id: id,
-              paymentTotal: { $sum: $payment.paymentAmount }
-          }}
-        ]) } catch (err) {
-            console.log(err)
-        } res.send(result)
+app.get('/payment-sum', (req, res) => {
+    const id = '6166651cf51a3155fddb3b9f'
+
+    const pipeLine = [
+        {
+          '$unwind': {
+            'path': '$payment'
+          }
+        }, {
+          '$group': {
+            '_id': '$_id', 
+            'count': {
+              '$sum': '$payment.paymentAmount'
+            }
+          }
+        }
+      ];
+     ClientModel.aggregate(pipeLine).then(result => res.send(result)).catch(err => console.log(err))
 })
 
 

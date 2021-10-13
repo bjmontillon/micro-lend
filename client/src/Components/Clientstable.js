@@ -13,7 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Updelete from './Updelete';
 import Duedate from '../Components/Duedate'
 import Axios from 'axios';
-import Totalpayment from './Totalpayment';
+//import Totalpayment from './Totalpayment';
 
 
 const useStyles = makeStyles ({
@@ -89,6 +89,20 @@ const Clientstable = () => {
 
     //const clients = props.clientsData
     const classes = useStyles;
+    //////////////////////////////////
+    const [totalPayment, setTotalPayment] = useState([]);
+
+        useEffect((id) => {
+
+            Axios.get ('http://localhost:3001/payment-sum')
+            .then (res => {
+                setTotalPayment(res.data);
+                console.log(res.data)
+              })
+        }, [])
+
+        const newTotalPayment = totalPayment.map(el => {return(<p>{el.count}</p>)})
+        //////////////////////////
     
     
     return (
@@ -103,8 +117,10 @@ const Clientstable = () => {
                 <StyledTableCell align="center">Amount</StyledTableCell>
                 <StyledTableCell align="center">Date</StyledTableCell>
                 <StyledTableCell align="center">Duration(days)</StyledTableCell>
+                <StyledTableCell align="center">Due-Date</StyledTableCell>
                 <StyledTableCell align="center">Add Payment</StyledTableCell>
                 <StyledTableCell align="center">Update | Delete</StyledTableCell>
+                <StyledTableCell align="center">Total Payments</StyledTableCell>
                 <StyledTableCell align="center">Payments</StyledTableCell>
               </TableRow>
             </TableHead>
@@ -126,14 +142,14 @@ const Clientstable = () => {
                   <StyledTableCell align="center">{clients.amount * 0.20 + clients.amount}</StyledTableCell>
                   <StyledTableCell align="center">{clients.date}</StyledTableCell>
                   <StyledTableCell align="center">{clients.duration}</StyledTableCell>
+                  <StyledTableCell align="center"><Duedate clientDate={clients.date} clientDuration={clients.duration}/></StyledTableCell>
                   <StyledTableCell align="center"><Addpayment clientId={clients._id}/></StyledTableCell>
                   <StyledTableCell align="center"><Updelete clientId={clients._id}/></StyledTableCell>
-                  <StyledTableCell align="center"><Duedate clientDate={clients.date} clientDuration={clients.duration}/></StyledTableCell>
-                  <StyledTableCell align="center"><Totalpayment clientId={clients._id}/></StyledTableCell>
-                  {clients.payment.map(item => {
+                  <StyledTableCell align="center">{newTotalPayment}</StyledTableCell>
+                  <StyledTableCell align="center">{clients.payment.map(item => {
                     return(<p>{item.paymentAmount}
                             {item.paymentDate}</p>)
-                  })}
+                  })}</StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>
