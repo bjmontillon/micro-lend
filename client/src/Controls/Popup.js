@@ -2,6 +2,7 @@ import {React } from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles';
 import Controls from '../Controls/Controls'
+import Typography from '@material-ui/core/Typography'
 
 
 
@@ -20,7 +21,11 @@ export default function Popup(props) {
         <div>
             <Dialog open={openPopup}>
                 <DialogTitle>
-                    {title}
+                    <Typography
+                        variant='h6'
+                        component='div'>
+                        {title}
+                    </Typography>
                 </DialogTitle>
                 <DialogContent>
                     {children}

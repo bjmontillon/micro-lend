@@ -8,8 +8,6 @@ import AddClient from './Components/AddClient';
 import Clientstable from './Components/Clientstable';
 import {withStyles} from '@material-ui/styles';
 
-
-
 const styles = theme => ({
   bodyContainer: {
     display: 'flex',
@@ -18,28 +16,23 @@ const styles = theme => ({
     alignItems: 'baseline',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    margin: '0'
+    margin: '0',
   },
-  previewSection: {
-    
-  },
+  previewSection: {},
   addClientSection: {},
 });
 
 class App extends React.Component {
-  
   render () {
-    
     const classes = this.props.classes;
 
     return (
       <Container maxWidth="xl" className="App">
-        
-  
+
         <Grid container className="bodyContainer" xs={12} spacing={2}>
-        <Grid item xs={12}>
-          <Heading />
-        </Grid>
+          <Grid item xs={12}>
+            <Heading />
+          </Grid>
           <Grid item xs={12} md={9} className={classes.previewSection}>
             <Dashboard />
           </Grid>
@@ -53,7 +46,6 @@ class App extends React.Component {
       </Container>
     );
   }
-  }
- 
+}
 
-export default withStyles(styles)(App);
+export default withStyles (styles) (App);

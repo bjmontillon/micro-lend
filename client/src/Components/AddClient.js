@@ -3,7 +3,6 @@ import Axios from 'axios';
 import { Grid }  from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Controls from '../Controls/Controls';
-
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 
 const useStyles = makeStyles({
@@ -78,13 +77,13 @@ function AddClient () {
     <Grid container xs={12} className={classes.addClientContainer}>
       <Grid item xs={12} className={classes.clientForm}>
         <label>Name:</label>
-        <input className={classes.inputs} type="text" onChange={(event) => {setName(event.target.value)}} />
+        <Controls.Input className={classes.inputs} type="text" onChange={(event) => {setName(event.target.value)}} />
         <label>Amount:</label>
-        <input className={classes.inputs}  type="number" onChange={(event) => {setAmount(event.target.value)}} />
+        <Controls.Input className={classes.inputs}  type="number" onChange={(event) => {setAmount(event.target.value)}} />
         <label>Date issued:</label>
-        <input className={classes.inputs}  type="date" min="2018-01-01" max="2025-01-01" onChange={(event) => {setDate(event.target.value)}} placeholder='YYYY-MM-DD' />
+        <Controls.Input className={classes.inputs} type="date" min="2018-01-01" max="2025-01-01" onChange={(event) => {setDate(event.target.value)}} placeholder='YYYY-MM-DD' />
         <label>Duration:</label>
-        <input className={classes.inputs}  type="number" onChange={(event) => {setDuration(event.target.value)}} />
+        <Controls.Input className={classes.inputs}  type="number" onChange={(event) => {setDuration(event.target.value)}} />
 
         
       </Grid>
