@@ -53,7 +53,8 @@ function AddClient () {
     const [name, setName] = useState('');
     const [amount, setAmount] = useState(0);
     const [date, setDate] = useState('');
-    const [duration, setDuration] = useState(0);
+    const [duration, setDuration] = useState(0)
+    const [rate, setRate] = useState(0);
     
 
     const newClient = () => {
@@ -63,6 +64,7 @@ function AddClient () {
         amount: amount, 
         date: date,
         duration: duration,
+        rate: rate,
       })
       .then(() => {
         alert ('New client added!')
@@ -84,6 +86,9 @@ function AddClient () {
         <Controls.Input className={classes.inputs} type="date" min="2018-01-01" max="2025-01-01" onChange={(event) => {setDate(event.target.value)}} placeholder='YYYY-MM-DD' />
         <label>Duration:</label>
         <Controls.Input className={classes.inputs}  type="number" onChange={(event) => {setDuration(event.target.value)}} />
+        <label>Rate:</label>
+        <Controls.Input className={classes.inputs}  type="number" onChange={(event) => {setRate(event.target.value)}} />
+
 
         
       </Grid>
