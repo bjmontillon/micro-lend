@@ -35,10 +35,10 @@ app.post('/add-client', async (req, res) => {
     const amount = req.body.amount;
     const date = req.body.date;
     const duration = req.body.duration;
-    const rate = req.body.rate;
+    const rate  = req.body.rate ;
     const payment = req.body.payment;
 
-    const client = new ClientModel({ name: name, amount: amount, date: date, duration: duration, rate: rate, payment: payment })
+    const client = new ClientModel({ name: name, amount: amount, date: date, duration: duration, rate : rate , payment: payment })
 
     try {
         await client.save();
