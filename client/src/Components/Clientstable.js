@@ -3,17 +3,17 @@ import './components.css';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, {tableCellClasses} from '@mui/material/TableCell';
-import {styled} from '@mui/material/styles';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import Addpayment from './Addpayment';
+import {styled} from '@mui/material/styles';
 import {makeStyles} from '@material-ui/core/styles';
+
+import Addpayment from './Addpayment';
 import Updelete from './Updelete';
 import Duedate from '../Components/Duedate';
 import Axios from 'axios';
-//import Totalpayment from './Totalpayment';
 import PaymentsList from './Paymentslist';
 import Interest from './Interest';
 import Status from './Status';
@@ -39,6 +39,7 @@ const StyledTableCell = styled (TableCell) (({theme}) => ({
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
     fontFamily: `'Montserrat', sans-serif`,
+    fontSize: '.7em',
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 12,
@@ -89,10 +90,10 @@ const Clientstable = () => {
         <Table sx={{minWidth: 650}} size="small" aria-label="a dense table">
           <TableHead className={classes.tableHead}>
             <TableRow>
-              <StyledTableCell align="center">ID</StyledTableCell>
+            <StyledTableCell align="center">ID</StyledTableCell>
+            <StyledTableCell align="center">Date Issued</StyledTableCell>
               <StyledTableCell align="center">Name</StyledTableCell>
               <StyledTableCell align="center">Amount</StyledTableCell>
-              <StyledTableCell align="center">Date Issued</StyledTableCell>
               <StyledTableCell align="center">Duration(days)</StyledTableCell>
               <StyledTableCell align="center">Due-Date</StyledTableCell>
               <StyledTableCell align="center">Add Payment</StyledTableCell>
@@ -115,12 +116,12 @@ const Clientstable = () => {
                   scope="row"
                 >
                   {clients._id}
-                </StyledTableCell>
+                  </StyledTableCell>
+                  <StyledTableCell align="center">{clients.date}</StyledTableCell>
                 <StyledTableCell align="center">{clients.name}</StyledTableCell>
                 <StyledTableCell align="center">
                   {clients.amount}
                 </StyledTableCell>
-                <StyledTableCell align="center">{clients.date}</StyledTableCell>
                 <StyledTableCell align="center">
                   {clients.duration}
                 </StyledTableCell>

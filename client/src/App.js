@@ -6,9 +6,9 @@ import Heading from './Components/Heading';
 import Dashboard from './Components/Dashboard';
 import AddClient from './Components/AddClient';
 import Clientstable from './Components/Clientstable';
-import {withStyles} from '@material-ui/styles';
+import {makeStyles} from '@material-ui/styles';
 
-const styles = theme => ({
+const useStyles = makeStyles ({
   bodyContainer: {
     display: 'flex',
     boxSizing: 'border-box',
@@ -22,9 +22,9 @@ const styles = theme => ({
   addClientSection: {},
 });
 
-class App extends React.Component {
-  render () {
-    const classes = this.props.classes;
+function App() {
+
+    const classes = useStyles();
 
     return (
       <Container maxWidth="xl" className="App">
@@ -45,7 +45,7 @@ class App extends React.Component {
         </Grid>
       </Container>
     );
-  }
+  
 }
 
-export default withStyles (styles) (App);
+export default App;
