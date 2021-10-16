@@ -1,49 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import Container from '@mui/material/Container';
-import {Grid} from '@material-ui/core';
-import Heading from './Components/Heading';
-import Dashboard from './Components/Dashboard';
-import AddClient from './Components/AddClient';
-import Clientstable from './Components/Clientstable';
-import {makeStyles} from '@material-ui/styles';
+import { BrowserRouter, Route, Link } from 'react-router-dom'
+import ProtectedRoute  from './ProtectedRoute';
+import Auth from './Auth';
+import Controls from './Controls/Controls';
+import Typography from '@material-ui/core/Typography'
 
-const useStyles = makeStyles ({
-  bodyContainer: {
-    display: 'flex',
-    boxSizing: 'border-box',
-    justifyContent: 'center',
-    alignItems: 'baseline',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    margin: '0',
-  },
-  previewSection: {},
-  addClientSection: {},
-});
+
+
 
 function App() {
 
-    const classes = useStyles();
-
+    const [isAuth, setIsAuth] = useState(false)
     return (
-      <Container maxWidth="xl" className="App">
-
-        <Grid container className="bodyContainer" xs={12} spacing={2}>
-          <Grid item xs={12}>
-            <Heading />
-          </Grid>
-          <Grid item xs={12} md={9} className={classes.previewSection}>
-            <Dashboard />
-          </Grid>
-          <Grid item xs={12} md={3} className={classes.addClientSection}>
-            <AddClient />
-          </Grid>
-          <Grid item xs={12} className={classes.previewSection}>
-            <Clientstable />
-          </Grid>
-        </Grid>
-      </Container>
+      <BrowserRouter>
+        <Route path='/' exact>
+          <Link to='/auth'>
+            <Typography type='h1'>
+              Proceed
+            </Typography>
+          </Link>
+          <Controls.Button text='Log In' onClick={() => {setIsAuth(true)}}></Controls.Button>
+          <Controls.Button text='Log Out' onClick={() => {setIsAuth(false)}}></Controls.Button>
+        </Route>
+        
+        <ProtectedRoute path="/auth" component={Auth} isAuth={isAuth}/>
+</BrowserRouter>
     );
   
 }
