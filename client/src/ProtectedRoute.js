@@ -11,7 +11,7 @@ function ProtectedRoute({ isAuth: isAuthe, component: Component, ...rest }) {
                     return <Component />
                 } else {
                     return(
-                        <Redirect to={{ pathname: '/', state: { from: props.location } }} />
+                        <Redirect to={{ pathname: '/micro-lend', state: { from: props.location } }} />
                     )
                 }
             }}
