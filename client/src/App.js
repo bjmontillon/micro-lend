@@ -14,7 +14,7 @@ function App() {
     const [isAuth, setIsAuth] = useState(false)
     return (
       <BrowserRouter>
-        <Route path='/' exact>
+        <Route path='/micro-lend' exact>
           <Link to='/auth'>
             <Typography type='h1'>
               Proceed
