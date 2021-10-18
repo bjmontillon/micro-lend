@@ -9,7 +9,15 @@ import AddClient from './Components/AddClient';
 import Clientstable from './Components/Clientstable';
 import {makeStyles} from '@material-ui/styles';
 
+
+
+
 const useStyles = makeStyles ({
+  mainAppContainer: {
+    backgroundColor: "red",
+    height: '100vh',
+    width: '100vh'
+  },
     bodyContainer: {
       display: 'flex',
       boxSizing: 'border-box',
@@ -27,7 +35,8 @@ const useStyles = makeStyles ({
 function Auth() {
     const classes = useStyles()
     return ( 
-        <Container maxWidth="xl" className="App">
+      
+        <Container maxWidth="xl" className={classes.mainAppContainer}>
 
         <Grid container className="bodyContainer" xs={12} spacing={2}>
           <Grid item xs={12}>
@@ -44,7 +53,7 @@ function Auth() {
           </Grid>
         </Grid>
       </Container>
-
+      
      );
 }
 

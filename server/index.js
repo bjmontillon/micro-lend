@@ -16,7 +16,7 @@ const mongoPass = process.env.DB_PASSWORD;
 
 const dbURI = `mongodb+srv://${mongoUser}:${mongoPass}@cluster0.rmcvw.mongodb.net/Cluster0?retryWrites=true&w=majority`;
 
-mongoose.connect(process.env.MONGODB_URI || dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
     .then(() => app.listen(process.env.PORT || 3001, () => {
         console.log("its working! Server running on port 3001")
@@ -26,15 +26,6 @@ mongoose.connect(process.env.MONGODB_URI || dbURI, { useNewUrlParser: true, useU
     //MODELS
     const ClientModel = require('./models/Client'); 
     const Client = require('./models/Client');
-
-    if ( process.env.NODE_ENV === 'production' ) {
-        app.use(express.static('../client/build'))
-    }
-
-
-
-
-
 
 
 //POST OR ADD NEW CLIENT MODEL
