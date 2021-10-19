@@ -37,13 +37,13 @@ const PaymentsList = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {clientsPayments.map((row) => (
+            {clientsPayments.map((item) => (
               <TableRow
-                key={row.name}
+                key={item._id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
-                <TableCell component="th" scope="row"> {row.paymentAmount}</TableCell>
-                <TableCell align="center">{row.paymentDate}</TableCell>
+                <TableCell component="th" scope="row"> {item.paymentAmount}</TableCell>
+                <TableCell align="center">{item.paymentDate}</TableCell>
           
               </TableRow>
             ))}

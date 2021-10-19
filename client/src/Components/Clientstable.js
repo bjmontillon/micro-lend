@@ -106,7 +106,7 @@ const Clientstable = () => {
           <TableBody>
             {newData.map (clients => (
               <StyledTableRow
-                key={clients._id}
+                key={clients.name}
                 sx={{'&:last-child td, &:last-child th': {border: 0}}}
               >
                 <StyledTableCell

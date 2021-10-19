@@ -36,7 +36,7 @@ function Auth() {
       
         <Container maxWidth="xl" className={classes.mainAppContainer}>
 
-        <Grid container className="bodyContainer" xs={12} spacing={2}>
+        <Grid container className="bodyContainer" spacing={2}>
           <Grid item xs={12}>
             <Heading />
           </Grid>

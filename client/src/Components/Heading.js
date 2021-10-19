@@ -22,7 +22,7 @@ function Heading () {
 
 
     return (
-        <Grid container className={classes.headingContainer} xs={12}>
+        <Grid container className={classes.headingContainer}>
         <Grid item xs={4}><h2>Micro-Lending</h2></Grid>
         <Grid item xs={4}>
             

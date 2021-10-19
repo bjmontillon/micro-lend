@@ -78,13 +78,13 @@ function AddClient () {
     // }
 
   return (
-    <Grid container xs={12} className={classes.addClientContainer}>
+    <Grid container className={classes.addClientContainer}>
       <Grid item xs={12} className={classes.clientForm}>
         <Controls.Input size='small' placeholder='Name' margin='dense' className={classes.inputs} type="text" onChange={(event) => {setName(event.target.value)}} />
 
         <Controls.Input size='small' placeholder='Amount' margin='normal' className={classes.inputs}  type="number" onChange={(event) => {setAmount(event.target.value)}} />
 
-        <Controls.Input size='small' margin='normal' className={classes.inputs} type="date" min="2018-01-01" max="2025-01-01" onChange={(event) => {setDate(event.target.value)}} />
+        <Controls.Input size='small' margin='normal' className={classes.inputs} type='date' min="2018-01-01" max="2025-01-01" onChange={(event) => {setDate(event.target.value)}} />
 
         <Controls.Input size='small' placeholder='duration' margin='normal' className={classes.inputs}  type="number" onChange={(event) => {setDuration(event.target.value)}} />
 

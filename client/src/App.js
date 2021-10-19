@@ -17,22 +17,17 @@ const useStyles = makeStyles ({
     width: '100vw',
     justifyContent: 'center',
     alignItems: 'center',
-    alignContent: 'center',
-  },
-  appLink: {
-    display: 'flex',
-    justifyContent: 'center',
+    flexDirection: 'column'
   },
   buttonWrapper: {
-    minHeight: '40vh',
-    width: '15vw',
+    minHeight: '27vh',
     display: 'flex',
-    flexWrap: 'wrap',
-    alignContent: 'center',
+    alignContent: 'space-around',
     textAlign: 'center',
-    border: '1px solid black',
-    borderRadius: '3px',
+    justifyContent: 'center',
   },
+ 
+
 });
 
 function App () {
@@ -45,7 +40,7 @@ function App () {
       <BrowserRouter>
         <Grid container className={classes.authContainer}>
           <Route path="/micro-lend" exact>
-            
+            <Grid container className={classes.buttonWrapper}>
               <div className={classes.loginButton}>
                 <Controls.Button
                   variant="contained"
@@ -55,9 +50,9 @@ function App () {
                   }}
                   color="primary"
                 />
-                </div>
-              
-       
+              </div>
+
+              <div className={classes.logoutButton}>
                 <Controls.Button
                   text="LOG OUT"
                   onClick={() => {
@@ -66,8 +61,8 @@ function App () {
                   variant="outlined"
                   color="primary"
                 />
-           
-          
+              </div>
+              <div className={classes.proceedLink}>
                 <Link
                   to="/auth"
                   style={{textDecoration: 'none', color: 'black'}}
@@ -76,8 +71,8 @@ function App () {
                     Proceed
                   </Typography>
                 </Link>
-          
-
+              </div>
+            </Grid>
           </Route>
 
           <ProtectedRoute path="/auth" component={Auth} isAuth={isAuth} />

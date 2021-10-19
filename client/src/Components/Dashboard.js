@@ -25,13 +25,13 @@ export default function Dashboard() {
     return (
 
         <Grid container className={classes.dashboardContainer}>
-            <Grid item xs={3}><div className={classes.card-1}><h3>Total Balance</h3></div></Grid>
+            <Grid item xs={3}><div className={classes.card1}><h3>Total Balance</h3></div></Grid>
             <Grid item xs={3}>
-            <div className={classes.card-2}><h3>hello</h3></div></Grid>
+            <div className={classes.card2}><h3>hello</h3></div></Grid>
             <Grid item xs={3}>
-            <div className={classes.card-3}><h3>hello</h3></div></Grid>
+            <div className={classes.card3}><h3>hello</h3></div></Grid>
             <Grid item xs={3}>
-            <div className={classes.card-4}><h3>hello</h3></div></Grid>
+            <div className={classes.card4}><h3>hello</h3></div></Grid>
       
         </Grid>
        ) 
