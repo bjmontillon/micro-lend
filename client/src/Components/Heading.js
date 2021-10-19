@@ -9,7 +9,7 @@ const useStyles = makeStyles ({
         padding: '20px',
         borderRadius: '5px',
         boxShadow: '6px 4px 39px -14px rgb(0 0 0 / 40%)',
-        fontFamily: `'Montserrat', sans-serif`,
+        fontFamily: `var(--font-spartan)`,
         alignContent: 'center',
         justifyContent: 'flex-end',
         textAlign: 'center',
@@ -23,7 +23,7 @@ function Heading () {
 
     return (
         <Grid container className={classes.headingContainer} xs={12}>
-        <Grid item xs={4}><h1>Micro-Lending</h1></Grid>
+        <Grid item xs={4}><h2>Micro-Lending</h2></Grid>
         <Grid item xs={4}>
             
         </Grid>

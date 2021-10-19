@@ -5,20 +5,20 @@ import { Button as MuiButton } from '@material-ui/core';
 
 export default function Button(props) {
 
-    const { text, size, color, variant, onClick, classes, ...other } = props; 
+    const { text, size, color, variant, onClick, className, ...other } = props; 
     
     return(
         <>
             <MuiButton
                 variant = { variant || "outlined"}
-                size = { size || "small" }
+                size = { size }
                 onClick={onClick}
                 color={color}
-                classes={classes}
+                className={className}
                 {...other}
                 >
                 {text}
             </MuiButton>
-        </>
+</>
     )
 }

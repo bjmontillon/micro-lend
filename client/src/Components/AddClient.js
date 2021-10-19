@@ -27,7 +27,8 @@ const useStyles = makeStyles({
       alignItems:'baseline',
       flexWrap: 'wrap',
       flexDirection: 'column',
-      fontFamily: `'Montserrat', sans-serif`,
+      fontFamily: 'var(--font-spartan)',
+      fontSize: '1.5vmin'
       
     },
     inputs: {
@@ -37,8 +38,9 @@ const useStyles = makeStyles({
       display: 'flex',
       justifyContent: 'center',
     },
-    addCLientButton: {
-      fontFamily: `'Montserrat', sans-serif`
+    root: {
+      fontFamily: 'var(--font-spartan)',
+      margin: '2px'
     },
   
 });
@@ -78,27 +80,27 @@ function AddClient () {
   return (
     <Grid container xs={12} className={classes.addClientContainer}>
       <Grid item xs={12} className={classes.clientForm}>
-        <label>Name:</label>
-        <Controls.Input className={classes.inputs} type="text" onChange={(event) => {setName(event.target.value)}} />
-        <label>Amount:</label>
-        <Controls.Input className={classes.inputs}  type="number" onChange={(event) => {setAmount(event.target.value)}} />
-        <label>Date issued:</label>
-        <Controls.Input className={classes.inputs} type="date" min="2018-01-01" max="2025-01-01" onChange={(event) => {setDate(event.target.value)}} placeholder='YYYY-MM-DD' />
-        <label>Duration:</label>
-        <Controls.Input className={classes.inputs}  type="number" onChange={(event) => {setDuration(event.target.value)}} />
-        <label>Rate:</label>
-        <Controls.Input className={classes.inputs}  type="number" onChange={(event) => {setRate(event.target.value)}} />
+        <Controls.Input size='small' placeholder='Name' margin='dense' className={classes.inputs} type="text" onChange={(event) => {setName(event.target.value)}} />
+
+        <Controls.Input size='small' placeholder='Amount' margin='normal' className={classes.inputs}  type="number" onChange={(event) => {setAmount(event.target.value)}} />
+
+        <Controls.Input size='small' margin='normal' className={classes.inputs} type="date" min="2018-01-01" max="2025-01-01" onChange={(event) => {setDate(event.target.value)}} />
+
+        <Controls.Input size='small' placeholder='duration' margin='normal' className={classes.inputs}  type="number" onChange={(event) => {setDuration(event.target.value)}} />
+
+        <Controls.Input size='small' placeholder='ex: .15'margin='normal' className={classes.inputs}  type="number" onChange={(event) => {setRate(event.target.value)}} />
 
 
         
       </Grid>
       <Grid item xs={12} className={classes.clientFormButton}>
         <Controls.Button 
-          className={classes.addCLientButton}
+          className={classes.root}
           text='Add New'
           type='text'
           startIcon={<AddOutlinedIcon />}
           onClick={() => newClient()}
+          color='secondary'
         />
       </Grid>
     </Grid>

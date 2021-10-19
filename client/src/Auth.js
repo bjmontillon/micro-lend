@@ -9,12 +9,8 @@ import AddClient from './Components/AddClient';
 import Clientstable from './Components/Clientstable';
 import {makeStyles} from '@material-ui/styles';
 
-
-
-
 const useStyles = makeStyles ({
   mainAppContainer: {
-    backgroundColor: "red",
     height: '100vh',
     width: '100vh'
   },
@@ -33,6 +29,8 @@ const useStyles = makeStyles ({
 
 
 function Auth() {
+
+    
     const classes = useStyles()
     return ( 
       
@@ -57,4 +55,4 @@ function Auth() {
      );
 }
 
-export default withRouter(Auth);
+export default withRouter (Auth);

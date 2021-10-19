@@ -61,6 +61,7 @@ export default function Addpayment(props)  {
               variant="text"
               onClick={() => addPayment(props.clientId)}
               text='submit'
+              color='primary'
             />
           </Popup>
         </>

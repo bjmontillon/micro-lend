@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import './components.css';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, {tableCellClasses} from '@mui/material/TableCell';
@@ -36,22 +35,22 @@ const useStyles = makeStyles ({
 
 const StyledTableCell = styled (TableCell) (({theme}) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-    fontFamily: `'Montserrat', sans-serif`,
-    fontSize: '.7em',
+    //backgroundColor: theme.palette.common.black,
+    fontSize: '1.6vmin',
+    color: theme.palette.common.black,
+    fontFamily: 'var(--font-spartan)',
+    fontWeight: 800,
   },
   [`&.${tableCellClasses.body}`]: {
-    fontSize: 12,
-    fontFamily: `'Montserrat', sans-serif`,
-    color: theme.palette.common.black,
-    fontWeight: 400,
+    fontSize: '1.5vmin',
+    fontFamily: 'var(--font-spartan)',
+    fontWeight: 600,
   },
 }));
 
 const StyledTableRow = styled (TableRow) (({theme}) => ({
   '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
+    //backgroundColor: theme.palette.action.hover,
   },
   // hide last border
   '&:last-child td, &:last-child th': {
@@ -101,6 +100,7 @@ const Clientstable = () => {
               <StyledTableCell align="center">Total Payments</StyledTableCell>
               <StyledTableCell align="center">List of Payments</StyledTableCell>
               <StyledTableCell align="center">Daily Juice</StyledTableCell>
+              <StyledTableCell align="center">Status</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
