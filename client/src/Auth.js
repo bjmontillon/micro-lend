@@ -1,58 +1,89 @@
-import React from 'react'
-import { withRouter } from 'react-router-dom'
+import React, {useState} from 'react';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
+import Controls from './Controls/Controls';
 
-import Container from '@mui/material/Container';
-import {Grid} from '@material-ui/core';
-import Heading from './Components/Heading';
-import Dashboard from './Components/Dashboard';
-import AddClient from './Components/AddClient';
-import Clientstable from './Components/Clientstable';
-import {makeStyles} from '@material-ui/styles';
+import Grid from '@mui/material/Grid';
+import {makeStyles} from '@mui/styles';
+import theme from './Theme';
+import ThemeProvider from '@material-ui/styles/ThemeProvider';
+import App from './App';
 
 const useStyles = makeStyles ({
-  mainAppContainer: {
+  authContainer: {
     height: '100vh',
-    width: '100vh'
+    width: '100vw',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-    bodyContainer: {
-      display: 'flex',
-      boxSizing: 'border-box',
-      justifyContent: 'center',
-      alignItems: 'baseline',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      margin: '0',
-    },
-    previewSection: {},
-    addClientSection: {},
-  });
+  buttonWrapper: {
+    minHeight: '27vh',
+    textAlign: 'center',
+    justifyContent: 'space-evenly',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+ 
 
+});
 
-function Auth() {
+function Auth () {
+  const classes = useStyles ();
+  const [isAuth, setIsAuth] = useState (false);
 
-    
-    const classes = useStyles()
-    return ( 
-      
-        <Container maxWidth="xl" className={classes.mainAppContainer}>
+  //<Grid item xs={12} className={classes.appLink}>
+  return (
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Grid container className={classes.authContainer}>
+          <Route path="/micro-lend" exact>
+            <div className={classes.buttonWrapper}>
+              <div className={classes.loginButton}>
+                <Controls.Button
+                  variant="outlined"
+                  text="LOG IN"
+                  onClick={() => {
+                    setIsAuth (true);
+                  }}
+                  color="primary"
+                  size='small'  
+                />
+              </div>
 
-        <Grid container className="bodyContainer" spacing={2}>
-          <Grid item xs={12}>
-            <Heading />
-          </Grid>
-          <Grid item xs={12} md={9} className={classes.previewSection}>
-            <Dashboard />
-          </Grid>
-          <Grid item xs={12} md={3} className={classes.addClientSection}>
-            <AddClient />
-          </Grid>
-          <Grid item xs={12} className={classes.previewSection}>
-            <Clientstable />
-          </Grid>
+              <div className={classes.logoutButton}>
+                <Controls.Button
+                  text="LOG OUT"
+                  onClick={() => {
+                    setIsAuth (false);
+                  }}
+                  variant="outlined"
+                  color="primary"
+                  size='small'
+                />
+              </div>
+              <div className={classes.proceedLink}>
+              
+              
+              <Link
+                  to="/auth"
+                  style={{textDecoration: 'none', color: 'black'}}>
+                  <Controls.Button
+                  text='Proceed'
+                  variant="outlined"
+                  color="primary"
+                  size='small'
+              />
+                </Link>
+              </div>
+
+            </div>
+          </Route>
+
+          <ProtectedRoute path="/Auth" component={App} isAuth={isAuth} />
         </Grid>
-      </Container>
-      
-     );
+      </BrowserRouter>
+    </ThemeProvider>
+  );
 }
 
-export default withRouter (Auth);
+export default Auth ;
