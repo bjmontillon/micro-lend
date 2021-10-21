@@ -13,8 +13,8 @@ const useStyles = makeStyles ({
   authContainer: {
     height: '100vh',
     width: '100vw',
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center'
   },
   buttonWrapper: {
     minHeight: '27vh',
@@ -65,7 +65,7 @@ function Auth () {
               
               
               <Link
-                  to="/auth"
+                  to="/App"
                   style={{textDecoration: 'none', color: 'black'}}>
                   <Controls.Button
                   text='Proceed'
@@ -77,10 +77,10 @@ function Auth () {
               </div>
 
             </div>
-          </Route>
-
-          <ProtectedRoute path="/Auth" component={App} isAuth={isAuth} />
-        </Grid>
+            </Route>
+            <ProtectedRoute path="/App" component={App} isAuth={isAuth} />
+            </Grid>
+        
       </BrowserRouter>
     </ThemeProvider>
   );

@@ -35,12 +35,8 @@ export default function Updelete(props) {
         <Popup
             openPopup={openPopup}
             setOpenPopup = {setOpenPopup}
-            
         >
-            
-            <Update 
-                clientId={clientId}
-                ></Update>
+            <Update clientId={clientId}/>
         </Popup>
         </div>
     )

@@ -17,10 +17,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MoveToInbox from '@material-ui/icons/MoveToInbox';
 import Mail from '@material-ui/icons/Mail';
-
 import Container from '@mui/material/Container';
 import {Grid} from '@material-ui/core';
-import Heading from './Heading';
+//import Heading from './Heading';
 import Dashboard from './Dashboard';
 import AddClient from './AddClient';
 import Clientstable from './Clientstable';
@@ -30,7 +29,7 @@ import {makeStyles} from '@material-ui/styles';
 const useStyles = makeStyles ({
   mainAppContainer: {
     height: '100vh',
-    width: '100vh'
+    maxWidth: '86%'
   },
     bodyContainer: {
       display: 'flex',
@@ -42,13 +41,12 @@ const useStyles = makeStyles ({
       margin: '0',
     },
     previewSection: {},
-    addClientSection: {},
   });
 
 
 
 
-const drawerWidth = 240;
+const drawerWidth = 170;
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -158,43 +156,66 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
+          <ListItem button>
               <ListItemIcon>
-                {index % 2 === 0 ? <MoveToInbox /> : <Mail />}
+                {<MoveToInbox />}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary='Home' />
             </ListItem>
-          ))}
+            <ListItem button>
+              <ListItemIcon>
+                {<MoveToInbox />}
+              </ListItemIcon>
+              <ListItemText primary='Admin' />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                {<Mail />}
+              </ListItemIcon>
+              <ListItemText primary='Inbox' />
+            </ListItem>
+            <ListItem button>
+              <ListItemIcon>
+                {<MoveToInbox />}
+              </ListItemIcon>
+              <ListItemText primary='Contacts' />
+            </ListItem>
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <MoveToInbox /> : <Mail />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+        <ListItem button>
+        <ListItemIcon>
+          {<AddClient />}
+        </ListItemIcon>
+        <ListItemText primary='Add Client' />
+      </ListItem><ListItem button>
+      <ListItemIcon>
+        {<MoveToInbox />}
+      </ListItemIcon>
+      <ListItemText primary='Payments' />
+    </ListItem><ListItem button>
+    <ListItemIcon>
+      {<MoveToInbox />}
+    </ListItemIcon>
+    <ListItemText primary='Edit | Delete' />
+  </ListItem>
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Container maxWidth="xl" className={classes.mainAppContainer}>
-        <Grid container className="bodyContainer" spacing={2}>
+      
         
-          <Grid item xs={12} md={9} className={classes.previewSection}>
-            <Dashboard />
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <DrawerHeader />
+          <Container  className={classes.mainAppContainer}>
+          <Grid container className="bodyContainer" spacing={1}>
+          
+            <Grid item xs={12} className={classes.previewSection}>
+              <Dashboard />
+            </Grid>
+            <Grid item xs={12} className={classes.previewSection}>
+              <Clientstable />
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={3} className={classes.addClientSection}>
-            <AddClient />
-          </Grid>
-          <Grid item xs={12} className={classes.previewSection}>
-            <Clientstable />
-          </Grid>
-        </Grid>
-      </Container>
+        </Container>
       </Box>
     </Box>
   );
