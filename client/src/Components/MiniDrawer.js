@@ -29,7 +29,9 @@ import {makeStyles} from '@material-ui/styles';
 const useStyles = makeStyles ({
   mainAppContainer: {
     height: '100vh',
-    maxWidth: '86%'
+    maxWidth: '100vw',
+    padding: 0,
+    marginLeft: 0,
   },
     bodyContainer: {
       display: 'flex',
@@ -203,10 +205,11 @@ export default function MiniDrawer() {
       </Drawer>
       
         
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main">
         <DrawerHeader />
+        
           <Container  className={classes.mainAppContainer}>
-          <Grid container className="bodyContainer" spacing={1}>
+          <Grid container className={classes.bodyContainer} spacing={1}>
           
             <Grid item xs={12} className={classes.previewSection}>
               <Dashboard />

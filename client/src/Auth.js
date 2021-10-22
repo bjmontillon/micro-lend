@@ -36,7 +36,7 @@ function Auth () {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <Grid container className={classes.authContainer}>
-          <Route path="/micro-lend" exact>
+          <Route path="/micro-lend" exact>  
             <div className={classes.buttonWrapper}>
               <div className={classes.loginButton}>
                 <Controls.Button
