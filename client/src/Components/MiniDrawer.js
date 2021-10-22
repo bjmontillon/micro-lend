@@ -29,9 +29,8 @@ import {makeStyles} from '@material-ui/styles';
 const useStyles = makeStyles ({
   mainAppContainer: {
     height: '100vh',
-    maxWidth: '100vw',
-    padding: 0,
-    marginLeft: 0,
+    width: '100vw',
+    padding: '20px',
   },
     bodyContainer: {
       display: 'flex',
@@ -208,7 +207,7 @@ export default function MiniDrawer() {
       <Box component="main">
         <DrawerHeader />
         
-          <Container  className={classes.mainAppContainer}>
+          <div  className={classes.mainAppContainer}>
           <Grid container className={classes.bodyContainer} spacing={1}>
           
             <Grid item xs={12} className={classes.previewSection}>
@@ -218,7 +217,7 @@ export default function MiniDrawer() {
               <Clientstable />
             </Grid>
           </Grid>
-        </Container>
+        </div>
       </Box>
     </Box>
   );

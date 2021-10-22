@@ -14,14 +14,16 @@ const useStyles = makeStyles ({
     height: '100vh',
     width: '100vw',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    display: 'flex',
   },
   buttonWrapper: {
     minHeight: '27vh',
-    textAlign: 'center',
+    minWidth: '24vw',
     justifyContent: 'space-evenly',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
  
 
@@ -35,7 +37,7 @@ function Auth () {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Grid container className={classes.authContainer}>
+        <div className={classes.authContainer}>
           <Route path="/micro-lend" exact>  
             <div className={classes.buttonWrapper}>
               <div className={classes.loginButton}>
@@ -79,7 +81,7 @@ function Auth () {
             </div>
             </Route>
             <ProtectedRoute path="/App" component={App} isAuth={isAuth} />
-            </Grid>
+            </div> 
         
       </BrowserRouter>
     </ThemeProvider>
