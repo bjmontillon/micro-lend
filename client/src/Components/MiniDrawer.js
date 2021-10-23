@@ -17,9 +17,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MoveToInbox from '@material-ui/icons/MoveToInbox';
 import Mail from '@material-ui/icons/Mail';
-import Container from '@mui/material/Container';
+
 import {Grid} from '@material-ui/core';
-//import Heading from './Heading';
+
 import Dashboard from './Dashboard';
 import AddClient from './AddClient';
 import Clientstable from './Clientstable';
@@ -34,7 +34,6 @@ const useStyles = makeStyles ({
   },
     bodyContainer: {
       display: 'flex',
-      boxSizing: 'border-box',
       justifyContent: 'center',
       alignItems: 'baseline',
       flexDirection: 'row',
@@ -145,7 +144,7 @@ export default function MiniDrawer() {
             <MenuOutlined />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Micro-Lending
+            Micro-Lend
           </Typography>
         </Toolbar>
       </AppBar>

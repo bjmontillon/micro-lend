@@ -8,7 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {styled} from '@mui/material/styles';
 import {makeStyles} from '@material-ui/core/styles';
-
 import Addpayment from './Addpayment';
 import Updelete from './Updelete';
 import Duedate from '../Components/Duedate';
@@ -16,6 +15,7 @@ import Axios from 'axios';
 import PaymentsList from './Paymentslist';
 import Interest from './Interest';
 import Status from './Status';
+
 
 const useStyles = makeStyles ({
   previewContainer: {
@@ -31,6 +31,12 @@ const useStyles = makeStyles ({
   paymentDetails: {
     display: 'flex',
   },
+  tableHeader: {
+    display: 'flex',
+    alignContent: 'center',
+    justifyContent: 'center'
+  } 
+
 });
 
 const StyledTableCell = styled (TableCell) (({theme}) => ({
@@ -59,6 +65,10 @@ const StyledTableRow = styled (TableRow) (({theme}) => ({
 }));
 
 const Clientstable = () => {
+
+
+  
+
   const [newData, setNewData] = useState ([
     {
       name: '',
@@ -73,18 +83,19 @@ const Clientstable = () => {
       ],
     },
   ]);
-
   useEffect (() => {
     Axios.get ('http://localhost:3001/read').then (res => {
       setNewData (res.data);
     });
-  }, []);
+  }, [newData]);
 
-  //const clients = props.clientsData
-  const classes = useStyles;
+
+  const classes = useStyles();
+  
 
   return (
     <div className={classes.previewContainer}>
+    <div className={classes.tableHeader}><h1 className={classes.tableTitle}>Clients Table</h1></div>
       <TableContainer component={Paper}>
         <Table sx={{minWidth: 650}} size="small" aria-label="a dense table">
           <TableHead className={classes.tableHead}>
@@ -152,7 +163,9 @@ const Clientstable = () => {
           </TableBody>
         </Table>
       </TableContainer>
-    </div>
+  </div>
+    
+    
   );
 };
 

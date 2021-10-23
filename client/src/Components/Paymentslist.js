@@ -24,7 +24,7 @@ const PaymentsList = (props) => {
             onClick={() => setOpenPopup(true)}
         />
         <Popup
-            title = 'Payments List'
+            title = 'Payments'
             openPopup={openPopup}
             setOpenPopup = {setOpenPopup}
         >
