@@ -11,3 +11,6 @@ Content-Type: application/json
   "username" : "bj",
 }
 
+###
+
+GET http://localhost:3001/payment-sum

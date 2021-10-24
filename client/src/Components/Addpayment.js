@@ -40,7 +40,7 @@ export default function Addpayment(props)  {
             <Controls.Input
               size="small"
               type="number"
-              label='amount'
+
               onChange={event => {setNewPayment(event.target.value)}}
               variant ='outlined'
               margin='none'

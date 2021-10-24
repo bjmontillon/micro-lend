@@ -16,6 +16,9 @@ const theme = createTheme({
   typography: {
     fontFamily: 'var(--font-spartan)',
     fontSize: 11,
+      h1: {
+        fontSize: 1
+      }
   }
 });
 
