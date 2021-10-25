@@ -144,39 +144,3 @@ app.delete('/delete/:id', async (req, res ) => {
     res.send(id);
 });
 
-const post = [
-    {
-        username: 'bj',
-        pass: '123'
-    }
-]
-
-//Rest
-app.post('/login', (req, res) => {
-    //Authenticate the User
-    const username = req.body.username;
-    const user = { name: username };
-
-    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
-    res.json({ accessToken: accessToken })
-
-})
-//authenticateToken.
-function authenticateToken(req, res, next) {
-
-    const authHeader = req.header['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
-
-    if (token === null) return res.sendStatus(401)
-
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-        if (err) return res.sendStatus(403)
-        req.user = user
-        next()
-    })
-}
-//pass authenticateToken function in the get request.
-
-app.get('/post', authenticateToken, (req, res) => {
-    res.json(post.filter(post => post.username === req.user.name))
-}) 

@@ -87,7 +87,7 @@ const Clientstable = () => {
     Axios.get ('http://localhost:3001/read').then (res => {
       setNewData (res.data);
     });
-  }, [newData]);
+  }, []);
 
 
   const classes = useStyles();

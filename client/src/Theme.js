@@ -15,10 +15,10 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'var(--font-spartan)',
-    fontSize: 11,
-      h1: {
-        fontSize: 1
-      }
+    fontSize: 16,
+    h1: {
+      fontSize: '2rem'
+    }
   }
 });
 
