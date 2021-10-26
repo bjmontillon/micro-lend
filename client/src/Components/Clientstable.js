@@ -15,6 +15,8 @@ import Axios from 'axios';
 import PaymentsList from './Paymentslist';
 import Interest from './Interest';
 import Status from './Status';
+import ClientData from './Client-Data';
+
 
 
 const useStyles = makeStyles ({
@@ -67,6 +69,16 @@ const StyledTableRow = styled (TableRow) (({theme}) => ({
 const Clientstable = () => {
 
   const [newData, setNewData] = useState ([]);
+  useEffect (() => {
+    getData()
+
+    const interval=setInterval(()=>{
+      getData()
+     },10000)
+       
+       
+     return()=>clearInterval(interval)
+  }, []);
   
   function getData() {
    Axios.get ('http://localhost:3001/read')
@@ -75,9 +87,7 @@ const Clientstable = () => {
     });
   }
 
-  useEffect (() => {
-    getData()
-  }, []);
+  
 
 
 
@@ -159,12 +169,8 @@ const Clientstable = () => {
 
 
       <div>
-              <h1>client table 2</h1> 
-              {newData.map((item) => (
-                <div key={item._id}>
-                  <button onClick={() => console.log(item.name)}>{item.name}</button>
-                </div>
-              ))}
+              
+              <ClientData newData={newData}/>
       </div>
       <div>
            
