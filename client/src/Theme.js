@@ -14,11 +14,11 @@ const theme = createTheme({
    }
   },
   typography: {
+    subtitle1: {
+      fontSize: '2'
+    },
     fontFamily: 'var(--font-spartan)',
-    fontSize: 16,
-    h1: {
-      fontSize: '2rem'
-    }
+   
   }
 });
 

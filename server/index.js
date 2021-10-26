@@ -52,7 +52,7 @@ app.post('/add-client', async (req, res) => {
 
 //GET CLIENT MODEL
 app.get('/read', async (req, res) => {
- ClientModel.find({  }, (err, result) => {
+await ClientModel.find({  }, (err, result) => {
      if(err) {
          res.send(err)
      }
@@ -60,7 +60,8 @@ app.get('/read', async (req, res) => {
      res.send(result);
 
  })
-})
+});
+
 //GET PAYMENT SUM
 app.get('/payment-sum', async (req, res) => {
 

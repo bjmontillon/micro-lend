@@ -60,8 +60,7 @@ function AddClient () {
     const [amount, setAmount] = useState(0);
     const [date, setDate] = useState('');
     const [rate, setRate] = useState(0);
-    const [duration, setDuration] = useState(0)
-    
+    const [duration, setDuration] = useState(0);
 
     const newClient = () => {
       

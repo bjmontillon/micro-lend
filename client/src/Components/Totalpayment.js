@@ -33,7 +33,7 @@ const Totalpayment = () => {
             totalPayment.map(el => {
                 return(
                     <div key={el._id}>
-                        <Typography variant='body1' className={classes.root}>{el._id}</Typography>
+                        <Typography variant="subtitle1" className={classes.root}>{el._id}</Typography>
                         <Typography variant='body1' className={classes.root}>{el.count}</Typography>
                     </div>)
                 })

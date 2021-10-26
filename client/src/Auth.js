@@ -8,6 +8,7 @@ import {makeStyles} from '@mui/styles';
 import theme from './Theme';
 import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import App from './App';
+import { Typography } from '@mui/material';
 
 const useStyles = makeStyles ({
   authContainer: {
@@ -77,6 +78,7 @@ function Auth () {
               />
                 </Link>
               </div>
+              <Typography variant="subtitle1">Hello</Typography>
 
             </div>
             </Route>

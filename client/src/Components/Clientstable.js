@@ -66,28 +66,20 @@ const StyledTableRow = styled (TableRow) (({theme}) => ({
 
 const Clientstable = () => {
 
-
+  const [newData, setNewData] = useState ([]);
   
-
-  const [newData, setNewData] = useState ([
-    {
-      name: '',
-      amount: 0,
-      date: '',
-      duration: 0,
-      payment: [
-        {
-          paymentAmount: 0,
-          paymentDate: '',
-        },
-      ],
-    },
-  ]);
-  useEffect (() => {
-    Axios.get ('http://localhost:3001/read').then (res => {
+  function getData() {
+   Axios.get ('http://localhost:3001/read')
+      .then (res => {
       setNewData (res.data);
     });
+  }
+
+  useEffect (() => {
+    getData()
   }, []);
+
+
 
 
   const classes = useStyles();
@@ -163,6 +155,20 @@ const Clientstable = () => {
           </TableBody>
         </Table>
       </TableContainer>
+
+
+
+      <div>
+              <h1>client table 2</h1> 
+              {newData.map((item) => (
+                <div key={item._id}>
+                  <button onClick={() => console.log(item.name)}>{item.name}</button>
+                </div>
+              ))}
+      </div>
+      <div>
+           
+      </div>
   </div>
     
     
