@@ -15,7 +15,6 @@ import Axios from 'axios';
 import PaymentsList from './Paymentslist';
 import Interest from './Interest';
 import Status from './Status';
-import ClientData from './Client-Data';
 
 
 
@@ -68,7 +67,9 @@ const StyledTableRow = styled (TableRow) (({theme}) => ({
 
 const Clientstable = () => {
 
-  const [newData, setNewData] = useState ([]);
+  const [newData, setNewData] = useState ([
+    {name: 'hello'}
+  ]);
   useEffect (() => {
     getData()
 
@@ -169,8 +170,7 @@ const Clientstable = () => {
 
 
       <div>
-              
-              <ClientData newData={newData}/>
+        
       </div>
       <div>
            
