@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, {tableCellClasses} from '@mui/material/TableCell';
@@ -15,6 +15,9 @@ import Axios from 'axios';
 import PaymentsList from './Paymentslist';
 import Interest from './Interest';
 import Status from './Status';
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllClients, fetchAsyncClients } from '../Slice/client-slice'
+
 
 
 
@@ -66,31 +69,13 @@ const StyledTableRow = styled (TableRow) (({theme}) => ({
 }));
 
 const Clientstable = () => {
+  const newData = useSelector(getAllClients)
 
-  const [newData, setNewData] = useState ([
-    {name: 'hello'}
-  ]);
-  useEffect (() => {
-    getData()
-
-    const interval=setInterval(()=>{
-      getData()
-     },10000)
-       
-       
-     return()=>clearInterval(interval)
-  }, []);
+  const dispatch = useDispatch()
   
-  function getData() {
-   Axios.get ('http://localhost:3001/read')
-      .then (res => {
-      setNewData (res.data);
-    });
-  }
-
-  
-
-
+    useEffect (() => {
+      dispatch(fetchAsyncClients())
+    }, [dispatch ]);
 
 
   const classes = useStyles();
@@ -98,82 +83,13 @@ const Clientstable = () => {
 
   return (
     <div className={classes.previewContainer}>
-    <div className={classes.tableHeader}><h1 className={classes.tableTitle}>Clients Table</h1></div>
-      <TableContainer component={Paper}>
-        <Table sx={{minWidth: 650}} size="small" aria-label="a dense table">
-          <TableHead className={classes.tableHead}>
-            <TableRow>
-            <StyledTableCell align="center">ID</StyledTableCell>
-            <StyledTableCell align="center">Date Issued</StyledTableCell>
-              <StyledTableCell align="center">Name</StyledTableCell>
-              <StyledTableCell align="center">Amount</StyledTableCell>
-              <StyledTableCell align="center">Loan Tenure</StyledTableCell>
-              <StyledTableCell align="center">Due-Date</StyledTableCell>
-              <StyledTableCell align="center">Add Payment</StyledTableCell>
-              <StyledTableCell align="center">Update | Delete</StyledTableCell>
-              <StyledTableCell align="center">Total Payments</StyledTableCell>
-              <StyledTableCell align="center">List of Payments</StyledTableCell>
-              <StyledTableCell align="center">Daily Juice</StyledTableCell>
-              <StyledTableCell align="center">Status</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {newData.map (clients => (
-              <StyledTableRow
-                key={clients.name}
-                sx={{'&:last-child td, &:last-child th': {border: 0}}}
-              >
-                <StyledTableCell
-                  align="center"
-                  className={classes.tableBody}
-                  component="th"
-                  scope="row"
-                >
-                  {clients._id}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">{clients.date}</StyledTableCell>
-                <StyledTableCell align="center">{clients.name}</StyledTableCell>
-                <StyledTableCell align="center">
-                  {clients.amount}
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  {clients.duration}
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <Duedate
-                    clientDate={clients.date}
-                    clientDuration={clients.duration}
-                  />
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <Addpayment clientId={clients._id} />
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <Updelete clientId={clients._id} />
-                </StyledTableCell>
-                <StyledTableCell align="center">Totals</StyledTableCell>
-                <StyledTableCell align="center">
-                  <PaymentsList clientsPayments={clients.payment}/>
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <Interest amount={clients.amount} />
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  <Status amount={clients.amount} />
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-
-
-
+    <div className={classes.tableHeader}><h1 className={classes.tableTitle}>Clients Table</h1></div>   
       <div>
-        
-      </div>
-      <div>
-           
+        {newData.map((item, index) => (
+          <div key={index}>
+            <p>{item.name}</p>
+          </div>
+        ))}
       </div>
   </div>
     

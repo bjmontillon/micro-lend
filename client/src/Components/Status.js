@@ -1,10 +1,16 @@
 export default function Status(props) {
+    
 const amount = props.amount;
+
+
        function clientStatus ()  {
+
+
+
             if (amount === 1 ) {
-                return ('paid')
+                return ('Paid')
             } else {
-                return ('Current Balance')
+                return ('---')
             }
         }
     return(

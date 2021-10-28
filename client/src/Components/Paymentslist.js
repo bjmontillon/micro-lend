@@ -14,7 +14,7 @@ import PaymentOutlined from '@material-ui/icons/PaymentOutlined';
 
 
 const PaymentsList = (props) => {
-  //  const clientsPayments = props.clientsPayments
+    //const clientsPayment = props.clientsPayments
     const [openPopup, setOpenPopup] = React.useState(false);
 
     return (
@@ -38,12 +38,10 @@ const PaymentsList = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            
+         
           </TableBody>
         </Table>
       </TableContainer>
-
-
         </Popup>
         </>
     )

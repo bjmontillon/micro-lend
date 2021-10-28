@@ -16,8 +16,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MoveToInbox from '@material-ui/icons/MoveToInbox';
-import Mail from '@material-ui/icons/Mail';
-
 import {Grid} from '@material-ui/core';
 
 import Dashboard from './Dashboard';
@@ -157,48 +155,20 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           <ListItem button>
-              <ListItemIcon>
-                {<MoveToInbox />}
-              </ListItemIcon>
-              <ListItemText primary='Home' />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                {<MoveToInbox />}
-              </ListItemIcon>
-              <ListItemText primary='Admin' />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                {<Mail />}
-              </ListItemIcon>
-              <ListItemText primary='Inbox' />
-            </ListItem>
-            <ListItem button>
-              <ListItemIcon>
-                {<MoveToInbox />}
-              </ListItemIcon>
-              <ListItemText primary='Contacts' />
-            </ListItem>
+            <ListItemIcon>
+              {<MoveToInbox />}
+            </ListItemIcon>
+            <ListItemText primary='Admin' />
+          </ListItem>
         </List>
         <Divider />
         <List>
-        <ListItem button>
-        <ListItemIcon>
-          {<AddClient />}
-        </ListItemIcon>
-        <ListItemText primary='Add Client' />
-      </ListItem><ListItem button>
-      <ListItemIcon>
-        {<MoveToInbox />}
-      </ListItemIcon>
-      <ListItemText primary='Payments' />
-    </ListItem><ListItem button>
-    <ListItemIcon>
-      {<MoveToInbox />}
-    </ListItemIcon>
-    <ListItemText primary='Edit | Delete' />
-  </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              {<AddClient />}
+            </ListItemIcon>
+            <ListItemText primary='Add Client' />
+          </ListItem>
         </List>
       </Drawer>
       
