@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Route, Link, Switch} from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import Controls from './Controls/Controls';
 
@@ -8,6 +8,7 @@ import {makeStyles} from '@mui/styles';
 import theme from './Theme';
 import ThemeProvider from '@material-ui/styles/ThemeProvider';
 import App from './App';
+import Clientdetails from './Components/clientDetails';
 
 const useStyles = makeStyles ({
   authContainer: {
@@ -36,8 +37,9 @@ function Auth () {
   //<Grid item xs={12} className={classes.appLink}>
   return (
     <ThemeProvider theme={theme}>
+    <div className={classes.authContainer}>
       <BrowserRouter>
-        <div className={classes.authContainer}>
+        <Switch>
           <Route path="/micro-lend" exact>  
             <div className={classes.buttonWrapper}>
               <div className={classes.loginButton}>
@@ -66,24 +68,25 @@ function Auth () {
               <div className={classes.proceedLink}>
               
               
-              <Link
-                  to="/App"
-                  style={{textDecoration: 'none', color: 'black'}}>
-                  <Controls.Button
-                  text='Proceed'
-                  variant="outlined"
-                  color="primary"
-                  size='small'
-              />
+                <Link
+                    to="/App"
+                    style={{textDecoration: 'none', color: 'black'}}>
+                    <Controls.Button
+                    text='Proceed'
+                    variant="outlined"
+                    color="primary"
+                    size='small'
+                />
                 </Link>
               </div>
 
             </div>
             </Route>
             <ProtectedRoute path="/App" component={App} isAuth={isAuth} />
-            </div> 
-        
+            <Route path='/clientDetails/:_id'><Clientdetails /></Route>
+          </Switch>
       </BrowserRouter>
+      </div> 
     </ThemeProvider>
   );
 }

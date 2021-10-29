@@ -1,5 +1,6 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import Clientdeatils from './Components/clientDetails'
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
 
 
 import MiniDrawer from './Components/MiniDrawer'
@@ -19,7 +20,8 @@ function App() {
     
     return ( 
       <div className={classes.appContainer}>
-      <MiniDrawer />
+        <MiniDrawer />
+        <Clientdeatils />
       </div>
      );
 }

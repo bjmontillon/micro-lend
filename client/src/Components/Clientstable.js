@@ -17,7 +17,8 @@ import Interest from './Interest';
 import Status from './Status';
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllClients, fetchAsyncClients } from '../Slice/client-slice'
-
+import { Link } from 'react-router-dom'
+ 
 
 
 
@@ -70,7 +71,7 @@ const StyledTableRow = styled (TableRow) (({theme}) => ({
 
 const Clientstable = () => {
   const newData = useSelector(getAllClients)
-
+  console.log(newData)
   const dispatch = useDispatch()
   
     useEffect (() => {
@@ -79,17 +80,20 @@ const Clientstable = () => {
 
 
   const classes = useStyles();
-  
+
+  let clientListing = "";
+  clientListing = newData.map((clients, index) => (
+    <div key={index}><Link to={`/clientDetails/${clients._id}`}><p>{clients.name}</p></Link></div>
+  ))
+    
 
   return (
     <div className={classes.previewContainer}>
     <div className={classes.tableHeader}><h1 className={classes.tableTitle}>Clients Table</h1></div>   
       <div>
-        {newData.map((item, index) => (
-          <div key={index}>
-            <p>{item.name}</p>
-          </div>
-        ))}
+        <div>
+          {clientListing}
+        </div>
       </div>
   </div>
     

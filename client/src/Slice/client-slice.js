@@ -1,16 +1,25 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import clientApi from '../Common/clientApi';
 
 
 const initialState = {
-    clients: [{}]
+    clients: [{}],
+    selectedClient: {}
 }
 
 export const fetchAsyncClients = createAsyncThunk('clients/fetchAsyncClients', 
+    
         async ()=> {
-           const response = await axios.get('https://localhost:3001/read');
+           const response = await clientApi.get('/read');
            return response.data
         })
+
+export const fetchAsyncClientDetails = createAsyncThunk('clients/fetchAsyncClientsDetails', 
+async (_id)=> {
+    console.log(_id)
+    const response = await clientApi.get(`/clientDetails/?${_id}`);
+    return response.data
+})
 
 
 
@@ -29,14 +38,18 @@ const clientSlice = createSlice({
         [fetchAsyncClients.fulfilled]: (state, { payload }) => {
            console.log('Success!');
            return {...state, clients: payload}
-            
         },
         [fetchAsyncClients.rejected]: () => {
             console.log("Rejected!");
-        }
+        },
+        [fetchAsyncClientDetails.fulfilled]: (state, { payload }) => {
+            console.log('Success!');
+            return {...state, selectedClient: payload}
+         },
     }
 })
 
 export const { getClients } = clientSlice.actions;
 export const getAllClients = (state) => state.clients.clients 
+export const getSelectedClientDetails = (state) => state.clients.selectedClient
 export default clientSlice.reducer;

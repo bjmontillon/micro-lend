@@ -178,7 +178,6 @@ export default function MiniDrawer() {
         
           <div  className={classes.mainAppContainer}>
           <Grid container className={classes.bodyContainer} spacing={1}>
-          
             <Grid item xs={12} className={classes.previewSection}>
               <Dashboard />
             </Grid>
