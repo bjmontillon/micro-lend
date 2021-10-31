@@ -12,13 +12,14 @@ export const fetchAsyncClients = createAsyncThunk('clients/fetchAsyncClients',
         async ()=> {
            const response = await clientApi.get('/read');
            return response.data
-        })
+        });
+
 //GET SELECTED CLIENTS
 export const fetchAsyncClientDetails = createAsyncThunk('clients/fetchAsyncClientsDetails', 
-async (_id)=> {
+async (id)=> {
     
-    console.log(_id)
-    const response = await clientApi.get(`/clientsId/${_id}`)
+    console.log(id)
+    const response = await clientApi.get(`/clientsId/${id}`)
     
     return response.data
 })

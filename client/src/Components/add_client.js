@@ -88,8 +88,9 @@ function AddClient () {
     <Controls.Button className={classes.root}
           text={<AddReactionIcon  fontSize='small' />}
           onClick = {() => setOpenPopup(true)}
-          variant="text"
+          variant="contained"
           color='secondary'
+          size='small'
           />
           
     <Popup 

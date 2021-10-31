@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { Card, CardContent, Typography, Paper } from '@mui/material';
+import { Typography, Paper } from '@mui/material';
 import {makeStyles} from '@mui/styles'
 
 
@@ -30,16 +30,18 @@ const Totalpayment = () => {
     return (
         <>
            {
-            totalPayment.map(el => {
+            totalPayment.map((el, index)  => {
                 return(
-                    <Paper elevation={2} className={classes.totalsContainer}>
+                    
+                    <Paper elevation={2} className={classes.totalsContainer} key={index}>
 
-                            <div key={el._id}>
-                                <Typography variant="h6" className={classes.root}>{el._id}</Typography>
-                                <br />
-                                <Typography variant='body2' className={classes.root}>{el.count}</Typography>
-                            </div>
+                            
+                                <Typography variant="h6" >{el._id}</Typography>
+                                    <br />
+                                <Typography variant='body2' >{el.count}</Typography>
+                           
                         </Paper>
+                        
                     )
                 })
            } 

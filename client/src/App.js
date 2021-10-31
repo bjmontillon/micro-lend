@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Clientdetails from './Components/clientDetails';
-import { BrowserRouter, Route, Switch, Link} from 'react-router-dom';
-import Controls from './Controls/Controls';
-import ProtectedRoute from './ProtectedRoute';
-import Home from './Components/home';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import Home from './Components/home'
 import { makeStyles } from '@mui/styles';
 import Header from './Components/header'
 import Footer from './Components/Footer/footer'
+import SignIn from './sign_in'
+import ProtectedRoute from './ProtectedRoute';
 
 
 const useStyles = makeStyles ({ 
@@ -28,64 +28,28 @@ const useStyles = makeStyles ({
 })  
 function App() {
   const classes = useStyles()
-  const [isAuth, setIsAuth] = useState (false);
+  const isAuth = true
     
-  return (
+  return (  
       
-        <div className={classes.appContainer}>
+        
           <BrowserRouter>
              
-              <Route path="/micro-lend" exact>  
-                <div className={classes.buttonWrapper}>
-                  <div className={classes.loginButton}>
-                    <Controls.Button
-                      variant="outlined"
-                      text={"LOG IN"}
-                      onClick={() => {
-                        setIsAuth (true);
-                      }}
-                      color="primary"
-                      size='small'  
-                    />
-
-                  </div>
-                  <div className={classes.logoutButton}>
-                    <Controls.Button
-                      text="LOG OUT"
-                      onClick={() => {
-                        setIsAuth (false);
-                      }}
-                      variant="outlined"
-                      color="primary"
-                      size='small'
-                    />
-                  </div>
-                  <div className={classes.proceedLink}>
-                    <Link
-                      to="/Home"
-                      style={{textDecoration: 'none', color: 'black'}}>
-                      <Controls.Button
-                      text='Proceed'
-                      variant="outlined"
-                      color="primary"
-                      size='small'
-                    />
-                    </Link>
-                  </div>
-                </div>
-              </Route>
+              
+              <div className={classes.appContainer}>
               <Header />
               <div className={classes.container}>
               <Switch>
-                <Route path="/Home" exact component={Home} />
-                <Route path='/clientDetails/:_id' component={Clientdetails} />
+                <Route path="/micro-lend" exact component={SignIn}/>
+                <Route path='/clientDetails/:id' component={Clientdetails} />
                 <ProtectedRoute path="/Home" component={Home} isAuth={isAuth} />
               </Switch>
               <Footer />
             </div>
+            </div>
           </BrowserRouter>
           
-        </div>
+       
         
      );
 }

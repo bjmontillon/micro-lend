@@ -26,6 +26,10 @@
       scroll-behavior: smooth;
       --font-spartan: 'Spartan', sans-serif;
       scroll-behavior: smooth;
+
+      --navbar-background-color: #e0f7fa;
+      --body-background-color: #ffffff;
+      --dashboard-background-color: #e8eaf6
     }
     * {
       margin: 0;
@@ -36,11 +40,8 @@
       overflow-x: hidden;
     }
     body {
-      background: #fff8ee;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #fff8ee, #fdfdfd);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #fff8ee, #fdfdfd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
-      background-attachment: fixed;
-    }
+      background: var(--body-background-color);  /* fallback for old browsers */
+      
     </style>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

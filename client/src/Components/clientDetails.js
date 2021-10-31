@@ -5,8 +5,8 @@ import { fetchAsyncClientDetails, getSelectedClientDetails } from '../Slice/clie
 
 export default function Clientdetails() {
    
-    const { _id } = useParams()
-    console.log(_id)
+    const { id } = useParams()
+    console.log(id)
     const dispatch = useDispatch()
 
     
@@ -14,10 +14,10 @@ export default function Clientdetails() {
     console.log(data)
 
     useEffect(() => {
-        dispatch(fetchAsyncClientDetails(_id))
-    }, [dispatch, _id])
+        dispatch(fetchAsyncClientDetails(id))
+    }, [dispatch, id])
     return (
-        <div>clientID: - { _id }</div>
+        <div>clientID: - { id }</div>
     )
 
     

@@ -140,9 +140,9 @@ app.put('/add-payment', async (req, res) => {
 
 app.get('/clientsId/:id', async (req, res) => {
 
-    const id = req.params.id
+    const _id = req.params.id
 
-    await ClientModel.findById(id)
+    await ClientModel.findById(_id)
     .then(result => res.send(result))
     .catch(err => console.log(err))
 });
@@ -151,9 +151,9 @@ app.get('/clientsId/:id', async (req, res) => {
 //DELETE MODEL
 app.delete('/delete/:id', async (req, res ) => {
 
-    const id = req.params.id
+    const _id = req.params.id
 
-    await ClientModel.findByIdAndRemove(id).exec();
-    res.send(id);
+    await ClientModel.findByIdAndRemove(_id).exec();
+    res.send(_id);
 });
 

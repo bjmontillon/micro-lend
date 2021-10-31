@@ -2,8 +2,9 @@ import React from 'react';
 import Controls from '../Controls/Controls'
 import Axios from 'axios';
 import Popup from '../Controls/Popup';
-import AddBoxOutlinedIcon from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
+import { Typography } from '@mui/material';
+
 
 const useStyles = makeStyles ({
   paymentField: {
@@ -18,6 +19,8 @@ const useStyles = makeStyles ({
 
 
 export default function Addpayment(props)  {
+
+
     const classes = useStyles()
     const [newPayment, setNewPayment] = React.useState(0)
     const [newPaymentDate, setNewPaymentDate] = React.useState(new Date())
@@ -38,7 +41,7 @@ export default function Addpayment(props)  {
     return(
         <>
           <Controls.Button
-          text={<AddBoxOutlinedIcon fontSize='small' />}
+          text={<Typography variant='body1'>Add Payment</Typography>}
           onClick = {() => setOpenPopup(true)}
           variant="text"
           >
@@ -65,8 +68,6 @@ export default function Addpayment(props)  {
               margin='none'
             />
 
-           
-            
             <Controls.Button 
               size="small"
               variant="text"

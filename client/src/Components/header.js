@@ -1,18 +1,23 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
-import { Grid }  from '@mui/material';
+import { Typography }  from '@mui/material';
 
 const useStyles = makeStyles ({
-    headingContainer: {
-        height: '20vh',
-        backgroundColor: 'rgba(0, 0, 0, 0)',
-        padding: '20px',
+    headerContainer: {
+        height: '15vh',
+    },
+    navbar: {
+        height: '100%',
+        backgroundColor: `var(--navbar-background-color)`,
         borderRadius: '5px',
         boxShadow: '6px 4px 39px -14px rgb(0 0 0 / 40%)',
         fontFamily: `var(--font-spartan)`,
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
         alignContent: 'center',
-        justifyContent: 'flex-end',
         textAlign: 'center',
+        display: 'flex',
+        padding: '0 50px'
     }
 })
 
@@ -22,9 +27,12 @@ function Header () {
 
 
     return (
-        <Grid container className={classes.headingContainer}>
-            <Grid item xs={12}><h2>Micro-Lending</h2></Grid>
-        </Grid>
+        <div className={classes.headerContainer}>
+            <nav className={classes.navbar}>
+                <div><Typography variant='h1'>Micro-Lend</Typography></div>
+                <div><Typography variant='h1'>Beejay P.</Typography></div>
+            </nav>
+        </div>
     )
 };
 
