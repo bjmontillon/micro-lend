@@ -18,8 +18,8 @@ export default function Popup(props) {
 
     const classes = useStyles()
     return(
-        <div>
             <Dialog open={openPopup}>
+                <div>
                 <DialogTitle>
                     <Typography
                         variant='h6'
@@ -38,8 +38,7 @@ export default function Popup(props) {
                             variant="text"
                             onClick={() => setOpenPopup(false)} />
                 </DialogActions>
-                
+                </div>
             </Dialog>
-        </div>
     )
 }

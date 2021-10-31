@@ -1,1 +1,5 @@
 GET http://localhost:3001/read
+###
+Get  http://localhost:3001/clientsId
+###
+GET   http://localhost:3001/clientsId/:id

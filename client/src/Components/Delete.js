@@ -1,7 +1,7 @@
 import {React, } from 'react';
 import Axios from 'axios';
 import Controls from '../Controls/Controls'
-import DeleteForeverOutlinedIcon from '@material-ui/icons/DeleteForeverOutlined';
+import DeleteForeverOutlinedIcon from '@mui/material/Icon';
 
 
 

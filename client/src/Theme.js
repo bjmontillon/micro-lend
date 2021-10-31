@@ -3,21 +3,26 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#6a1b1a',
+      main: '#000',
     },
     secondary: {
       main: '#e91e63',
     },
    text: {
-     primary: '#212121',
+     primary: '#000',
      secondary: '#212121',
    }
   },
   typography: {
-    subtitle1: {
-      fontSize: '2'
-    },
     fontFamily: 'var(--font-spartan)',
+    h1: {
+      fontSize: 16,
+      fontWeight: 400
+    },
+    body1: {
+      fontSize: 13  
+    },
+    
    
   }
 });

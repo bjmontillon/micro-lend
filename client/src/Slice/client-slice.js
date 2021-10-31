@@ -6,18 +6,20 @@ const initialState = {
     clients: [{}],
     selectedClient: {}
 }
-
+//GET ALL CLIENTS
 export const fetchAsyncClients = createAsyncThunk('clients/fetchAsyncClients', 
     
         async ()=> {
            const response = await clientApi.get('/read');
            return response.data
         })
-
+//GET SELECTED CLIENTS
 export const fetchAsyncClientDetails = createAsyncThunk('clients/fetchAsyncClientsDetails', 
 async (_id)=> {
+    
     console.log(_id)
-    const response = await clientApi.get(`/clientDetails/?${_id}`);
+    const response = await clientApi.get(`/clientsId/${_id}`)
+    
     return response.data
 })
 
@@ -43,9 +45,10 @@ const clientSlice = createSlice({
             console.log("Rejected!");
         },
         [fetchAsyncClientDetails.fulfilled]: (state, { payload }) => {
-            console.log('Success!');
+            console.log("Data fetched on selected client");
             return {...state, selectedClient: payload}
          },
+
     }
 })
 

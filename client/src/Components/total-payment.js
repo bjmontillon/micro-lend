@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { Typography } from '@mui/material';
-import {makeStyles} from '@material-ui/styles'
+import { Card, CardContent, Typography, Paper } from '@mui/material';
+import {makeStyles} from '@mui/styles'
+
 
 
 const useStyles = makeStyles ({
-    root: {
-        
+    totalsContainer: {
+        padding: '10px',
     }
-
 })
 
 const Totalpayment = () => {
@@ -32,10 +32,15 @@ const Totalpayment = () => {
            {
             totalPayment.map(el => {
                 return(
-                    <div key={el._id}>
-                        <Typography variant="subtitle1" className={classes.root}>{el._id}</Typography>
-                        <Typography variant='body1' className={classes.root}>{el.count}</Typography>
-                    </div>)
+                    <Paper elevation={2} className={classes.totalsContainer}>
+
+                            <div key={el._id}>
+                                <Typography variant="h6" className={classes.root}>{el._id}</Typography>
+                                <br />
+                                <Typography variant='body2' className={classes.root}>{el.count}</Typography>
+                            </div>
+                        </Paper>
+                    )
                 })
            } 
         </>

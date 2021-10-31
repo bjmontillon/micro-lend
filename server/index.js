@@ -62,6 +62,8 @@ await ClientModel.find({  }, (err, result) => {
  })
 });
 
+
+
 //GET PAYMENT SUM
 app.get('/payment-sum', async (req, res) => {
 
@@ -135,6 +137,16 @@ app.put('/add-payment', async (req, res) => {
         console.log(err);
     }
 })
+
+app.get('/clientsId/:id', async (req, res) => {
+
+    const id = req.params.id
+
+    await ClientModel.findById(id)
+    .then(result => res.send(result))
+    .catch(err => console.log(err))
+});
+
 
 //DELETE MODEL
 app.delete('/delete/:id', async (req, res ) => {

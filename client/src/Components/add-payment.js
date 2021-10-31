@@ -2,7 +2,7 @@ import React from 'react';
 import Controls from '../Controls/Controls'
 import Axios from 'axios';
 import Popup from '../Controls/Popup';
-import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
+import AddBoxOutlinedIcon from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles ({

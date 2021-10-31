@@ -2,9 +2,9 @@ import Popup from '../../src/Controls/Popup'
 import Update from '../Controls/Update'
 import Controls from '../Controls/Controls';
 import React from 'react';
-import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import EditOutlinedIcon from '@mui/material/Icon';
 import Delete from '../Components/Delete'
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles ({
     updeleteContainer: {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import { Grid }  from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
+import { Grid }  from '@mui/material';
 
 const useStyles = makeStyles ({
     headingContainer: {
@@ -16,20 +16,16 @@ const useStyles = makeStyles ({
     }
 })
 
-function Heading () {
+function Header () {
 
     const classes = useStyles()
 
 
     return (
         <Grid container className={classes.headingContainer}>
-        <Grid item xs={4}><h2>Micro-Lending</h2></Grid>
-        <Grid item xs={4}>
-            
-        </Grid>
-            
+            <Grid item xs={12}><h2>Micro-Lending</h2></Grid>
         </Grid>
     )
 };
 
-export default Heading;
+export default Header;

@@ -37,7 +37,7 @@ const [newName, setNewName] = useState ('');
 
 
 
-    const updateName = (id) => {
+    const updateName = () => {
       
         Axios.put ('http://localhost:3001/update', {
           id: props.clientId,
