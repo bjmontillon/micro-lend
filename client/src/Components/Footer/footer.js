@@ -2,11 +2,15 @@ import {makeStyles} from '@mui/styles'
 
 const useStyles = makeStyles ({
     footerContainer: {
-        height: '20vh',
+        height: '15vh',
+        width: '100%',
         backgroundColor: 'white',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        position: 'fixed',
+        bottom: 0,
+
     }
 })
 const Footer = () => {

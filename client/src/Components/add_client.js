@@ -4,7 +4,7 @@ import { Grid }  from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Controls from '../Controls/Controls';
 import Popup from '../Controls/Popup';
-import AddReactionIcon from '@mui/icons-material/AddReaction';
+//import AddReactionIcon from '@mui/icons-material/AddReaction';
 import addEntry from '../illustrations/addEntry.svg'
 
 
@@ -82,7 +82,7 @@ function AddClient () {
   return (
     <>
     <Controls.Button className={classes.root}
-          endIcon={<AddReactionIcon  fontSize='small' />}
+          //endIcon={<AddReactionIcon  fontSize='small' />}
           onClick = {() => setOpenPopup(true)}
           variant="contained"
           color='secondary'

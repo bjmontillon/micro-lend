@@ -3,9 +3,10 @@ import {makeStyles} from '@mui/styles';
 import { useSelector } from 'react-redux'
 import { getAllClients } from '../Slice/client-slice'
 import { Link } from 'react-router-dom'
-import { Typography, Card, CardContent, Grid, CardActions, CardHeader, Avatar } from '@mui/material';
+import { Typography, Card, Grid, CardActions, CardHeader, Avatar } from '@mui/material';
 import Addpayment from './add_payment'
 import Controls from '../Controls/Controls';
+import NumberFormat from 'react-number-format';
  
 
 
@@ -21,7 +22,11 @@ const useStyles = makeStyles ({
   },
   cardWrapper: {
     padding: '10px',
+    
   },
+  mainCard: {
+    
+  },  
   cardHeader: {
     backgroundColor: `var(--cardHeader-background-color)`
   }
@@ -32,14 +37,7 @@ const useStyles = makeStyles ({
 
 const ClientListing = () => {
 
-  
   const newData = useSelector(getAllClients)
-  
-  
-      
-    
-  
-  
 
   const classes = useStyles();
 
@@ -55,24 +53,25 @@ const ClientListing = () => {
         <Grid container>
         {newData.map((clients, index) => {
           
-          const sumTotal = arr => arr.reduce((sum, { paymentAmount }) => sum + paymentAmount, 0)  
-        const total = sumTotal(clients.payment)
-        console.log(total)
+        const sumTotal = arr => arr.reduce((sum, { paymentAmount }) => sum + paymentAmount, 0)  
+        const total = sumTotal(clients.payment);
+        const colors = ['#ef5350', '#ec407a', '#ab47bc', '#7e57c2', '#5c6bc0', '#42a5f5', '#651fff', '#3d5afe']
+        const amount = <NumberFormat value={clients.amount} displayType={'text'} thousandSeparator={true} prefix={'₱ '} />
 
           return(
-            <Grid item xs={12} md={6} lg={3} key={index} className={classes.cardWrapper}>
-              <Card >
+            <Grid item xs={12} md={3} lg={2} key={index} className={classes.cardWrapper}>
+              <Card className={classes.mainCard} >
                   <CardHeader
+                  style={{ backgroundColor: colors[index] }}
                   avatar={
                     <Avatar>{clients.name}</Avatar>
                   }
-                  title={clients.name}
-                  />
-                  <CardContent>
-                    -----
-                    {total}
+                  title = {<Typography variant='body1'>{clients.name}</Typography>}
+                  subheader = {
+                    <Typography variant='body2'>{amount} / {total}</Typography> 
                     
-                  </CardContent>
+                  }
+                  />
                   <CardActions>
                     <Addpayment clientId={clients._id}/>
                     <Link to={`/clientDetails/${clients._id}`} style={{ textDecoration: 'none' }}>

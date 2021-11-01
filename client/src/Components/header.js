@@ -4,7 +4,7 @@ import { Typography }  from '@mui/material';
 
 const useStyles = makeStyles ({
     headerContainer: {
-        height: '15vh',
+        height: '9vh',
     },
     navbar: {
         height: '100%',

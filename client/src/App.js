@@ -1,5 +1,5 @@
 import React from 'react';
-import Clientdetails from './Components/clientDetails';
+import Clientdetails from './Components/client_profile';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './Components/home'
 import { makeStyles } from '@mui/styles';
