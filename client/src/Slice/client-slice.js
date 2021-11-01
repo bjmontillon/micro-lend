@@ -1,9 +1,20 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, } from '@reduxjs/toolkit';
 import clientApi from '../Common/clientApi';
 
 
+
 const initialState = {
-    clients: [{}],
+    clients: [{
+        name: '',
+        amount: 0,
+        date: '',
+        duration: 0,
+        rate: .0,
+        payment: [{
+            paymentAmount: 0,
+            paymentDate: ''
+        }]
+    }],
     selectedClient: {}
 }
 //GET ALL CLIENTS

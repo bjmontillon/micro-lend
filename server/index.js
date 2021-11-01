@@ -130,7 +130,9 @@ app.put('/add-payment', async (req, res) => {
                     }
                    
                 },
-            });
+
+            },
+            {useFindAndModify: false});
             res.send('Payment added.')
             console.log('Payment' + ' ' + newPayment + ' ' + 'added to client with the ID number of' + ' ' + id)
         }catch (err) {

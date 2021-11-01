@@ -31,6 +31,7 @@ const Totalpayment = () => {
         <>
            {
             totalPayment.map((el, index)  => {
+              
                 return(
                     
                     <Paper elevation={2} className={classes.totalsContainer} key={index}>
@@ -42,8 +43,7 @@ const Totalpayment = () => {
                            
                         </Paper>
                         
-                    )
-                })
+                    )})
            } 
         </>
     )

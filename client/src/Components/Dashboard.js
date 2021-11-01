@@ -2,7 +2,7 @@
 //import Axios from 'axios';
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@mui/styles';
-import Totalpayment from './total-payment'
+import Totalpayment from './total_payment'
 import { Typography, Paper } from '@mui/material';
 import {  } from '@mui/material';
 import { getAllClients } from '../Slice/client-slice'
@@ -26,7 +26,7 @@ const useStyles = makeStyles ({
 export default function Dashboard() {
 
     const newData = useSelector(getAllClients)
-    console.log(newData)
+    
     const classes = useStyles();
 
     function objectLength(obj) {

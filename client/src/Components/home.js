@@ -1,12 +1,13 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import { Grid } from '@mui/material';
 import { withRouter } from 'react-router';
 import Dashboard from './dashboard';
 import Clientstable from './client_listing';
-
 import {makeStyles} from '@mui/styles';
-
 import AddClient from './add_client'
+import { useDispatch } from 'react-redux';
+import { fetchAsyncClients } from '../Slice/client-slice'
+
 
 
 const useStyles = makeStyles ({
@@ -32,6 +33,10 @@ const useStyles = makeStyles ({
   });
 
 const Home = () => {
+  const dispatch = useDispatch()
+  useEffect (() => {
+    dispatch(fetchAsyncClients())
+  }, [dispatch]);
   const classes = useStyles()
 
   return (

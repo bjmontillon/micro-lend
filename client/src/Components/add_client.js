@@ -78,20 +78,18 @@ function AddClient () {
         alert ('New client added!')
       })
     };
-    
-    // const displayInfo = () => {
-    //     console.log(name + " " + amount + " " + date + " " + duration)
-    // }
 
   return (
     <>
     <Controls.Button className={classes.root}
-          text={<AddReactionIcon  fontSize='small' />}
+          endIcon={<AddReactionIcon  fontSize='small' />}
           onClick = {() => setOpenPopup(true)}
           variant="contained"
           color='secondary'
           size='small'
+          text='ADD CLIENT'
           />
+
           
     <Popup 
       openPopup={openPopup}
