@@ -5,11 +5,11 @@ import { Typography }  from '@mui/material';
 const useStyles = makeStyles ({
     headerContainer: {
         height: '9vh',
+        width: '100%',
     },
     navbar: {
         height: '100%',
         backgroundColor: `var(--navbar-background-color)`,
-        borderRadius: '5px',
         boxShadow: '6px 4px 39px -14px rgb(0 0 0 / 40%)',
         fontFamily: `var(--font-spartan)`,
         flexWrap: 'wrap',
@@ -22,10 +22,7 @@ const useStyles = makeStyles ({
 })
 
 function Header () {
-
     const classes = useStyles()
-
-
     return (
         <div className={classes.headerContainer}>
             <nav className={classes.navbar}>

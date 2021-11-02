@@ -1,38 +1,34 @@
 import React, { useEffect } from 'react';
-import { Grid } from '@mui/material';
 import { withRouter } from 'react-router';
-import Dashboard from './dashboard';
-import Clientstable from './client_listing';
-import {makeStyles} from '@mui/styles';
-import AddClient from './add_client'
+//REDUX
 import { useDispatch } from 'react-redux';
 import { fetchAsyncClients } from '../Slice/client-slice'
-
-
+//MATERIAL-UI
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import {makeStyles} from '@mui/styles';
+import { CgMenuRound } from "react-icons/cg";
+//COMPONENTS
+import ResponsiveDrawer from './drawer';
+import Header from './header'
+const drawerWidth = 240;
 
 const useStyles = makeStyles ({
   mainAppContainer: {
     height: '100vh',
     width: '100vw',
   },
-  addClientSection: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    height: '15vh',
-    padding: '0 50px'
-  },
-    bodyContainer: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'baseline',
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-    },
-    previewSection: {},
+ 
   });
 
-const Home = () => {
+const Home = (props) => {
+
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
   const dispatch = useDispatch()
   useEffect (() => {
     dispatch(fetchAsyncClients())
@@ -40,20 +36,34 @@ const Home = () => {
   const classes = useStyles()
 
   return (
+    <>
+    <AppBar
+        position="fixed"
+        sx={{
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+        }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <CgMenuRound />
+          </IconButton>
+          <Header />
+        </Toolbar>
+      </AppBar>
+     
       <div  className={classes.mainAppContainer}>
-
-          <Grid item xs={12} className={classes.addClientSection}>
-            <AddClient />
-          </Grid>
-          <Grid item xs={12} className={classes.previewSection}>
-            <Dashboard />
-          </Grid>
-          <Grid item xs={12} className={classes.previewSection}>
-            <Clientstable />
-          </Grid>
+       
+          <ResponsiveDrawer mobileOpen={mobileOpen} onClose={handleDrawerToggle} drawerWidth={drawerWidth} />  
 
   </div>
-  
+  </>
   );
 }
 

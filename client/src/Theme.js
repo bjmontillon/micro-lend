@@ -20,11 +20,17 @@ const theme = createTheme({
       fontWeight: 400
     },
     body1: {
-      fontSize: 13  
+      fontSize: 13,
+      fontWight: 500
     },
     body2: {
       fontSize: 10,
       fontWeight: 400,
+    },
+    button: {
+      fontSize: 10,
+      fontWeight: 600,
+      fontFamily: 'var(--font-spartan)',
     }
     
    

@@ -3,10 +3,10 @@ import Clientdetails from './Components/client_profile';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './Components/home'
 import { makeStyles } from '@mui/styles';
-import Header from './Components/header'
 import Footer from './Components/Footer/footer'
 import SignIn from './sign_in'
 import ProtectedRoute from './ProtectedRoute';
+import Header from './Components/header'
 
 
 const useStyles = makeStyles ({ 
@@ -44,8 +44,9 @@ function App() {
                 <Route path='/clientDetails/:id' component={Clientdetails} />
                 <ProtectedRoute path="/Home" component={Home} isAuth={isAuth} />
               </Switch>
-              <Footer />
+              
             </div>
+            <Footer />
             </div>
           </BrowserRouter>
           

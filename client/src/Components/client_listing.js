@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import { getAllClients } from '../Slice/client-slice'
 import { Link } from 'react-router-dom'
 import { Typography, Card, Grid, CardActions, CardHeader, Avatar } from '@mui/material';
-import Addpayment from './add_payment'
 import Controls from '../Controls/Controls';
 import NumberFormat from 'react-number-format';
  
@@ -73,11 +72,10 @@ const ClientListing = () => {
                   }
                   />
                   <CardActions>
-                    <Addpayment clientId={clients._id}/>
                     <Link to={`/clientDetails/${clients._id}`} style={{ textDecoration: 'none' }}>
                       <Controls.Button
                         type='text'
-                        text={<Typography variant='body1'>Profile</Typography>}     
+                        text={<Typography variant='button'>Profile</Typography>}     
                         size='small'
                         variant='text'                
                       />

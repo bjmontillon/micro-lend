@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import Axios from 'axios';
-import { Grid }  from '@mui/material';
+import { Grid, Typography }  from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Controls from '../Controls/Controls';
 import Popup from '../Controls/Popup';
@@ -85,9 +85,9 @@ function AddClient () {
           //endIcon={<AddReactionIcon  fontSize='small' />}
           onClick = {() => setOpenPopup(true)}
           variant="contained"
-          color='secondary'
+          color='primary'
           size='small'
-          text='ADD CLIENT'
+          text={<Typography variant='button'>ADD CLIENT</Typography>}
           />
 
           
