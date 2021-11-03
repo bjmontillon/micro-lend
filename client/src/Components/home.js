@@ -14,14 +14,19 @@ import ResponsiveDrawer from './drawer';
 import Header from './header'
 const drawerWidth = 240;
 
+
 const useStyles = makeStyles ({
   mainAppContainer: {
     height: '100vh',
     width: '100vw',
   },
+  toolbar: {
+    backgroundColor: `var(--nav-background-color)`,
+  }
  
   });
-
+  
+  
 const Home = (props) => {
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -44,7 +49,9 @@ const Home = (props) => {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{ 
+          backgroundColor: `var(--nav-background-color)`
+        }} className={classes.toolbar}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -54,7 +61,7 @@ const Home = (props) => {
           >
             <CgMenuRound />
           </IconButton>
-          <Header />
+          <Header drawerWidth={drawerWidth}/>
         </Toolbar>
       </AppBar>
      

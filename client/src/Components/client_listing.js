@@ -24,10 +24,11 @@ const useStyles = makeStyles ({
     
   },
   mainCard: {
-    
+    minHeight: '15vh'
   },  
   cardHeader: {
-    backgroundColor: `var(--cardHeader-background-color)`
+    backgroundColor: `var(--cardHeader-background-color)`,
+    minHeight: '10vh'
   }
 
 });
@@ -58,18 +59,19 @@ const ClientListing = () => {
         const amount = <NumberFormat value={clients.amount} displayType={'text'} thousandSeparator={true} prefix={'₱ '} />
 
           return(
-            <Grid item xs={12} md={3} lg={2} key={index} className={classes.cardWrapper}>
+            <Grid item xs={12} md={3} lg={3} key={index} className={classes.cardWrapper}>
               <Card className={classes.mainCard} >
                   <CardHeader
-                  style={{ backgroundColor: colors[index] }}
-                  avatar={
-                    <Avatar>{clients.name}</Avatar>
-                  }
-                  title = {<Typography variant='body1'>{clients.name}</Typography>}
-                  subheader = {
-                    <Typography variant='body2'>{amount} / {total}</Typography> 
-                    
-                  }
+                    className={classes.cardHeader}
+                    style={{ backgroundColor: colors[index] }}
+                    avatar={
+                      <Avatar>{clients.name}</Avatar>
+                    }
+                    title = {<Typography variant='body1'>{clients.name}</Typography>}
+                    subheader = {
+                      <Typography variant='body2'>{amount} / {total}</Typography> 
+                      
+                    }
                   />
                   <CardActions>
                     <Link to={`/clientDetails/${clients._id}`} style={{ textDecoration: 'none' }}>
