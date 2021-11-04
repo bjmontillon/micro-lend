@@ -21,11 +21,11 @@ const useStyles = makeStyles ({
     }
 })
 
-function Header () {
+function Header (props) {
     const classes = useStyles()
     return (
-        <div className={classes.headerContainer}>
-            <nav className={classes.navbar}>
+        <div className={classes.headerContainer}  >
+            <nav className={classes.navbar} >
                 <div><Typography color='black' variant='h1'>Micro-Lend</Typography></div>
                 <div><Typography color='black' variant='h1'>Beejay P.</Typography></div>
             </nav>

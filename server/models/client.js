@@ -12,6 +12,7 @@ const clientsSchema = new Schema({
     date: { type : Date, default: Date.now },
     duration: { type: Number, required: true },
     rate: { type: Number, required: true },
+    cosigner: { type: String, required: true },
     payment: [paymentSchema]
 }, { timestamp:{ createdAt: 'created_on', updatedAt: 'updated_on' } });
 

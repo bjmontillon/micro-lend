@@ -11,7 +11,7 @@ import NumberFormat from 'react-number-format';
 
 
 const useStyles = makeStyles ({
-  clientListingHeader: {
+  ClientListingHeader: {
     padding: '20px',
     display: 'flex',
     justifyContent: 'center'
@@ -43,23 +43,17 @@ const ClientListing = () => {
 
 
   return (
-    <div className={classes.clientListingMain}>
-    <div className={classes.clientListingHeader}>
-        <Typography variant='h5'>
-          Clients
-        </Typography>
-      </div>   
+    <div className={classes.ClientListingMain}> 
       <div className={classes.cardsContainer}>
         <Grid container>
         {newData.map((clients, index) => {
-          
-        const sumTotal = arr => arr.reduce((sum, { paymentAmount }) => sum + paymentAmount, 0)  
-        const total = sumTotal(clients.payment);
-        const colors = ['#ef5350', '#ec407a', '#ab47bc', '#7e57c2', '#5c6bc0', '#42a5f5', '#651fff', '#3d5afe']
+ 
+        const colors = ['#ef5350', '#ec407a', '#ab47bc', '#7e57c2', '#5c6bc0', '#42a5f5', '#651fff', '#3d5afe', '#29b6f6', 
+        '#26c6da', '#26a69a', '#66bb6a', '#9ccc65', '#d4e157', '#ffee58', '#ffca28', '#ffa726', '#ff7043', '#8d6e63', '#bdbdbd', '#78909c']
         const amount = <NumberFormat value={clients.amount} displayType={'text'} thousandSeparator={true} prefix={'₱ '} />
 
           return(
-            <Grid item xs={12} md={3} lg={3} key={index} className={classes.cardWrapper}>
+            <Grid item xs={12} sm={4} md={6} lg={3} key={index} className={classes.cardWrapper}>
               <Card className={classes.mainCard} >
                   <CardHeader
                     className={classes.cardHeader}
@@ -67,9 +61,9 @@ const ClientListing = () => {
                     avatar={
                       <Avatar>{clients.name}</Avatar>
                     }
-                    title = {<Typography variant='body1'>{clients.name}</Typography>}
+                    title = {<Typography variant='h5'>{clients.name}</Typography>}
                     subheader = {
-                      <Typography variant='body2'>{amount} / {total}</Typography> 
+                      <Typography variant='body2'>{amount}</Typography> 
                       
                     }
                   />

@@ -22,6 +22,12 @@ const theme = createTheme({
     h4: {
       lineHeight: 1.8,
     },
+    h5: {
+      fontSize: 14,
+    }, 
+    h6: {
+      fontSize: 15,
+    },
     body1: {
       fontSize: 13,
       fontWight: 500
@@ -41,3 +47,4 @@ const theme = createTheme({
 });
 
 export default theme;
+

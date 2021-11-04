@@ -3,10 +3,8 @@ import Clientdetails from './Components/client_profile';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './Components/home'
 import { makeStyles } from '@mui/styles';
-import Footer from './Components/Footer/footer'
 import SignIn from './sign_in'
 import ProtectedRoute from './ProtectedRoute';
-import Header from './Components/header'
 
 
 const useStyles = makeStyles ({ 
@@ -37,7 +35,6 @@ function App() {
              
               
               <div className={classes.appContainer}>
-              <Header />
               <div className={classes.container}>
               <Switch>
                 <Route path="/micro-lend" exact component={SignIn}/>
@@ -46,7 +43,6 @@ function App() {
               </Switch>
               
             </div>
-            <Footer />
             </div>
           </BrowserRouter>
           
