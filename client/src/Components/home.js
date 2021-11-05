@@ -44,7 +44,7 @@ const useStyles = makeStyles ({
     height: '100vh',
     paddingTop: '12vh',
   },
- 
+
   });
   
   
@@ -102,6 +102,7 @@ const Home = (props) => {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
+        className={classes.appBar}
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },

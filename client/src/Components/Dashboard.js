@@ -39,6 +39,7 @@ export default function Dashboard() {
     const classes = useStyles();
 
     function objectLength(obj) {
+      
         var result = 0;
         for(var prop in obj) {
           if (obj.hasOwnProperty(prop)) {
@@ -72,7 +73,7 @@ export default function Dashboard() {
 
 
         const dashboard = [ <Activeclients />, <Dashboard1 />, <Dashboard2 />, <Dashboard3 />]
-        const boxesColor = [ '#f48fb1', ' #9fa8da', '#7986cb', '#80deea' ]
+        const boxesColor = [ '#ede7f6', '#f0f4c3', '#fff9c4', '#d7ccc8' ]
     return (
 
         <Grid container className={classes.dashboardContainer}>

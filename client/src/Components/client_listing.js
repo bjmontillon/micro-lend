@@ -57,9 +57,8 @@ const ClientListing = () => {
               <Card className={classes.mainCard} >
                   <CardHeader
                     className={classes.cardHeader}
-                    style={{ backgroundColor: colors[index] }}
                     avatar={
-                      <Avatar>{clients.name}</Avatar>
+                      <Avatar sx={{ bgcolor: colors[index] }}>{clients.name}</Avatar>
                     }
                     title = {<Typography variant='h5'>{clients.name}</Typography>}
                     subheader = {

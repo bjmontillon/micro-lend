@@ -40,7 +40,7 @@ const useStyles = makeStyles ({
         padding: '5px 20px'
     },
     profile_col_1: {
-        border: '1px solid black'
+        
     
     }
 })
@@ -50,17 +50,24 @@ export default function Clientdetails() {
     const { id } = useParams()
     const dispatch = useDispatch()
     const data = useSelector(getSelectedClientDetails);
-
     useEffect(() => {
         dispatch(fetchAsyncClientDetails(id))
     }, [dispatch, id])
-    const total_paid = Math.round(data.payment.reduce((sum, { paymentAmount }) => sum + paymentAmount, 0));
-   // const sumTotal = arr => arr.reduce((sum, { paymentAmount }) => sum + paymentAmount, 0)  
-    //const total_paid = sumTotal(data.payment);
     console.log(data)
+    const _id = data._id
+    const name = data.name;
+    const principal = data.amount;
+    const date = data.date;
+    const rate = data.rate;
+    const cosigner = data.cosigner
+    //const duration = data.duration;
+    //const payment = data.payment;
+    const total_paid = null
+    //const sumTotal = arr => arr.reduce((sum, { paymentAmount }) => sum + paymentAmount, 0)  
+    //const total_paid = sumTotal(data.payment);
     const final = Math.round((data.amount * data.rate) + data.amount);
     const balance = Math.round(final - total_paid);
-    console.log(final)
+    
     
     return (
         <Grid container={true} className={classes.clientProfileContainer}>
@@ -75,18 +82,21 @@ export default function Clientdetails() {
                             </Link>
                         </div>
                     </Grid>
-                    <div className={classes.profileContent}>
-                        <Grid item xs={12} md={4} lg={3} className={classes.profile_col_1}>
-                            <Typography variant='body1'>Name: {data.name}</Typography>
-                            <Typography variant='body1'>Principal: {data.amount}</Typography>
-                            <Typography variant='body1'>ID: {data._id}</Typography>
-                            <Typography variant='body1'>Rate: {data.rate}</Typography>
-                            <Typography variant='body1'>Co-Signer: {data.cosigner}</Typography>
+                    <Grid container className={classes.profileContent}>
+                        <Grid item xs={6} md={4} lg={6} className={classes.profile_col_1}>
+                            <Typography variant='body1'>ID: {_id}</Typography>
+                            <Typography variant='body1'>Name: {name}</Typography>
+                            <Typography variant='body1'>Principal: {principal}</Typography>
+                            <Typography variant='body1'>Date: {date}</Typography>
+                        </Grid>
+                        <Grid item xs={6} md={4} lg={6} className={classes.profile_col_1}>
+                            <Typography variant='body1'>Rate: {rate}</Typography>
+                            <Typography variant='body1'>Co-Signer: {cosigner}</Typography>
                             <Typography variant='body1'>Total Payments: {total_paid}</Typography>
                             <Typography variant='body1'>Balance: {balance}</Typography>
                         </Grid>
                         
-                    </div>
+                    </Grid>
                 </div>
      
             </Grid>

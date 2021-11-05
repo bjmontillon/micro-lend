@@ -6,6 +6,14 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken')
 
 
+const isLoading = (state = false, action) => {
+    switch (action.type) {
+      case 'IS_LOADING':
+        return action.isLoading;
+      default:
+        return state;
+    }
+  }
 
 app.use(express.json());
 app.use(cors());
