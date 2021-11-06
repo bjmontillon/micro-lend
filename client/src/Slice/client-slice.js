@@ -15,7 +15,17 @@ const initialState = {
             paymentDate: ''
         }]
     }],
-    selectedClient: {}
+    selectedClient: [{
+        name: '',
+        amount: 0,
+        date: '',
+        duration: 0,
+        rate: .0,
+        payment: [{
+            paymentAmount: 0,
+            paymentDate: ''
+        }]
+    }],
 }
 //GET ALL CLIENTS
 export const fetchAsyncClients = createAsyncThunk('clients/fetchAsyncClients', 
