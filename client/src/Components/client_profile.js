@@ -40,8 +40,6 @@ const useStyles = makeStyles ({
         padding: '5px 20px'
     },
     profile_col_1: {
-        
-    
     }
 })
 
@@ -84,18 +82,45 @@ export default function Clientdetails() {
                     </Grid>
                     <Grid container className={classes.profileContent}>
                         <Grid item xs={6} md={4} lg={6} className={classes.profile_col_1}>
-                            <Typography variant='body1'>ID: {_id}</Typography>
-                            <Typography variant='body1'>Name: {name}</Typography>
-                            <Typography variant='body1'>Principal: {principal}</Typography>
-                            <Typography variant='body1'>Date: {date}</Typography>
+                            <table className={classes.tables}>
+                                <tr>
+                                    <td><Typography variant='body1'>ID:</Typography></td>
+                                    <td><Typography variant='body1'>{_id}</Typography></td>
+                                </tr>
+                                <tr>
+                                    <td><Typography variant='body1'>Name:</Typography></td>
+                                    <td><Typography variant='body1'>{name}</Typography></td>
+                                </tr>
+                                <tr>
+                                    <td><Typography variant='body1'>Principal</Typography></td>
+                                    <td><Typography variant='body1'>{principal}</Typography></td>
+                                </tr>
+                                <tr>
+                                    <td><Typography variant='body1'>Date</Typography></td>
+                                    <td><Typography variant='body1'>{date}</Typography></td>
+                                </tr>
+                            </table>
                         </Grid>
                         <Grid item xs={6} md={4} lg={6} className={classes.profile_col_1}>
-                            <Typography variant='body1'>Rate: {rate}</Typography>
-                            <Typography variant='body1'>Co-Signer: {cosigner}</Typography>
-                            <Typography variant='body1'>Total Payments: {total_paid}</Typography>
-                            <Typography variant='body1'>Balance: {balance}</Typography>
+                            <table className={classes.tables}>
+                                <tr>
+                                    <td><Typography variant='body1'>Rate:</Typography></td>
+                                    <td><Typography variant='body1'>{rate}</Typography></td>
+                                </tr>
+                            <tr>
+                                <td><Typography variant='body1'>Co-signer</Typography></td>
+                                <td><Typography variant='body1'>{cosigner}</Typography></td>
+                            </tr>
+                            <tr>
+                                <td><Typography variant='body1'>Total Payments</Typography></td>
+                                <td><Typography variant='body1'>{total_paid}</Typography></td>
+                            </tr>
+                            <tr>
+                                <td><Typography variant='body1'>Balance</Typography></td>
+                                <td><Typography variant='body1'>{balance}</Typography></td>
+                            </tr>
+                           </table>
                         </Grid>
-                        
                     </Grid>
                 </div>
      

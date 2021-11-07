@@ -45,6 +45,13 @@ async (id)=> {
     return response.data
 })
 
+export const createSampleAction = (payload, isLoading) => ({
+    type: 'SAMPLE_ACTION',
+    payload,
+    meta: {
+        isLoading
+    }
+});
 
 
 const clientSlice = createSlice({
@@ -53,7 +60,8 @@ const clientSlice = createSlice({
     reducer: {
         getClients: (state, { payload }) => { 
             state.clients = payload;
-        }
+        },
+        
     },
     extraReducers: {
         [fetchAsyncClients.pending]: () => {
@@ -73,6 +81,7 @@ const clientSlice = createSlice({
 
     }
 })
+
 
 export const { getClients } = clientSlice.actions;
 export const getAllClients = (state) => state.clients.clients 

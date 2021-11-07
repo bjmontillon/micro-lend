@@ -49,9 +49,8 @@ const useStyles = makeStyles ({
   
   
 const Home = (props) => {
-
-
   const dispatch = useDispatch()
+  
   useEffect (() => {
     dispatch(fetchAsyncClients())
   }, [dispatch]);
