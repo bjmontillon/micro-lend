@@ -164,7 +164,7 @@ app.delete('/delete/:id', async (req, res ) => {
 
     const _id = req.params.id
 
-    await ClientModel.findByIdAndRemove(_id).exec();
+    await ClientModel.findByIdAndRemove(_id, {useFindAndModify: false}).exec();
     res.send(_id);
 });
 

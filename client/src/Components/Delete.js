@@ -1,7 +1,7 @@
 import {React, } from 'react';
 import Axios from 'axios';
 import Controls from '../Controls/Controls'
-import DeleteForeverOutlinedIcon from '@mui/material/Icon';
+
 
 
 
@@ -22,8 +22,9 @@ const Delete = (props) => {
         <Controls.Button 
             variant="text"
             size="small"
-            text={<DeleteForeverOutlinedIcon fontSize='small' />}
+            text='delete'
             onClick={() => deleteName(props.clientId)}
+            color='secondary'
         />
         </div>
         

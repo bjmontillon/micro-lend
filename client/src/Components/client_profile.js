@@ -11,6 +11,8 @@ import IconButton from '@mui/material/IconButton';
 import { CgArrowLongLeftL } from "react-icons/cg";
 //ILLUSTRATIONS
 import profile_data from '../illustrations/profile_data.svg'
+//COMPONENTS
+import Delete from './Delete'
 
 
 const useStyles = makeStyles ({
@@ -34,7 +36,8 @@ const useStyles = makeStyles ({
         width: '100%',
         display: 'flex',
         alignItems: 'center',
-        padding: '5px 0'
+        padding: '5px 10px',
+        justifyContent: 'space-between'
     },
     profileContent: {
         padding: '5px 20px'
@@ -79,6 +82,7 @@ export default function Clientdetails() {
                                 </IconButton>
                             </Link>
                         </div>
+                        <div><Delete clientId={_id}/></div>
                     </Grid>
                     <Grid container className={classes.profileContent}>
                         <Grid item xs={6} md={4} lg={6} className={classes.profile_col_1}>
