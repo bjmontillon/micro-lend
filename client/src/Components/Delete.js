@@ -14,7 +14,7 @@ const Delete = (props) => {
                 Axios.delete (`http://localhost:3001/delete/${id}`)
                 console.log(props.clientId)
             }
-            
+          window.history.back()
         }
 
     return (
