@@ -44,6 +44,9 @@ const useStyles = makeStyles ({
     height: '100vh',
     paddingTop: '12vh',
   },
+  appBar: {
+    backgroundColor: 'white'
+  }
 
   });
   

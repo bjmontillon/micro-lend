@@ -1,6 +1,16 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          // apply theme's border-radius instead of component's default
+          backgroundColor: 'white'
+        },
+    }
+  }
+  },
   palette: {
     primary: {
       main: '#000000'
@@ -11,7 +21,7 @@ const theme = createTheme({
    text: {
      primary: '#000',
      secondary: '#212121',
-   }
+   },
   },
   typography: {
     fontFamily: 'var(--font-spartan)',
