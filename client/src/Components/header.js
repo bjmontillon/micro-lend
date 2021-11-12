@@ -17,7 +17,7 @@ const useStyles = makeStyles ({
         alignContent: 'center',
         textAlign: 'center',
         display: 'flex',
-        padding: '0 50px'
+        padding: '0 0px 0 0'
     }
 })
 

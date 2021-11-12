@@ -113,7 +113,7 @@ const Home = (props) => {
       >
         <Toolbar>
           <IconButton
-            color="inherit"
+            
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}

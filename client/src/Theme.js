@@ -6,7 +6,8 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           // apply theme's border-radius instead of component's default
-          backgroundColor: 'white'
+          backgroundColor: `var(--navbar-background-color)`,
+          
         },
     }
   }
