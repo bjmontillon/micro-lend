@@ -20,10 +20,11 @@ import ListItemText from '@mui/material/ListItemText';
 //COMPONENTS
 import Header from './header'
 import AddClient from './add_client'
+import ExitAdmin from './exit_admin'
 import Footer from './Footer/footer'
 import Dashboard from './dashboard';
 import ClientListing from './client_listing';
-import { CgMenuRound, CgAddR  } from "react-icons/cg";
+import { CgMenuRound, CgAddR, CgArrowLeftR  } from "react-icons/cg";
 
 const drawerWidth = 200;
 
@@ -68,7 +69,7 @@ const Home = (props) => {
   };
 
   const upperIcons = [ ]
-  const lowerIcons = [ <CgAddR />]
+  const lowerIcons = [ <CgAddR />, <CgArrowLeftR /> ]
 
   const drawer = (
     <div>
@@ -86,7 +87,7 @@ const Home = (props) => {
       </List>
       <Divider />
       <List>
-        {[<AddClient />].map((text, index) => (
+        {[<AddClient />, <ExitAdmin />].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {lowerIcons[index]}
