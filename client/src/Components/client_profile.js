@@ -46,7 +46,7 @@ const useStyles = makeStyles ({
     },
     progressCircleWrapper: {
         border: '1px solid black'
-    }
+    },
 })
 
 export default function Clientdetails() {
@@ -99,11 +99,11 @@ export default function Clientdetails() {
                                     <td><Typography variant='body1'>{name}</Typography></td>
                                 </tr>
                                 <tr>
-                                    <td><Typography variant='body1'>Principal</Typography></td>
+                                    <td><Typography variant='body1'>Principal:</Typography></td>
                                     <td><Typography variant='body1'>{principal}</Typography></td>
                                 </tr>
                                 <tr>
-                                    <td><Typography variant='body1'>Date</Typography></td>
+                                    <td><Typography variant='body1'>Date:</Typography></td>
                                     <td><Typography variant='body1'>{date}</Typography></td>
                                 </tr>
                             </table>
@@ -115,19 +115,20 @@ export default function Clientdetails() {
                                     <td><Typography variant='body1'>{rate}</Typography></td>
                                 </tr>
                             <tr>
-                                <td><Typography variant='body1'>Co-signer</Typography></td>
+                                <td><Typography variant='body1'>Co-signer:</Typography></td>
                                 <td><Typography variant='body1'>{cosigner}</Typography></td>
                             </tr>
                             <tr>
-                                <td><Typography variant='body1'>Total Payments</Typography></td>
+                                <td><Typography variant='body1'>Total Payments:</Typography></td>
                                 <td><Typography variant='body1'>{total_paid}</Typography></td>
                             </tr>
                             <tr>
-                                <td><Typography variant='body1'>Balance</Typography></td>
+                                <td><Typography variant='body1'>Balance:</Typography></td>
                                 <td><Typography variant='body1'>{balance}</Typography></td>
                             </tr>
                            </table>
                         </Grid>
+                        
                         <Grid item xs={3} className={classes.progressCircleWrapper} >
                             <svg width="200" height="200">
                                 <g transform="rotate(-90 100 100)">
