@@ -15,8 +15,8 @@ const useStyles = makeStyles ({
       flexDirection: 'column'
     },
     buttonWrapper: {
-      minHeight: '27vh',
-      minWidth: '24vw',
+      minHeight: '100vh',
+      minWidth: '100vw',
       justifyContent: 'space-evenly',
       display: 'flex',
       flexDirection: 'row',
