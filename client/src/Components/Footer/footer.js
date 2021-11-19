@@ -9,8 +9,7 @@ const useStyles = makeStyles ({
         justifyContent: 'center',
         position: 'relative',
         bottom: 0,
-        backgroundColor: '#424242',
-        color : 'white',
+        borderTop: '1px solid black',
     }
 })
 const Footer = () => {
