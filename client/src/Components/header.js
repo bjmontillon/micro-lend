@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
 import { Typography }  from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles ({
     headerContainer: {
@@ -26,7 +27,7 @@ function Header (props) {
     return (
         <div className={classes.headerContainer}  >
             <nav className={classes.navbar} >
-                <div><Typography color='black' variant='h1'>Micro-Lend</Typography></div>
+                <div><Link path='/home' style={{textDecoration: 'none'}}><Typography color='black' variant='h1'>Micro-Lend</Typography></Link></div>
                 <div><Typography color='black' variant='h1'>Beejay P.</Typography></div>
             </nav>
         </div>
