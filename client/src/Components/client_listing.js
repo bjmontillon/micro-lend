@@ -69,7 +69,6 @@ const ClientListing = () => {
                   <CardActions>
                     <Link to={`/clientDetails/${clients._id}`} style={{ textDecoration: 'none' }}>
                       <Controls.Button
-                        type='text'
                         text={<Typography variant='button'>Profile</Typography>}     
                         size='small'
                         variant='text'                

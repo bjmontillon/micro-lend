@@ -25,11 +25,13 @@ const useStyles = makeStyles ({
     profileWrapper: {
         minWidth: '80vw',   
         minHeight: '50vh',
-        border: '1px solid black',
+        border: '1px solid #e0e0e0',
         backgroundImage: `url(${profile_data})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize:'contain',
+        borderRadius: '5px',
+        padding: '5px',
     },
     profileHeader: {
         maxHeight: '10vh',
@@ -45,7 +47,7 @@ const useStyles = makeStyles ({
     profile_col_1: {
     },
     progressCircleWrapper: {
-        border: '1px solid black'
+        
     },
 })
 
