@@ -26,6 +26,7 @@ const useStyles = makeStyles ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: 'column',
     },
 
 })
@@ -52,10 +53,14 @@ export default function Dashboard() {
       const Activeclients = () => {
         return (
                   <>
+                  <div>
                   <Typography variant='h6'>Active Clients</Typography>
-                  <Typography variant="body2">
+                  </div>
+                  <div>
+                  <Typography variant="h1">
                           {objectLength(newData)}
                   </Typography>
+                  </div>
                   </>
         )}
         const Dashboard1 = () => {
