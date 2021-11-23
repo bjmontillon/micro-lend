@@ -27,7 +27,7 @@ function Header (props) {
     return (
         <div className={classes.headerContainer}  >
             <nav className={classes.navbar} >
-                <div><Link path='/home' style={{textDecoration: 'none'}}><Typography color='black' variant='h1'>Micro-Lend</Typography></Link></div>
+                <div><Link to='/home' style={{textDecoration: 'none'}}><Typography color='black' variant='h1'>Micro-Lend</Typography></Link></div>
                 <div><Typography color='black' variant='h1'>Beejay P.</Typography></div>
             </nav>
         </div>
