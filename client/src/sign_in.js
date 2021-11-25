@@ -22,7 +22,12 @@ const useStyles = makeStyles ({
       flexDirection: 'row',
       alignItems: 'center',
     },
-   
+   buttonContainer: {
+     display:  'flex',
+     width: '50vw',
+     justifyContent: 'space-evenly'
+
+   }
   })  
   
 const SignIn = () => {
@@ -31,6 +36,7 @@ const SignIn = () => {
     const [isAuth, setIsAuth] = useState (false);
     return (
         <div className={classes.buttonWrapper}>
+        <div className={classes.buttonContainer}>
                   <div className={classes.loginButton}>
                     <Controls.Button
                       variant="outlined"
@@ -66,6 +72,7 @@ const SignIn = () => {
                     />
                     </Link>
                     <ProtectedRoute path="/Home" component={Home} isAuth={isAuth} />
+                  </div>
                   </div>
                 </div>
     )
