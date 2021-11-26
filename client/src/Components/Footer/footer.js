@@ -15,27 +15,31 @@ const useStyles = makeStyles ({
         width: '100%',
         height: '20%',
         display: 'flex',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
     },
     footerLinks: {
         display: 'flex',
-        justfyContent: 'center',
-        flexWrap: 'wrap',
         alignItems: 'center',
+        width: '100%',
+    },
+    socialLinks: {
+        display: 'flex',
+        minWidth: '100%',
+        justifyContent: 'space-evenly',
     },
 })
 const Footer = () => {
     const classes = useStyles()
     return (
         <div className={classes.footerContainer}>
-        <div className={classes.footerLinkWrapper}>
-            <Grid item lg={2} className={classes.footerLinks}>
-                <div>
-                    <Link>FB</Link>
-                    <Link>twitter</Link>
-                    <Link>github</Link>
-                </div>
-            </Grid>
+            <div className={classes.footerLinkWrapper}>
+                <Grid item lg={4} className={classes.footerLinks}>
+                    <div className={classes.socialLinks}>
+                        <Link>FB</Link>
+                        <Link>twitter</Link>
+                        <Link>github</Link>
+                    </div>
+                </Grid>
             </div>
         </div>
     )
