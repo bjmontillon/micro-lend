@@ -1,6 +1,7 @@
 import {makeStyles} from '@mui/styles'
 import {Grid} from '@mui/material'
 import {Link} from 'react-router-dom'
+import { CgFacebook, CgTwitter } from "react-icons/cg";
 
 const useStyles = makeStyles ({
     footerContainer: {
@@ -35,8 +36,8 @@ const Footer = () => {
             <div className={classes.footerLinkWrapper}>
                 <Grid item lg={4} className={classes.footerLinks}>
                     <div className={classes.socialLinks}>
-                        <Link>FB</Link>
-                        <Link>twitter</Link>
+                        <Link><CgFacebook /></Link>
+                        <Link><CgTwitter /></Link>
                         <Link>github</Link>
                     </div>
                 </Grid>
