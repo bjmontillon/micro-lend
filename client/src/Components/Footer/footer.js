@@ -17,7 +17,7 @@ const useStyles = makeStyles ({
         height: '20%',
         display: 'flex',
         justifyContent: 'flex-end',
-    },
+        backgroundColor: 'black',
     footerLinks: {
         display: 'flex',
         alignItems: 'center',
@@ -27,6 +27,7 @@ const useStyles = makeStyles ({
         display: 'flex',
         minWidth: '100%',
         justifyContent: 'space-evenly',
+        color: 'white'
     },
 })
 const Footer = () => {
