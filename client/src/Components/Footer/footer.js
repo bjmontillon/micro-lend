@@ -1,6 +1,5 @@
 import {makeStyles} from '@mui/styles'
 import {Grid} from '@mui/material'
-import {Link} from 'react-router-dom'
 import { CgFacebook, CgTwitter } from "react-icons/cg";
 
 const useStyles = makeStyles ({
@@ -10,14 +9,14 @@ const useStyles = makeStyles ({
         display: 'flex',
         position: 'relative',
         bottom: 0,
-        borderTop: '1px solid black',
     },
     footerLinkWrapper: {
         width: '100%',
         height: '20%',
         display: 'flex',
         justifyContent: 'flex-end',
-        backgroundColor: 'black',
+        backgroundColor: '#e8f5e9',
+    },
     footerLinks: {
         display: 'flex',
         alignItems: 'center',
@@ -27,9 +26,10 @@ const useStyles = makeStyles ({
         display: 'flex',
         minWidth: '100%',
         justifyContent: 'space-evenly',
-        color: 'white'
+        alignItems: 'center',
     },
 })
+
 const Footer = () => {
     const classes = useStyles()
     return (
@@ -37,9 +37,9 @@ const Footer = () => {
             <div className={classes.footerLinkWrapper}>
                 <Grid item lg={4} className={classes.footerLinks}>
                     <div className={classes.socialLinks}>
-                        <Link><CgFacebook /></Link>
-                        <Link><CgTwitter /></Link>
-                        <Link>github</Link>
+                        <a href='https://web.facebook.com/profile.php?id=100011215170729' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }} ><CgFacebook /></a>
+                        <a href='https://twitter.com/PangilinanBj' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}><CgTwitter /></a>
+                        <a href='https://github.com/bjmontillon' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}>github</a>
                     </div>
                 </Grid>
             </div>
