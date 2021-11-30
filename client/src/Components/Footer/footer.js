@@ -1,6 +1,7 @@
 import {makeStyles} from '@mui/styles'
 import {Grid} from '@mui/material'
 import { CgFacebook, CgTwitter } from "react-icons/cg";
+import { VscGithub } from "react-icons/vsc";
 
 const useStyles = makeStyles ({
     footerContainer: {
@@ -39,7 +40,7 @@ const Footer = () => {
                     <div className={classes.socialLinks}>
                         <a href='https://web.facebook.com/profile.php?id=100011215170729' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }} ><CgFacebook /></a>
                         <a href='https://twitter.com/PangilinanBj' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}><CgTwitter /></a>
-                        <a href='https://github.com/bjmontillon' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}>github</a>
+                        <a href='https://github.com/bjmontillon' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}><VscGithub /></a>
                     </div>
                 </Grid>
             </div>
