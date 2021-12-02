@@ -36,7 +36,7 @@ const Footer = () => {
     return (
         <div className={classes.footerContainer}>
             <div className={classes.footerLinkWrapper}>
-                <Grid item lg={4} className={classes.footerLinks}>
+                <Grid item lg={3} className={classes.footerLinks}>
                     <div className={classes.socialLinks}>
                         <a href='https://web.facebook.com/profile.php?id=100011215170729' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }} ><CgFacebook /></a>
                         <a href='https://twitter.com/PangilinanBj' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}><CgTwitter /></a>
