@@ -29,6 +29,11 @@ const useStyles = makeStyles ({
         justifyContent: 'space-evenly',
         alignItems: 'center',
     },
+    footerContent: {
+        backgroundColor: '#e8f5e5',
+        height: '100%',
+        width: '100%',
+    }
 })
 
 const Footer = () => {
@@ -42,7 +47,11 @@ const Footer = () => {
                         <a href='https://twitter.com/PangilinanBj' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}><CgTwitter /></a>
                         <a href='https://github.com/bjmontillon' target='_blank' rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}><VscGithub /></a>
                     </div>
+                    
                 </Grid>
+            </div>
+            <div className={classes.footerContent}>
+                        <p>hello</p>
             </div>
         </div>
     )
