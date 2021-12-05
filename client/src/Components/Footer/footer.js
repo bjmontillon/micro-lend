@@ -8,8 +8,11 @@ const useStyles = makeStyles ({
         height: '25vh',
         width: '100%',
         display: 'flex',
-        position: 'relative',
-        bottom: 0,
+        position: 'fixed',
+        bottom: '0pt',
+        left: '0pt',
+        right: '0pt',
+        border: '1px solid black',
     },
     footerLinkWrapper: {
         width: '100%',
@@ -30,7 +33,7 @@ const useStyles = makeStyles ({
         alignItems: 'center',
     },
     footerContent: {
-        backgroundColor: '#e8f5e5',
+        border: '1px solid black',
         height: '100%',
         width: '100%',
     }
@@ -49,10 +52,12 @@ const Footer = () => {
                     </div>
                     
                 </Grid>
+                
             </div>
             <div className={classes.footerContent}>
-                        <p>hello</p>
+            
             </div>
+
         </div>
     )
 }
