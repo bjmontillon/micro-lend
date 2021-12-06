@@ -13,6 +13,7 @@ const useStyles = makeStyles ({
         left: '0pt',
         right: '0pt',
         border: '1px solid black',
+        flexDirection: 'column',
     },
     footerLinkWrapper: {
         width: '100%',
@@ -36,6 +37,8 @@ const useStyles = makeStyles ({
         border: '1px solid black',
         height: '100%',
         width: '100%',
+        display: 'flex',
+        justifyContent: 'flex-end',
     }
 })
 
@@ -52,10 +55,15 @@ const Footer = () => {
                     </div>
                     
                 </Grid>
-                
             </div>
-            <div className={classes.footerContent}>
+            <div>
             
+            <Grid item sm={12} className={classes.footerContent} >
+            <div >
+                <p>hello</p>
+            </div>
+            
+        </Grid>
             </div>
 
         </div>
