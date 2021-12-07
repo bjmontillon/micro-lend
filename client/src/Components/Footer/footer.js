@@ -5,13 +5,11 @@ import { VscGithub } from "react-icons/vsc";
 
 const useStyles = makeStyles ({
     footerContainer: {
-        height: '25vh',
+        height: '50vh',
         width: '100%',
         display: 'flex',
-        position: 'fixed',
+        position: 'relative',
         bottom: '0pt',
-        left: '0pt',
-        right: '0pt',
         border: '1px solid black',
         flexDirection: 'column',
     },

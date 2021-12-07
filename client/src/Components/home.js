@@ -47,7 +47,7 @@ const useStyles = makeStyles ({
   },
   appBar: {
     backgroundColor: 'white'
-  }
+  },
 
   });
   
@@ -165,7 +165,7 @@ const Home = (props) => {
             <Grid item xs={12} className={classes.previewSection}>
               <ClientListing />
             </Grid>
-              <div>
+              <div className={classes.footer}>
                 <Footer />
               </div>
           </div>
