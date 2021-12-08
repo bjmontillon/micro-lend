@@ -10,7 +10,6 @@ const useStyles = makeStyles ({
         display: 'flex',
         position: 'relative',
         bottom: '0pt',
-        border: '1px solid black',
         flexDirection: 'column',
     },
     footerLinkWrapper: {
