@@ -11,6 +11,8 @@ const useStyles = makeStyles ({
         position: 'relative',
         bottom: '0pt',
         flexDirection: 'column',
+        backgroundColor: '#37474f',
+        color: '#fff'
     },
     footerLinkWrapper: {
         width: '100%',
@@ -36,6 +38,7 @@ const useStyles = makeStyles ({
         width: '100%',
         display: 'flex',
         justifyContent: 'flex-end',
+        
     }
 })
 
